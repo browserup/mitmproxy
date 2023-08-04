@@ -75,12 +75,12 @@ class BlockList:
             if spec.matches(flow):
                 flow.metadata["blocklisted"] = True
                 if spec.status_code == NO_RESPONSE:
-                    flow.intercept()
+                    #flow.intercept()
                     if flow.killable:
                         flow.kill()
                     else:
                         logging.error(
-                            "Cannot kill flow, not killable: %s, error: %s", flow.request.pretty_url, flow.error
+                            "Cannot kill flow, not killable: %s", flow.request.pretty_url
                         )
                 else:
                     flow.response = http.Response.make(

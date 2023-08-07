@@ -37,7 +37,7 @@ class BrowserDataAddOn:
                 self.HarCaptureAddon.add_page_info_to_har(page_timings)
                 if action == 'page_complete':
                     self.HarCaptureAddon.end_page()
-                    f.kill()
+                f.kill()
 
     def response(self, f: mitmproxy.http.HTTPFlow):
         if f.response is None or f.response.status_code != 200 or f.request.method not in ['GET', 'POST', 'PUT']:

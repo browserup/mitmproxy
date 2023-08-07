@@ -225,6 +225,12 @@ function submitPageInfo(page_timings, action = 'page_info') {
 
 function postPageTimings(){ submitPageInfo(pageTimings(), 'page_info'); }
 
+function delayForPaintAndPostPageTimings(){
+    requestAnimationFrame(() => {
+        requestIdleCallback(postPageTimings,  { timeout: 500 });
+    });
+}
+
 function handleClose(){
     if (window.closeIsHandled == true) { return true };
     window.closeIsHandled = true;
@@ -232,7 +238,7 @@ function handleClose(){
 }
 
 observeAndSaveFirstInputDelay();
-window.addEventListener('load', postPageTimings);
+window.addEventListener('load', delayForPaintAndPostPageTimings);
 window.addEventListener('beforeunload', handleClose);
 window.addEventListener('unload', handleClose);
 

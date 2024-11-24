@@ -14,12 +14,9 @@ class BrowserDataAddOn:
 
     def __init__(self, har_capture_addon):
         self.handshaked = False
-        file_dir = pathlib.Path(__file__).parent.parent.parent.parent.resolve()
-        filepath = os.path.normpath(os.path.join(file_dir, "scripts/browsertime/browser-data.min.js"))
-        with open(filepath, 'r') as file:
-            self.browser_data_script = f'<script data-browserup=true>' + file.read() + '</script>'
-            self.browser_data_script_len = len(self.browser_data_script)
-            self.HarCaptureAddon = har_capture_addon
+        self.browser_data_script = f'<script data-browserup=true>' + '</script>'
+        self.browser_data_script_len = 10
+        self.HarCaptureAddon = har_capture_addon
 
     def websocket_message(self, f: mitmproxy.http.HTTPFlow):
         logging.info(f'websocket_message: {f.request.url}')

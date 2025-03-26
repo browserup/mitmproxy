@@ -41,10 +41,10 @@ def test_request_non_devnull(dummy_addon):
     # Setup
     flow = tflow.tflow()
     flow.request.host = "example.com"
-    
+
     # Test
     dummy_addon.request(flow)
-    
+
     # Verify - should not modify normal flows
     assert flow.response is None
 
@@ -54,10 +54,10 @@ def test_request_devnull_basic(dummy_addon):
     flow = tflow.tflow()
     flow.request.host = "dev-null.com"
     flow.request.query = {}
-    
+
     # Test
     dummy_addon.request(flow)
-    
+
     # Verify - should create default 204 response
     assert flow.response.status_code == 204
     assert flow.response.content == b""
@@ -70,10 +70,10 @@ def test_request_devnull_with_status(dummy_addon):
     flow = tflow.tflow()
     flow.request.host = "dev-null.com"
     flow.request.query = {"status": "404"}
-    
+
     # Test
     dummy_addon.request(flow)
-    
+
     # Verify - should create response with specified status
     assert flow.response.status_code == 404
     assert flow.response.content == b""
@@ -83,19 +83,16 @@ def test_request_devnull_with_har_values(dummy_addon):
     # Setup
     flow = tflow.tflow()
     flow.request.host = "dev-null.com"
-    flow.request.query = {
-        "timings.wait": "20",
-        "response.bodySize": "1453"
-    }
-    
+    flow.request.query = {"timings.wait": "20", "response.bodySize": "1453"}
+
     # Test
     dummy_addon.request(flow)
-    
+
     # Verify - should store HAR updates in metadata
     assert flow.response.status_code == 204
     assert flow.metadata["har_updates"] == {
         "timings.wait": 20,
-        "response.bodySize": 1453
+        "response.bodySize": 1453,
     }
 
 
@@ -103,25 +100,19 @@ def test_response_updates_har_entry(dummy_addon):
     # Setup
     flow = tflow.tflow(resp=True)
     flow.request.host = "dev-null.com"
-    
+
     # Mock a HAR entry on the flow
-    flow.har_entry = {
-        "timings": {},
-        "response": {}
-    }
-    
+    flow.har_entry = {"timings": {}, "response": {}}
+
     # Create a dummy HAR entry and apply updates
     flow.metadata = {
         "dummy_har_entry": create_default_har_entry(url=flow.request.url),
-        "har_updates": {
-            "timings.wait": 50,
-            "response.bodySize": 2000
-        }
+        "har_updates": {"timings.wait": 50, "response.bodySize": 2000},
     }
-    
+
     # Test
     dummy_addon.response(flow)
-    
+
     # Verify HAR entry was updated with both default values and custom overrides
     assert flow.har_entry["timings"]["wait"] == 50  # Custom override
     assert flow.har_entry["response"]["bodySize"] == 2000  # Custom override
@@ -134,7 +125,7 @@ def test_create_default_har_entry():
     # Create a default HAR entry
     url = "http://example.com/test"
     har_entry = create_default_har_entry(url=url, method="POST", status_code=201)
-    
+
     # Verify it has the correct structure and values
     assert har_entry["request"]["url"] == url
     assert har_entry["request"]["method"] == "POST"
@@ -149,16 +140,16 @@ def test_create_default_har_entry():
 def test_resource_provides_examples(dummy_addon):
     # Setup
     resource = HarDummyResource(dummy_addon)
-    
+
     req = MagicMock()
     resp = MagicMock()
-    
+
     # Test
     resource.on_get(req, resp)
-    
+
     # Verify response contains examples and documentation
     assert resp.content_type == "application/json"
-    response_body = json.loads(resp.body.decode('utf-8'))
+    response_body = json.loads(resp.body.decode("utf-8"))
     assert "examples" in response_body
     assert len(response_body["examples"]) > 0
     assert "defaultValues" in response_body

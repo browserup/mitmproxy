@@ -8,9 +8,9 @@ import falcon
 from marshmallow import ValidationError
 
 from mitmproxy.addons.browserup.har.har_capture_types import HarCaptureTypes
-from mitmproxy.addons.browserup.har.har_schemas import MetricSchema
 from mitmproxy.addons.browserup.har.har_schemas import ErrorSchema
 from mitmproxy.addons.browserup.har.har_schemas import MatchCriteriaSchema
+from mitmproxy.addons.browserup.har.har_schemas import MetricSchema
 from mitmproxy.addons.browserup.har.har_verifications import HarVerifications
 
 

@@ -14,9 +14,9 @@ from falcon_apispec import FalconPlugin
 
 from mitmproxy import ctx
 from mitmproxy.addons.browserup.browser_data_addon import BrowserDataAddOn
-from mitmproxy.addons.browserup.har.har_schemas import MetricSchema
 from mitmproxy.addons.browserup.har.har_schemas import ErrorSchema
 from mitmproxy.addons.browserup.har.har_schemas import MatchCriteriaSchema
+from mitmproxy.addons.browserup.har.har_schemas import MetricSchema
 from mitmproxy.addons.browserup.har.har_schemas import PageTimingSchema
 from mitmproxy.addons.browserup.har.har_schemas import VerifyResultSchema
 from mitmproxy.addons.browserup.har_capture_addon import HarCaptureAddOn

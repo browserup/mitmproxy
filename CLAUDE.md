@@ -1,4 +1,4 @@
-This is a fork of the mitmproxy project by a company named browserup. The mitmproxy 
+This is a customized fork of the mitmproxy project, maintained by a company named browserup. The mitmproxy 
 is used to man-in-the-middle connections to provide debugging info, allow for security research
 and other uses.
 

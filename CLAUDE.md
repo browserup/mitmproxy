@@ -10,4 +10,4 @@ this API are generated in multiple languages via the open api specification.  Th
 which should be ignored, as they are generated files.
 
 Browserup extends mitmproxy's mitmdump executable with addons 
-The most important code for browserup live in mmitmproxy/addons/browserup
+The most important code for browserup live in mitmproxy/addons/browserup

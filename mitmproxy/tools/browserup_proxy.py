@@ -11,6 +11,7 @@ from mitmproxy.addons import termlog
 from mitmproxy.addons.browserup import browser_data_addon
 from mitmproxy.addons.browserup import browserup_addons_manager
 from mitmproxy.addons.browserup import har_capture_addon
+from mitmproxy.addons.browserup import har_dummy_traffic_addon
 from mitmproxy.addons.browserup import latency_addon
 from mitmproxy.addons.errorcheck import ErrorCheck
 
@@ -31,9 +32,11 @@ class BrowserupProxyMaster(master.Master):
         self.addons.add(dumper.Dumper())
 
         harCaptureAddon = har_capture_addon.HarCaptureAddOn()
+        harDummyTrafficAddon = har_dummy_traffic_addon.HarDummyTrafficAddon()
         self.addons.add(
             browserup_addons_manager.BrowserUpAddonsManagerAddOn(),
             harCaptureAddon,
+            harDummyTrafficAddon,
             browser_data_addon.BrowserDataAddOn(harCaptureAddon),
             latency_addon.LatencyAddOn(),
         )

@@ -14,12 +14,13 @@ from falcon_apispec import FalconPlugin
 
 from mitmproxy import ctx
 from mitmproxy.addons.browserup.browser_data_addon import BrowserDataAddOn
-from mitmproxy.addons.browserup.har.har_schemas import CounterSchema
 from mitmproxy.addons.browserup.har.har_schemas import ErrorSchema
 from mitmproxy.addons.browserup.har.har_schemas import MatchCriteriaSchema
+from mitmproxy.addons.browserup.har.har_schemas import MetricSchema
 from mitmproxy.addons.browserup.har.har_schemas import PageTimingSchema
 from mitmproxy.addons.browserup.har.har_schemas import VerifyResultSchema
 from mitmproxy.addons.browserup.har_capture_addon import HarCaptureAddOn
+from mitmproxy.addons.browserup.har_dummy_traffic_addon import HarDummyTrafficAddon
 
 # https://marshmallow.readthedocs.io/en/stable/quickstart.html
 
@@ -130,7 +131,7 @@ ___
         spec.components.schema("MatchCriteria", schema=MatchCriteriaSchema)
         spec.components.schema("VerifyResult", schema=VerifyResultSchema)
         spec.components.schema("Error", schema=ErrorSchema)
-        spec.components.schema("Counter", schema=CounterSchema)
+        spec.components.schema("Metric", schema=MetricSchema)
         self.load_resources_from_addons(app, spec)
         self.write_spec(spec)
         return app
@@ -168,8 +169,11 @@ ___
 
 har_capture_addon = HarCaptureAddOn()
 
+har_dummy_traffic_addon = HarDummyTrafficAddon()
+
 addons = [
     har_capture_addon,
     BrowserDataAddOn(har_capture_addon),
+    har_dummy_traffic_addon,
     BrowserUpAddonsManagerAddOn(),
 ]

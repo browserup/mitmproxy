@@ -1,5 +1,6 @@
 export GPG_TTY=$(tty)
 
+gpg --version
 echo "Preparing private gpg key..."
 echo "$GPG_PRIVATE_KEY_BASE64" | base64 --decode > private-key.asc
 echo "Importing private gpg key..."

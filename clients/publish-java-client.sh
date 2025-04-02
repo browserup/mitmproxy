@@ -1,5 +1,9 @@
 export GPG_TTY=$(tty)
+
+echo "Preparing private gpg key..."
 echo "$GPG_PRIVATE_KEY_BASE64" | base64 --decode > private-key.asc
+echo "Importing private gpg key..."
+gpg --import --batch private-key.asc
 gpg-connect-agent 'getinfo version' /bye
 gpg --pinentry-mode loopback --passphrase=$GPG_PASSPHRASE --export-secret-key $GPG_PUBLIC_KEY_SIGN > /tmp/secring.gpg
 

@@ -29,5 +29,8 @@ jobs:
         env:
           OSSRH_JIRA_USERNAME: ${{ secrets.OSSRH_JIRA_USERNAME }}
           OSSRH_JIRA_PASSWORD: ${{ secrets.OSSRH_JIRA_PASSWORD }}
+          GPG_PRIVATE_KEY_BASE64: ${{ secrets.GPG_PRIVATE_KEY_BASE64 }}
+          GPG_PUBLIC_KEY_SIGN: ${{ secrets.GPG_PUBLIC_KEY_SIGN }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         working-directory: clients
         run: ./publish-java-client.sh

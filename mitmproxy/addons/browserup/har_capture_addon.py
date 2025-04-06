@@ -23,6 +23,7 @@ class HarCaptureAddOn(FlowCaptureMixin, HarManagerMixin):
         logging.info("Loading HarCaptureAddon")
         loader.add_option("harcapture", str, "", "HAR capture path.")
 
+    # Resources are used to define items available over the API.
     def get_resources(self):
         return [
             HarResource(self),

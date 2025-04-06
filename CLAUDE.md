@@ -13,7 +13,12 @@ they are generated files.
 Unusually, the schema .json files are regenerated when the tests are run. The definitions of the schemas are in mitmproxy/addons/browserup/har/har_schemas.py.
 They are defined in marshmallow.
 
-The Browserup proxy extends mitmproxy's mitmdump executable with addons. The most important code for browserup lives in the subfolder mitmproxy/addons/browserup.
+The command to run the tests is: tox -e py
+
+The command to check the linting, which we should do after all changes are done is:
+tox -e lint
+
+The BrowserUp proxy extends mitmproxy's mitmdump executable with addons. The most important code for browserup lives in the subfolder mitmproxy/addons/browserup.
 It is implemented almost entirely by changes and additions to addons. It is undesirable to change files outside of this path, and the corresponding test path, as that
 makes it difficult to take merges from the upstream mitmproxy project. 
 

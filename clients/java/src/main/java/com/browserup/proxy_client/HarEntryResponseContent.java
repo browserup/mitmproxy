@@ -13,14 +13,16 @@
 
 package com.browserup.proxy_client;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,13 +34,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.browserup.proxy_client.JSON;
@@ -46,379 +50,351 @@ import com.browserup.proxy_client.JSON;
 /**
  * HarEntryResponseContent
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class HarEntryResponseContent {
   public static final String SERIALIZED_NAME_SIZE = "size";
   @SerializedName(SERIALIZED_NAME_SIZE)
+  @javax.annotation.Nonnull
   private Integer size;
 
   public static final String SERIALIZED_NAME_COMPRESSION = "compression";
   @SerializedName(SERIALIZED_NAME_COMPRESSION)
+  @javax.annotation.Nullable
   private Integer compression;
 
   public static final String SERIALIZED_NAME_MIME_TYPE = "mimeType";
   @SerializedName(SERIALIZED_NAME_MIME_TYPE)
+  @javax.annotation.Nonnull
   private String mimeType;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
   @SerializedName(SERIALIZED_NAME_TEXT)
+  @javax.annotation.Nullable
   private String text;
 
   public static final String SERIALIZED_NAME_ENCODING = "encoding";
   @SerializedName(SERIALIZED_NAME_ENCODING)
+  @javax.annotation.Nullable
   private String encoding;
 
   public static final String SERIALIZED_NAME_VIDEO_BUFFERED_PERCENT = "_videoBufferedPercent";
   @SerializedName(SERIALIZED_NAME_VIDEO_BUFFERED_PERCENT)
+  @javax.annotation.Nullable
   private Long videoBufferedPercent = -1l;
 
   public static final String SERIALIZED_NAME_VIDEO_STALL_COUNT = "_videoStallCount";
   @SerializedName(SERIALIZED_NAME_VIDEO_STALL_COUNT)
+  @javax.annotation.Nullable
   private Long videoStallCount = -1l;
 
   public static final String SERIALIZED_NAME_VIDEO_DECODED_BYTE_COUNT = "_videoDecodedByteCount";
   @SerializedName(SERIALIZED_NAME_VIDEO_DECODED_BYTE_COUNT)
+  @javax.annotation.Nullable
   private Long videoDecodedByteCount = -1l;
 
   public static final String SERIALIZED_NAME_VIDEO_WAITING_COUNT = "_videoWaitingCount";
   @SerializedName(SERIALIZED_NAME_VIDEO_WAITING_COUNT)
+  @javax.annotation.Nullable
   private Long videoWaitingCount = -1l;
 
   public static final String SERIALIZED_NAME_VIDEO_ERROR_COUNT = "_videoErrorCount";
   @SerializedName(SERIALIZED_NAME_VIDEO_ERROR_COUNT)
+  @javax.annotation.Nullable
   private Long videoErrorCount = -1l;
 
   public static final String SERIALIZED_NAME_VIDEO_DROPPED_FRAMES = "_videoDroppedFrames";
   @SerializedName(SERIALIZED_NAME_VIDEO_DROPPED_FRAMES)
+  @javax.annotation.Nullable
   private Long videoDroppedFrames = -1l;
 
   public static final String SERIALIZED_NAME_VIDEO_TOTAL_FRAMES = "_videoTotalFrames";
   @SerializedName(SERIALIZED_NAME_VIDEO_TOTAL_FRAMES)
+  @javax.annotation.Nullable
   private Long videoTotalFrames = -1l;
 
   public static final String SERIALIZED_NAME_VIDEO_AUDIO_BYTES_DECODED = "_videoAudioBytesDecoded";
   @SerializedName(SERIALIZED_NAME_VIDEO_AUDIO_BYTES_DECODED)
+  @javax.annotation.Nullable
   private Long videoAudioBytesDecoded = -1l;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private String comment;
 
   public HarEntryResponseContent() {
   }
 
-  public HarEntryResponseContent size(Integer size) {
-    
+  public HarEntryResponseContent size(@javax.annotation.Nonnull Integer size) {
     this.size = size;
     return this;
   }
 
-   /**
+  /**
    * Get size
    * @return size
-  **/
+   */
   @javax.annotation.Nonnull
-
   public Integer getSize() {
     return size;
   }
 
-
-  public void setSize(Integer size) {
+  public void setSize(@javax.annotation.Nonnull Integer size) {
     this.size = size;
   }
 
 
-  public HarEntryResponseContent compression(Integer compression) {
-    
+  public HarEntryResponseContent compression(@javax.annotation.Nullable Integer compression) {
     this.compression = compression;
     return this;
   }
 
-   /**
+  /**
    * Get compression
    * @return compression
-  **/
+   */
   @javax.annotation.Nullable
-
   public Integer getCompression() {
     return compression;
   }
 
-
-  public void setCompression(Integer compression) {
+  public void setCompression(@javax.annotation.Nullable Integer compression) {
     this.compression = compression;
   }
 
 
-  public HarEntryResponseContent mimeType(String mimeType) {
-    
+  public HarEntryResponseContent mimeType(@javax.annotation.Nonnull String mimeType) {
     this.mimeType = mimeType;
     return this;
   }
 
-   /**
+  /**
    * Get mimeType
    * @return mimeType
-  **/
+   */
   @javax.annotation.Nonnull
-
   public String getMimeType() {
     return mimeType;
   }
 
-
-  public void setMimeType(String mimeType) {
+  public void setMimeType(@javax.annotation.Nonnull String mimeType) {
     this.mimeType = mimeType;
   }
 
 
-  public HarEntryResponseContent text(String text) {
-    
+  public HarEntryResponseContent text(@javax.annotation.Nullable String text) {
     this.text = text;
     return this;
   }
 
-   /**
+  /**
    * Get text
    * @return text
-  **/
+   */
   @javax.annotation.Nullable
-
   public String getText() {
     return text;
   }
 
-
-  public void setText(String text) {
+  public void setText(@javax.annotation.Nullable String text) {
     this.text = text;
   }
 
 
-  public HarEntryResponseContent encoding(String encoding) {
-    
+  public HarEntryResponseContent encoding(@javax.annotation.Nullable String encoding) {
     this.encoding = encoding;
     return this;
   }
 
-   /**
+  /**
    * Get encoding
    * @return encoding
-  **/
+   */
   @javax.annotation.Nullable
-
   public String getEncoding() {
     return encoding;
   }
 
-
-  public void setEncoding(String encoding) {
+  public void setEncoding(@javax.annotation.Nullable String encoding) {
     this.encoding = encoding;
   }
 
 
-  public HarEntryResponseContent videoBufferedPercent(Long videoBufferedPercent) {
-    
+  public HarEntryResponseContent videoBufferedPercent(@javax.annotation.Nullable Long videoBufferedPercent) {
     this.videoBufferedPercent = videoBufferedPercent;
     return this;
   }
 
-   /**
+  /**
    * Get videoBufferedPercent
    * minimum: -1
    * @return videoBufferedPercent
-  **/
+   */
   @javax.annotation.Nullable
-
   public Long getVideoBufferedPercent() {
     return videoBufferedPercent;
   }
 
-
-  public void setVideoBufferedPercent(Long videoBufferedPercent) {
+  public void setVideoBufferedPercent(@javax.annotation.Nullable Long videoBufferedPercent) {
     this.videoBufferedPercent = videoBufferedPercent;
   }
 
 
-  public HarEntryResponseContent videoStallCount(Long videoStallCount) {
-    
+  public HarEntryResponseContent videoStallCount(@javax.annotation.Nullable Long videoStallCount) {
     this.videoStallCount = videoStallCount;
     return this;
   }
 
-   /**
+  /**
    * Get videoStallCount
    * minimum: -1
    * @return videoStallCount
-  **/
+   */
   @javax.annotation.Nullable
-
   public Long getVideoStallCount() {
     return videoStallCount;
   }
 
-
-  public void setVideoStallCount(Long videoStallCount) {
+  public void setVideoStallCount(@javax.annotation.Nullable Long videoStallCount) {
     this.videoStallCount = videoStallCount;
   }
 
 
-  public HarEntryResponseContent videoDecodedByteCount(Long videoDecodedByteCount) {
-    
+  public HarEntryResponseContent videoDecodedByteCount(@javax.annotation.Nullable Long videoDecodedByteCount) {
     this.videoDecodedByteCount = videoDecodedByteCount;
     return this;
   }
 
-   /**
+  /**
    * Get videoDecodedByteCount
    * minimum: -1
    * @return videoDecodedByteCount
-  **/
+   */
   @javax.annotation.Nullable
-
   public Long getVideoDecodedByteCount() {
     return videoDecodedByteCount;
   }
 
-
-  public void setVideoDecodedByteCount(Long videoDecodedByteCount) {
+  public void setVideoDecodedByteCount(@javax.annotation.Nullable Long videoDecodedByteCount) {
     this.videoDecodedByteCount = videoDecodedByteCount;
   }
 
 
-  public HarEntryResponseContent videoWaitingCount(Long videoWaitingCount) {
-    
+  public HarEntryResponseContent videoWaitingCount(@javax.annotation.Nullable Long videoWaitingCount) {
     this.videoWaitingCount = videoWaitingCount;
     return this;
   }
 
-   /**
+  /**
    * Get videoWaitingCount
    * minimum: -1
    * @return videoWaitingCount
-  **/
+   */
   @javax.annotation.Nullable
-
   public Long getVideoWaitingCount() {
     return videoWaitingCount;
   }
 
-
-  public void setVideoWaitingCount(Long videoWaitingCount) {
+  public void setVideoWaitingCount(@javax.annotation.Nullable Long videoWaitingCount) {
     this.videoWaitingCount = videoWaitingCount;
   }
 
 
-  public HarEntryResponseContent videoErrorCount(Long videoErrorCount) {
-    
+  public HarEntryResponseContent videoErrorCount(@javax.annotation.Nullable Long videoErrorCount) {
     this.videoErrorCount = videoErrorCount;
     return this;
   }
 
-   /**
+  /**
    * Get videoErrorCount
    * minimum: -1
    * @return videoErrorCount
-  **/
+   */
   @javax.annotation.Nullable
-
   public Long getVideoErrorCount() {
     return videoErrorCount;
   }
 
-
-  public void setVideoErrorCount(Long videoErrorCount) {
+  public void setVideoErrorCount(@javax.annotation.Nullable Long videoErrorCount) {
     this.videoErrorCount = videoErrorCount;
   }
 
 
-  public HarEntryResponseContent videoDroppedFrames(Long videoDroppedFrames) {
-    
+  public HarEntryResponseContent videoDroppedFrames(@javax.annotation.Nullable Long videoDroppedFrames) {
     this.videoDroppedFrames = videoDroppedFrames;
     return this;
   }
 
-   /**
+  /**
    * Get videoDroppedFrames
    * minimum: -1
    * @return videoDroppedFrames
-  **/
+   */
   @javax.annotation.Nullable
-
   public Long getVideoDroppedFrames() {
     return videoDroppedFrames;
   }
 
-
-  public void setVideoDroppedFrames(Long videoDroppedFrames) {
+  public void setVideoDroppedFrames(@javax.annotation.Nullable Long videoDroppedFrames) {
     this.videoDroppedFrames = videoDroppedFrames;
   }
 
 
-  public HarEntryResponseContent videoTotalFrames(Long videoTotalFrames) {
-    
+  public HarEntryResponseContent videoTotalFrames(@javax.annotation.Nullable Long videoTotalFrames) {
     this.videoTotalFrames = videoTotalFrames;
     return this;
   }
 
-   /**
+  /**
    * Get videoTotalFrames
    * minimum: -1
    * @return videoTotalFrames
-  **/
+   */
   @javax.annotation.Nullable
-
   public Long getVideoTotalFrames() {
     return videoTotalFrames;
   }
 
-
-  public void setVideoTotalFrames(Long videoTotalFrames) {
+  public void setVideoTotalFrames(@javax.annotation.Nullable Long videoTotalFrames) {
     this.videoTotalFrames = videoTotalFrames;
   }
 
 
-  public HarEntryResponseContent videoAudioBytesDecoded(Long videoAudioBytesDecoded) {
-    
+  public HarEntryResponseContent videoAudioBytesDecoded(@javax.annotation.Nullable Long videoAudioBytesDecoded) {
     this.videoAudioBytesDecoded = videoAudioBytesDecoded;
     return this;
   }
 
-   /**
+  /**
    * Get videoAudioBytesDecoded
    * minimum: -1
    * @return videoAudioBytesDecoded
-  **/
+   */
   @javax.annotation.Nullable
-
   public Long getVideoAudioBytesDecoded() {
     return videoAudioBytesDecoded;
   }
 
-
-  public void setVideoAudioBytesDecoded(Long videoAudioBytesDecoded) {
+  public void setVideoAudioBytesDecoded(@javax.annotation.Nullable Long videoAudioBytesDecoded) {
     this.videoAudioBytesDecoded = videoAudioBytesDecoded;
   }
 
 
-  public HarEntryResponseContent comment(String comment) {
-    
+  public HarEntryResponseContent comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
-
   public String getComment() {
     return comment;
   }
 
-
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
@@ -426,32 +402,12 @@ public class HarEntryResponseContent {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    HarEntryResponseContent harEntryResponseContent = (HarEntryResponseContent) o;
-    return Objects.equals(this.size, harEntryResponseContent.size) &&
-        Objects.equals(this.compression, harEntryResponseContent.compression) &&
-        Objects.equals(this.mimeType, harEntryResponseContent.mimeType) &&
-        Objects.equals(this.text, harEntryResponseContent.text) &&
-        Objects.equals(this.encoding, harEntryResponseContent.encoding) &&
-        Objects.equals(this.videoBufferedPercent, harEntryResponseContent.videoBufferedPercent) &&
-        Objects.equals(this.videoStallCount, harEntryResponseContent.videoStallCount) &&
-        Objects.equals(this.videoDecodedByteCount, harEntryResponseContent.videoDecodedByteCount) &&
-        Objects.equals(this.videoWaitingCount, harEntryResponseContent.videoWaitingCount) &&
-        Objects.equals(this.videoErrorCount, harEntryResponseContent.videoErrorCount) &&
-        Objects.equals(this.videoDroppedFrames, harEntryResponseContent.videoDroppedFrames) &&
-        Objects.equals(this.videoTotalFrames, harEntryResponseContent.videoTotalFrames) &&
-        Objects.equals(this.videoAudioBytesDecoded, harEntryResponseContent.videoAudioBytesDecoded) &&
-        Objects.equals(this.comment, harEntryResponseContent.comment);
+    return EqualsBuilder.reflectionEquals(this, o, false, null, true);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(size, compression, mimeType, text, encoding, videoBufferedPercent, videoStallCount, videoDecodedByteCount, videoWaitingCount, videoErrorCount, videoDroppedFrames, videoTotalFrames, videoAudioBytesDecoded, comment);
+    return HashCodeBuilder.reflectionHashCode(this);
   }
 
   @Override
@@ -515,33 +471,34 @@ public class HarEntryResponseContent {
     openapiRequiredFields.add("mimeType");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to HarEntryResponseContent
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!HarEntryResponseContent.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to HarEntryResponseContent
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!HarEntryResponseContent.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in HarEntryResponseContent is not found in the empty JSON string", HarEntryResponseContent.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!HarEntryResponseContent.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HarEntryResponseContent` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HarEntryResponseContent` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : HarEntryResponseContent.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("mimeType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mimeType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mimeType").toString()));
       }
@@ -576,31 +533,31 @@ public class HarEntryResponseContent {
 
            @Override
            public HarEntryResponseContent read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of HarEntryResponseContent given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of HarEntryResponseContent
-  * @throws IOException if the JSON string is invalid with respect to HarEntryResponseContent
-  */
+  /**
+   * Create an instance of HarEntryResponseContent given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of HarEntryResponseContent
+   * @throws IOException if the JSON string is invalid with respect to HarEntryResponseContent
+   */
   public static HarEntryResponseContent fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, HarEntryResponseContent.class);
   }
 
- /**
-  * Convert an instance of HarEntryResponseContent to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of HarEntryResponseContent to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

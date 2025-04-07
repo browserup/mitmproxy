@@ -38,6 +38,14 @@ class HarEntryResponseContent {
     static initialize(obj, size, mimeType) { 
         obj['size'] = size;
         obj['mimeType'] = mimeType;
+        obj['_videoBufferedPercent'] = -1;
+        obj['_videoStallCount'] = -1;
+        obj['_videoDecodedByteCount'] = -1;
+        obj['_videoWaitingCount'] = -1;
+        obj['_videoErrorCount'] = -1;
+        obj['_videoDroppedFrames'] = -1;
+        obj['_videoTotalFrames'] = -1;
+        obj['_videoAudioBytesDecoded'] = -1;
     }
 
     /**
@@ -105,7 +113,7 @@ class HarEntryResponseContent {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of HarEntryResponseContent.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }

@@ -40,6 +40,15 @@ class PageTimings {
     static initialize(obj, onContentLoad, onLoad) { 
         obj['onContentLoad'] = onContentLoad || -1;
         obj['onLoad'] = onLoad || -1;
+        obj['_href'] = '';
+        obj['_dns'] = -1;
+        obj['_ssl'] = -1;
+        obj['_timeToFirstByte'] = -1;
+        obj['_cumulativeLayoutShift'] = -1;
+        obj['_firstPaint'] = -1;
+        obj['_firstInputDelay'] = -1;
+        obj['_domInteractive'] = -1;
+        obj['_firstContentfulPaint'] = -1;
     }
 
     /**
@@ -107,7 +116,7 @@ class PageTimings {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of PageTimings.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }

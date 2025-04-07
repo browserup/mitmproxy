@@ -16,6 +16,8 @@
 | **_ssl** | **Float** | Ssl connect time from the browser | [optional] |
 | **_time_to_first_byte** | **Float** | Time to first byte of the page&#39;s first request per the browser | [optional] |
 | **_href** | **String** | Top level href, including hashtag, etc per the browser | [optional] |
+| **_span_id** | **String** | W3C Trace Context span ID for this page | [optional] |
+| **_parent_id** | **String** | W3C Trace Context parent span ID (typically the HAR log span ID) | [optional] |
 
 ## Example
 
@@ -34,7 +36,9 @@ instance = BrowserupMitmProxy::PageTiming.new(
   _dns: null,
   _ssl: null,
   _time_to_first_byte: null,
-  _href: null
+  _href: null,
+  _span_id: null,
+  _parent_id: null
 )
 ```
 

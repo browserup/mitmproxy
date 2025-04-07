@@ -26,10 +26,10 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for HarEntry
@@ -115,6 +115,30 @@ public class HarEntryTest {
     @Test
     public void webSocketMessagesTest() {
         // TODO: test webSocketMessages
+    }
+
+    /**
+     * Test the property 'spanId'
+     */
+    @Test
+    public void spanIdTest() {
+        // TODO: test spanId
+    }
+
+    /**
+     * Test the property 'parentId'
+     */
+    @Test
+    public void parentIdTest() {
+        // TODO: test parentId
+    }
+
+    /**
+     * Test the property 'traceId'
+     */
+    @Test
+    public void traceIdTest() {
+        // TODO: test traceId
     }
 
     /**

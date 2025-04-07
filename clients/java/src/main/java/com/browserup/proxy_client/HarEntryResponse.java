@@ -13,8 +13,9 @@
 
 package com.browserup.proxy_client;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.util.Objects;
-import java.util.Arrays;
 import com.browserup.proxy_client.HarEntryRequestCookiesInner;
 import com.browserup.proxy_client.HarEntryResponseContent;
 import com.browserup.proxy_client.Header;
@@ -25,6 +26,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -37,13 +39,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.browserup.proxy_client.JSON;
@@ -51,277 +55,263 @@ import com.browserup.proxy_client.JSON;
 /**
  * HarEntryResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class HarEntryResponse {
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
+  @javax.annotation.Nonnull
   private Integer status;
 
   public static final String SERIALIZED_NAME_STATUS_TEXT = "statusText";
   @SerializedName(SERIALIZED_NAME_STATUS_TEXT)
+  @javax.annotation.Nonnull
   private String statusText;
 
   public static final String SERIALIZED_NAME_HTTP_VERSION = "httpVersion";
   @SerializedName(SERIALIZED_NAME_HTTP_VERSION)
+  @javax.annotation.Nonnull
   private String httpVersion;
 
   public static final String SERIALIZED_NAME_COOKIES = "cookies";
   @SerializedName(SERIALIZED_NAME_COOKIES)
+  @javax.annotation.Nonnull
   private List<HarEntryRequestCookiesInner> cookies = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_HEADERS = "headers";
   @SerializedName(SERIALIZED_NAME_HEADERS)
+  @javax.annotation.Nonnull
   private List<Header> headers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_CONTENT = "content";
   @SerializedName(SERIALIZED_NAME_CONTENT)
+  @javax.annotation.Nonnull
   private HarEntryResponseContent content;
 
   public static final String SERIALIZED_NAME_REDIRECT_U_R_L = "redirectURL";
   @SerializedName(SERIALIZED_NAME_REDIRECT_U_R_L)
+  @javax.annotation.Nonnull
   private String redirectURL;
 
   public static final String SERIALIZED_NAME_HEADERS_SIZE = "headersSize";
   @SerializedName(SERIALIZED_NAME_HEADERS_SIZE)
+  @javax.annotation.Nonnull
   private Integer headersSize;
 
   public static final String SERIALIZED_NAME_BODY_SIZE = "bodySize";
   @SerializedName(SERIALIZED_NAME_BODY_SIZE)
+  @javax.annotation.Nonnull
   private Integer bodySize;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private String comment;
 
   public HarEntryResponse() {
   }
 
-  public HarEntryResponse status(Integer status) {
-    
+  public HarEntryResponse status(@javax.annotation.Nonnull Integer status) {
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @javax.annotation.Nonnull
-
   public Integer getStatus() {
     return status;
   }
 
-
-  public void setStatus(Integer status) {
+  public void setStatus(@javax.annotation.Nonnull Integer status) {
     this.status = status;
   }
 
 
-  public HarEntryResponse statusText(String statusText) {
-    
+  public HarEntryResponse statusText(@javax.annotation.Nonnull String statusText) {
     this.statusText = statusText;
     return this;
   }
 
-   /**
+  /**
    * Get statusText
    * @return statusText
-  **/
+   */
   @javax.annotation.Nonnull
-
   public String getStatusText() {
     return statusText;
   }
 
-
-  public void setStatusText(String statusText) {
+  public void setStatusText(@javax.annotation.Nonnull String statusText) {
     this.statusText = statusText;
   }
 
 
-  public HarEntryResponse httpVersion(String httpVersion) {
-    
+  public HarEntryResponse httpVersion(@javax.annotation.Nonnull String httpVersion) {
     this.httpVersion = httpVersion;
     return this;
   }
 
-   /**
+  /**
    * Get httpVersion
    * @return httpVersion
-  **/
+   */
   @javax.annotation.Nonnull
-
   public String getHttpVersion() {
     return httpVersion;
   }
 
-
-  public void setHttpVersion(String httpVersion) {
+  public void setHttpVersion(@javax.annotation.Nonnull String httpVersion) {
     this.httpVersion = httpVersion;
   }
 
 
-  public HarEntryResponse cookies(List<HarEntryRequestCookiesInner> cookies) {
-    
+  public HarEntryResponse cookies(@javax.annotation.Nonnull List<HarEntryRequestCookiesInner> cookies) {
     this.cookies = cookies;
     return this;
   }
 
   public HarEntryResponse addCookiesItem(HarEntryRequestCookiesInner cookiesItem) {
+    if (this.cookies == null) {
+      this.cookies = new ArrayList<>();
+    }
     this.cookies.add(cookiesItem);
     return this;
   }
 
-   /**
+  /**
    * Get cookies
    * @return cookies
-  **/
+   */
   @javax.annotation.Nonnull
-
   public List<HarEntryRequestCookiesInner> getCookies() {
     return cookies;
   }
 
-
-  public void setCookies(List<HarEntryRequestCookiesInner> cookies) {
+  public void setCookies(@javax.annotation.Nonnull List<HarEntryRequestCookiesInner> cookies) {
     this.cookies = cookies;
   }
 
 
-  public HarEntryResponse headers(List<Header> headers) {
-    
+  public HarEntryResponse headers(@javax.annotation.Nonnull List<Header> headers) {
     this.headers = headers;
     return this;
   }
 
   public HarEntryResponse addHeadersItem(Header headersItem) {
+    if (this.headers == null) {
+      this.headers = new ArrayList<>();
+    }
     this.headers.add(headersItem);
     return this;
   }
 
-   /**
+  /**
    * Get headers
    * @return headers
-  **/
+   */
   @javax.annotation.Nonnull
-
   public List<Header> getHeaders() {
     return headers;
   }
 
-
-  public void setHeaders(List<Header> headers) {
+  public void setHeaders(@javax.annotation.Nonnull List<Header> headers) {
     this.headers = headers;
   }
 
 
-  public HarEntryResponse content(HarEntryResponseContent content) {
-    
+  public HarEntryResponse content(@javax.annotation.Nonnull HarEntryResponseContent content) {
     this.content = content;
     return this;
   }
 
-   /**
+  /**
    * Get content
    * @return content
-  **/
+   */
   @javax.annotation.Nonnull
-
   public HarEntryResponseContent getContent() {
     return content;
   }
 
-
-  public void setContent(HarEntryResponseContent content) {
+  public void setContent(@javax.annotation.Nonnull HarEntryResponseContent content) {
     this.content = content;
   }
 
 
-  public HarEntryResponse redirectURL(String redirectURL) {
-    
+  public HarEntryResponse redirectURL(@javax.annotation.Nonnull String redirectURL) {
     this.redirectURL = redirectURL;
     return this;
   }
 
-   /**
+  /**
    * Get redirectURL
    * @return redirectURL
-  **/
+   */
   @javax.annotation.Nonnull
-
   public String getRedirectURL() {
     return redirectURL;
   }
 
-
-  public void setRedirectURL(String redirectURL) {
+  public void setRedirectURL(@javax.annotation.Nonnull String redirectURL) {
     this.redirectURL = redirectURL;
   }
 
 
-  public HarEntryResponse headersSize(Integer headersSize) {
-    
+  public HarEntryResponse headersSize(@javax.annotation.Nonnull Integer headersSize) {
     this.headersSize = headersSize;
     return this;
   }
 
-   /**
+  /**
    * Get headersSize
    * @return headersSize
-  **/
+   */
   @javax.annotation.Nonnull
-
   public Integer getHeadersSize() {
     return headersSize;
   }
 
-
-  public void setHeadersSize(Integer headersSize) {
+  public void setHeadersSize(@javax.annotation.Nonnull Integer headersSize) {
     this.headersSize = headersSize;
   }
 
 
-  public HarEntryResponse bodySize(Integer bodySize) {
-    
+  public HarEntryResponse bodySize(@javax.annotation.Nonnull Integer bodySize) {
     this.bodySize = bodySize;
     return this;
   }
 
-   /**
+  /**
    * Get bodySize
    * @return bodySize
-  **/
+   */
   @javax.annotation.Nonnull
-
   public Integer getBodySize() {
     return bodySize;
   }
 
-
-  public void setBodySize(Integer bodySize) {
+  public void setBodySize(@javax.annotation.Nonnull Integer bodySize) {
     this.bodySize = bodySize;
   }
 
 
-  public HarEntryResponse comment(String comment) {
-    
+  public HarEntryResponse comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
-
   public String getComment() {
     return comment;
   }
 
-
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
@@ -373,29 +363,12 @@ public class HarEntryResponse {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    HarEntryResponse harEntryResponse = (HarEntryResponse) o;
-    return Objects.equals(this.status, harEntryResponse.status) &&
-        Objects.equals(this.statusText, harEntryResponse.statusText) &&
-        Objects.equals(this.httpVersion, harEntryResponse.httpVersion) &&
-        Objects.equals(this.cookies, harEntryResponse.cookies) &&
-        Objects.equals(this.headers, harEntryResponse.headers) &&
-        Objects.equals(this.content, harEntryResponse.content) &&
-        Objects.equals(this.redirectURL, harEntryResponse.redirectURL) &&
-        Objects.equals(this.headersSize, harEntryResponse.headersSize) &&
-        Objects.equals(this.bodySize, harEntryResponse.bodySize) &&
-        Objects.equals(this.comment, harEntryResponse.comment)&&
-        Objects.equals(this.additionalProperties, harEntryResponse.additionalProperties);
+    return EqualsBuilder.reflectionEquals(this, o, false, null, true);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, statusText, httpVersion, cookies, headers, content, redirectURL, headersSize, bodySize, comment, additionalProperties);
+    return HashCodeBuilder.reflectionHashCode(this);
   }
 
   @Override
@@ -459,25 +432,26 @@ public class HarEntryResponse {
     openapiRequiredFields.add("bodySize");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to HarEntryResponse
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!HarEntryResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to HarEntryResponse
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!HarEntryResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in HarEntryResponse is not found in the empty JSON string", HarEntryResponse.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : HarEntryResponse.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("statusText").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `statusText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("statusText").toString()));
       }
@@ -492,7 +466,7 @@ public class HarEntryResponse {
       JsonArray jsonArraycookies = jsonObj.getAsJsonArray("cookies");
       // validate the required field `cookies` (array)
       for (int i = 0; i < jsonArraycookies.size(); i++) {
-        HarEntryRequestCookiesInner.validateJsonObject(jsonArraycookies.get(i).getAsJsonObject());
+        HarEntryRequestCookiesInner.validateJsonElement(jsonArraycookies.get(i));
       };
       // ensure the json data is an array
       if (!jsonObj.get("headers").isJsonArray()) {
@@ -502,10 +476,10 @@ public class HarEntryResponse {
       JsonArray jsonArrayheaders = jsonObj.getAsJsonArray("headers");
       // validate the required field `headers` (array)
       for (int i = 0; i < jsonArrayheaders.size(); i++) {
-        Header.validateJsonObject(jsonArrayheaders.get(i).getAsJsonObject());
+        Header.validateJsonElement(jsonArrayheaders.get(i));
       };
       // validate the required field `content`
-      HarEntryResponseContent.validateJsonObject(jsonObj.getAsJsonObject("content"));
+      HarEntryResponseContent.validateJsonElement(jsonObj.get("content"));
       if (!jsonObj.get("redirectURL").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `redirectURL` to be a primitive type in the JSON string but got `%s`", jsonObj.get("redirectURL").toString()));
       }
@@ -542,7 +516,12 @@ public class HarEntryResponse {
                  else if (entry.getValue() instanceof Character)
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
                  }
                }
              }
@@ -551,8 +530,9 @@ public class HarEntryResponse {
 
            @Override
            public HarEntryResponse read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              HarEntryResponse instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
@@ -580,22 +560,22 @@ public class HarEntryResponse {
     }
   }
 
- /**
-  * Create an instance of HarEntryResponse given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of HarEntryResponse
-  * @throws IOException if the JSON string is invalid with respect to HarEntryResponse
-  */
+  /**
+   * Create an instance of HarEntryResponse given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of HarEntryResponse
+   * @throws IOException if the JSON string is invalid with respect to HarEntryResponse
+   */
   public static HarEntryResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, HarEntryResponse.class);
   }
 
- /**
-  * Convert an instance of HarEntryResponse to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of HarEntryResponse to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

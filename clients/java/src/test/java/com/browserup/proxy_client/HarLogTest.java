@@ -23,10 +23,10 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for HarLog
@@ -80,6 +80,22 @@ public class HarLogTest {
     @Test
     public void entriesTest() {
         // TODO: test entries
+    }
+
+    /**
+     * Test the property 'traceId'
+     */
+    @Test
+    public void traceIdTest() {
+        // TODO: test traceId
+    }
+
+    /**
+     * Test the property 'spanId'
+     */
+    @Test
+    public void spanIdTest() {
+        // TODO: test spanId
     }
 
     /**

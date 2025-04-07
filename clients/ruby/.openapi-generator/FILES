@@ -15,7 +15,6 @@ docs/Har.md
 docs/HarEntry.md
 docs/HarEntryCache.md
 docs/HarEntryCacheBeforeRequest.md
-docs/HarEntryCacheBeforeRequestOneOf.md
 docs/HarEntryRequest.md
 docs/HarEntryRequestCookiesInner.md
 docs/HarEntryRequestPostData.md
@@ -29,7 +28,6 @@ docs/HarLogCreator.md
 docs/Header.md
 docs/LargestContentfulPaint.md
 docs/MatchCriteria.md
-docs/MatchCriteriaRequestHeader.md
 docs/Metric.md
 docs/NameValuePair.md
 docs/Page.md
@@ -49,7 +47,6 @@ lib/browserup_mitmproxy_client/models/har.rb
 lib/browserup_mitmproxy_client/models/har_entry.rb
 lib/browserup_mitmproxy_client/models/har_entry_cache.rb
 lib/browserup_mitmproxy_client/models/har_entry_cache_before_request.rb
-lib/browserup_mitmproxy_client/models/har_entry_cache_before_request_one_of.rb
 lib/browserup_mitmproxy_client/models/har_entry_request.rb
 lib/browserup_mitmproxy_client/models/har_entry_request_cookies_inner.rb
 lib/browserup_mitmproxy_client/models/har_entry_request_post_data.rb
@@ -63,7 +60,6 @@ lib/browserup_mitmproxy_client/models/har_log_creator.rb
 lib/browserup_mitmproxy_client/models/header.rb
 lib/browserup_mitmproxy_client/models/largest_contentful_paint.rb
 lib/browserup_mitmproxy_client/models/match_criteria.rb
-lib/browserup_mitmproxy_client/models/match_criteria_request_header.rb
 lib/browserup_mitmproxy_client/models/metric.rb
 lib/browserup_mitmproxy_client/models/name_value_pair.rb
 lib/browserup_mitmproxy_client/models/page.rb
@@ -73,11 +69,8 @@ lib/browserup_mitmproxy_client/models/verify_result.rb
 lib/browserup_mitmproxy_client/models/web_socket_message.rb
 lib/browserup_mitmproxy_client/version.rb
 spec/api/browser_up_proxy_api_spec.rb
-spec/api_client_spec.rb
-spec/configuration_spec.rb
 spec/models/action_spec.rb
 spec/models/error_spec.rb
-spec/models/har_entry_cache_before_request_one_of_spec.rb
 spec/models/har_entry_cache_before_request_spec.rb
 spec/models/har_entry_cache_spec.rb
 spec/models/har_entry_request_cookies_inner_spec.rb
@@ -94,7 +87,6 @@ spec/models/har_log_spec.rb
 spec/models/har_spec.rb
 spec/models/header_spec.rb
 spec/models/largest_contentful_paint_spec.rb
-spec/models/match_criteria_request_header_spec.rb
 spec/models/match_criteria_spec.rb
 spec/models/metric_spec.rb
 spec/models/name_value_pair_spec.rb

@@ -1,38 +1,43 @@
 #!/bin/bash
 
-# requires openapi-generator installed
+# requires openapi-generator installed and accessible in your PATH
 
 DIR="$(dirname "${BASH_SOURCE[0]}")"
+SCHEMA="${DIR}/../browserup-proxy.schema.json"
 
-# we need to regenerate the schema in the top level dir
+# Generate Markdown documentation
+rm -rf markdown && openapi-generator generate \
+    -g markdown -i "${SCHEMA}" \
+    -o markdown
 
-rm -rf markdown && npx openapi-generator-cli generate \
--g markdown -i "${DIR}/../browserup-proxy.schema.json" \
--o markdown
+# Generate C# (.NET Core) client
+rm -rf csharp && openapi-generator generate \
+    --package-name BrowserUpMitmProxyClient \
+    -g csharp-netcore -i "${SCHEMA}" \
+    -o csharp -c config-csharp.yaml
 
-rm -rf csharp && npx openapi-generator-cli generate \
---package-name BrowserUpMitmProxyClient \
--g csharp-netcore -i "${DIR}/../browserup-proxy.schema.json" \
--o csharp -c config-csharp.yaml
+# Generate Java client
+rm -rf java && openapi-generator generate \
+    --package-name BrowserUpMitmProxyClient \
+    -g java -i "${SCHEMA}" \
+    -o java -c config-java.yaml
 
-rm -rf java && npx openapi-generator-cli generate \
---package-name BrowserUpMitmProxyClient \
--g java -i "${DIR}/../browserup-proxy.schema.json" \
--o java -c config-java.yaml
+# Generate JavaScript client
+rm -rf javascript && openapi-generator generate \
+    --package-name BrowserUpMitmProxyClient \
+    -g javascript -i "${SCHEMA}" \
+    -o javascript -c config-javascript.yaml
 
-rm -rf javascript && npx openapi-generator-cli generate \
---package-name BrowserUpMitmProxyClient \
--g javascript -i "${DIR}/../browserup-proxy.schema.json" \
--o javascript -c config-javascript.yaml
+# Generate Python client
+rm -rf python && openapi-generator generate \
+    --package-name BrowserUpMitmProxyClient \
+    -g python -i "${SCHEMA}" \
+    -o python -c config-python.yaml
 
-rm -rf python && npx openapi-generator-cli generate \
---package-name BrowserUpMitmProxyClient \
--g python -i "${DIR}/../browserup-proxy.schema.json" \
--o python -c config-python.yaml
-
-rm -rf ruby && npx openapi-generator-cli generate \
---package-name BrowserUpMitmProxyClient \
--g ruby -i "${DIR}/../browserup-proxy.schema.json" \
--o ruby -c config-ruby.yaml
+# Generate Ruby client
+rm -rf ruby && openapi-generator generate \
+    --package-name BrowserUpMitmProxyClient \
+    -g ruby -i "${SCHEMA}" \
+    -o ruby -c config-ruby.yaml
 
 ./post-build-java-client.sh

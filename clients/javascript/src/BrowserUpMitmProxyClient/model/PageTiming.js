@@ -83,6 +83,12 @@ class PageTiming {
             if (data.hasOwnProperty('_href')) {
                 obj['_href'] = ApiClient.convertToType(data['_href'], 'String');
             }
+            if (data.hasOwnProperty('_span_id')) {
+                obj['_span_id'] = ApiClient.convertToType(data['_span_id'], 'String');
+            }
+            if (data.hasOwnProperty('_parent_id')) {
+                obj['_parent_id'] = ApiClient.convertToType(data['_parent_id'], 'String');
+            }
         }
         return obj;
     }
@@ -96,6 +102,14 @@ class PageTiming {
         // ensure the json data is a string
         if (data['_href'] && !(typeof data['_href'] === 'string' || data['_href'] instanceof String)) {
             throw new Error("Expected the field `_href` to be a primitive type in the JSON string but got " + data['_href']);
+        }
+        // ensure the json data is a string
+        if (data['_span_id'] && !(typeof data['_span_id'] === 'string' || data['_span_id'] instanceof String)) {
+            throw new Error("Expected the field `_span_id` to be a primitive type in the JSON string but got " + data['_span_id']);
+        }
+        // ensure the json data is a string
+        if (data['_parent_id'] && !(typeof data['_parent_id'] === 'string' || data['_parent_id'] instanceof String)) {
+            throw new Error("Expected the field `_parent_id` to be a primitive type in the JSON string but got " + data['_parent_id']);
         }
 
         return true;
@@ -177,6 +191,18 @@ PageTiming.prototype['_timeToFirstByte'] = undefined;
  * @member {String} _href
  */
 PageTiming.prototype['_href'] = undefined;
+
+/**
+ * W3C Trace Context span ID for this page
+ * @member {String} _span_id
+ */
+PageTiming.prototype['_span_id'] = undefined;
+
+/**
+ * W3C Trace Context parent span ID (typically the HAR log span ID)
+ * @member {String} _parent_id
+ */
+PageTiming.prototype['_parent_id'] = undefined;
 
 
 

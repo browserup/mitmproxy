@@ -35,6 +35,10 @@ class LargestContentfulPaint {
      * Only for internal use.
      */
     static initialize(obj) { 
+        obj['startTime'] = -1;
+        obj['size'] = -1;
+        obj['domPath'] = '';
+        obj['tag'] = '';
     }
 
     /**

@@ -13,8 +13,9 @@
 
 package com.browserup.proxy_client;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.util.Objects;
-import java.util.Arrays;
 import com.browserup.proxy_client.Error;
 import com.browserup.proxy_client.Metric;
 import com.browserup.proxy_client.PageTimings;
@@ -27,6 +28,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -39,13 +41,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.browserup.proxy_client.JSON;
@@ -53,239 +57,271 @@ import com.browserup.proxy_client.JSON;
 /**
  * Page
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class Page {
   public static final String SERIALIZED_NAME_STARTED_DATE_TIME = "startedDateTime";
   @SerializedName(SERIALIZED_NAME_STARTED_DATE_TIME)
+  @javax.annotation.Nonnull
   private OffsetDateTime startedDateTime;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
+  @javax.annotation.Nonnull
   private String id;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
+  @javax.annotation.Nonnull
   private String title;
 
   public static final String SERIALIZED_NAME_VERIFICATIONS = "_verifications";
   @SerializedName(SERIALIZED_NAME_VERIFICATIONS)
-  private List<VerifyResult> verifications = null;
+  @javax.annotation.Nullable
+  private List<VerifyResult> verifications = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_METRICS = "_metrics";
   @SerializedName(SERIALIZED_NAME_METRICS)
-  private List<Metric> metrics = null;
+  @javax.annotation.Nullable
+  private List<Metric> metrics = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ERRORS = "_errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
-  private List<Error> errors = null;
+  @javax.annotation.Nullable
+  private List<Error> errors = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_SPAN_ID = "_span_id";
+  @SerializedName(SERIALIZED_NAME_SPAN_ID)
+  @javax.annotation.Nullable
+  private String spanId;
+
+  public static final String SERIALIZED_NAME_PARENT_ID = "_parent_id";
+  @SerializedName(SERIALIZED_NAME_PARENT_ID)
+  @javax.annotation.Nullable
+  private String parentId;
 
   public static final String SERIALIZED_NAME_PAGE_TIMINGS = "pageTimings";
   @SerializedName(SERIALIZED_NAME_PAGE_TIMINGS)
+  @javax.annotation.Nonnull
   private PageTimings pageTimings;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private String comment;
 
   public Page() {
   }
 
-  public Page startedDateTime(OffsetDateTime startedDateTime) {
-    
+  public Page startedDateTime(@javax.annotation.Nonnull OffsetDateTime startedDateTime) {
     this.startedDateTime = startedDateTime;
     return this;
   }
 
-   /**
+  /**
    * Get startedDateTime
    * @return startedDateTime
-  **/
+   */
   @javax.annotation.Nonnull
-
   public OffsetDateTime getStartedDateTime() {
     return startedDateTime;
   }
 
-
-  public void setStartedDateTime(OffsetDateTime startedDateTime) {
+  public void setStartedDateTime(@javax.annotation.Nonnull OffsetDateTime startedDateTime) {
     this.startedDateTime = startedDateTime;
   }
 
 
-  public Page id(String id) {
-    
+  public Page id(@javax.annotation.Nonnull String id) {
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
-
   public String getId() {
     return id;
   }
 
-
-  public void setId(String id) {
+  public void setId(@javax.annotation.Nonnull String id) {
     this.id = id;
   }
 
 
-  public Page title(String title) {
-    
+  public Page title(@javax.annotation.Nonnull String title) {
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nonnull
-
   public String getTitle() {
     return title;
   }
 
-
-  public void setTitle(String title) {
+  public void setTitle(@javax.annotation.Nonnull String title) {
     this.title = title;
   }
 
 
-  public Page verifications(List<VerifyResult> verifications) {
-    
+  public Page verifications(@javax.annotation.Nullable List<VerifyResult> verifications) {
     this.verifications = verifications;
     return this;
   }
 
   public Page addVerificationsItem(VerifyResult verificationsItem) {
     if (this.verifications == null) {
-      this.verifications = null;
+      this.verifications = new ArrayList<>();
     }
     this.verifications.add(verificationsItem);
     return this;
   }
 
-   /**
+  /**
    * Get verifications
    * @return verifications
-  **/
+   */
   @javax.annotation.Nullable
-
   public List<VerifyResult> getVerifications() {
     return verifications;
   }
 
-
-  public void setVerifications(List<VerifyResult> verifications) {
+  public void setVerifications(@javax.annotation.Nullable List<VerifyResult> verifications) {
     this.verifications = verifications;
   }
 
 
-  public Page metrics(List<Metric> metrics) {
-    
+  public Page metrics(@javax.annotation.Nullable List<Metric> metrics) {
     this.metrics = metrics;
     return this;
   }
 
   public Page addMetricsItem(Metric metricsItem) {
     if (this.metrics == null) {
-      this.metrics = null;
+      this.metrics = new ArrayList<>();
     }
     this.metrics.add(metricsItem);
     return this;
   }
 
-   /**
+  /**
    * Get metrics
    * @return metrics
-  **/
+   */
   @javax.annotation.Nullable
-
   public List<Metric> getMetrics() {
     return metrics;
   }
 
-
-  public void setMetrics(List<Metric> metrics) {
+  public void setMetrics(@javax.annotation.Nullable List<Metric> metrics) {
     this.metrics = metrics;
   }
 
 
-  public Page errors(List<Error> errors) {
-    
+  public Page errors(@javax.annotation.Nullable List<Error> errors) {
     this.errors = errors;
     return this;
   }
 
   public Page addErrorsItem(Error errorsItem) {
     if (this.errors == null) {
-      this.errors = null;
+      this.errors = new ArrayList<>();
     }
     this.errors.add(errorsItem);
     return this;
   }
 
-   /**
+  /**
    * Get errors
    * @return errors
-  **/
+   */
   @javax.annotation.Nullable
-
   public List<Error> getErrors() {
     return errors;
   }
 
-
-  public void setErrors(List<Error> errors) {
+  public void setErrors(@javax.annotation.Nullable List<Error> errors) {
     this.errors = errors;
   }
 
 
-  public Page pageTimings(PageTimings pageTimings) {
-    
+  public Page spanId(@javax.annotation.Nullable String spanId) {
+    this.spanId = spanId;
+    return this;
+  }
+
+  /**
+   * W3C Trace Context span ID for this page
+   * @return spanId
+   */
+  @javax.annotation.Nullable
+  public String getSpanId() {
+    return spanId;
+  }
+
+  public void setSpanId(@javax.annotation.Nullable String spanId) {
+    this.spanId = spanId;
+  }
+
+
+  public Page parentId(@javax.annotation.Nullable String parentId) {
+    this.parentId = parentId;
+    return this;
+  }
+
+  /**
+   * W3C Trace Context parent span ID (typically the HAR log span ID)
+   * @return parentId
+   */
+  @javax.annotation.Nullable
+  public String getParentId() {
+    return parentId;
+  }
+
+  public void setParentId(@javax.annotation.Nullable String parentId) {
+    this.parentId = parentId;
+  }
+
+
+  public Page pageTimings(@javax.annotation.Nonnull PageTimings pageTimings) {
     this.pageTimings = pageTimings;
     return this;
   }
 
-   /**
+  /**
    * Get pageTimings
    * @return pageTimings
-  **/
+   */
   @javax.annotation.Nonnull
-
   public PageTimings getPageTimings() {
     return pageTimings;
   }
 
-
-  public void setPageTimings(PageTimings pageTimings) {
+  public void setPageTimings(@javax.annotation.Nonnull PageTimings pageTimings) {
     this.pageTimings = pageTimings;
   }
 
 
-  public Page comment(String comment) {
-    
+  public Page comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
-
   public String getComment() {
     return comment;
   }
 
-
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
@@ -337,27 +373,12 @@ public class Page {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Page page = (Page) o;
-    return Objects.equals(this.startedDateTime, page.startedDateTime) &&
-        Objects.equals(this.id, page.id) &&
-        Objects.equals(this.title, page.title) &&
-        Objects.equals(this.verifications, page.verifications) &&
-        Objects.equals(this.metrics, page.metrics) &&
-        Objects.equals(this.errors, page.errors) &&
-        Objects.equals(this.pageTimings, page.pageTimings) &&
-        Objects.equals(this.comment, page.comment)&&
-        Objects.equals(this.additionalProperties, page.additionalProperties);
+    return EqualsBuilder.reflectionEquals(this, o, false, null, true);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(startedDateTime, id, title, verifications, metrics, errors, pageTimings, comment, additionalProperties);
+    return HashCodeBuilder.reflectionHashCode(this);
   }
 
   @Override
@@ -370,6 +391,8 @@ public class Page {
     sb.append("    verifications: ").append(toIndentedString(verifications)).append("\n");
     sb.append("    metrics: ").append(toIndentedString(metrics)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+    sb.append("    spanId: ").append(toIndentedString(spanId)).append("\n");
+    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
     sb.append("    pageTimings: ").append(toIndentedString(pageTimings)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("    additionalProperties: ").append(toIndentedString(additionalProperties)).append("\n");
@@ -401,6 +424,8 @@ public class Page {
     openapiFields.add("_verifications");
     openapiFields.add("_metrics");
     openapiFields.add("_errors");
+    openapiFields.add("_span_id");
+    openapiFields.add("_parent_id");
     openapiFields.add("pageTimings");
     openapiFields.add("comment");
 
@@ -412,25 +437,26 @@ public class Page {
     openapiRequiredFields.add("pageTimings");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Page
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Page.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Page
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Page.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Page is not found in the empty JSON string", Page.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Page.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
       }
@@ -447,7 +473,7 @@ public class Page {
 
           // validate the optional field `_verifications` (array)
           for (int i = 0; i < jsonArrayverifications.size(); i++) {
-            VerifyResult.validateJsonObject(jsonArrayverifications.get(i).getAsJsonObject());
+            VerifyResult.validateJsonElement(jsonArrayverifications.get(i));
           };
         }
       }
@@ -461,7 +487,7 @@ public class Page {
 
           // validate the optional field `_metrics` (array)
           for (int i = 0; i < jsonArraymetrics.size(); i++) {
-            Metric.validateJsonObject(jsonArraymetrics.get(i).getAsJsonObject());
+            Metric.validateJsonElement(jsonArraymetrics.get(i));
           };
         }
       }
@@ -475,9 +501,15 @@ public class Page {
 
           // validate the optional field `_errors` (array)
           for (int i = 0; i < jsonArrayerrors.size(); i++) {
-            Error.validateJsonObject(jsonArrayerrors.get(i).getAsJsonObject());
+            Error.validateJsonElement(jsonArrayerrors.get(i));
           };
         }
+      }
+      if ((jsonObj.get("_span_id") != null && !jsonObj.get("_span_id").isJsonNull()) && !jsonObj.get("_span_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `_span_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_span_id").toString()));
+      }
+      if ((jsonObj.get("_parent_id") != null && !jsonObj.get("_parent_id").isJsonNull()) && !jsonObj.get("_parent_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `_parent_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_parent_id").toString()));
       }
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
@@ -512,7 +544,12 @@ public class Page {
                  else if (entry.getValue() instanceof Character)
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
                  }
                }
              }
@@ -521,8 +558,9 @@ public class Page {
 
            @Override
            public Page read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              Page instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
@@ -550,22 +588,22 @@ public class Page {
     }
   }
 
- /**
-  * Create an instance of Page given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Page
-  * @throws IOException if the JSON string is invalid with respect to Page
-  */
+  /**
+   * Create an instance of Page given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Page
+   * @throws IOException if the JSON string is invalid with respect to Page
+   */
   public static Page fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Page.class);
   }
 
- /**
-  * Convert an instance of Page to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Page to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -13,9 +13,11 @@
 
 package com.browserup.proxy_client;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class Configuration {
-    private static ApiClient defaultApiClient = new ApiClient();
+    public static final String VERSION = "1.1.4-SNAPSHOT";
+
+    private static volatile ApiClient defaultApiClient = new ApiClient();
 
     /**
      * Get the default API client, which would be used when creating API

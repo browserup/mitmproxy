@@ -12,6 +12,9 @@
 | **timings** | [**HarEntry_timings**](HarEntry_timings.md) |  | [default to null] |
 | **serverIPAddress** | **String** |  | [optional] [default to null] |
 | **\_webSocketMessages** | [**List**](WebSocketMessage.md) |  | [optional] [default to null] |
+| **\_span\_id** | **String** | W3C Trace Context span ID for this entry | [optional] [default to null] |
+| **\_parent\_id** | **String** | W3C Trace Context parent span ID (typically the page span ID) | [optional] [default to null] |
+| **\_trace\_id** | **String** | W3C Trace Context trace ID for distributed tracing | [optional] [default to null] |
 | **connection** | **String** |  | [optional] [default to null] |
 | **comment** | **String** |  | [optional] [default to null] |
 

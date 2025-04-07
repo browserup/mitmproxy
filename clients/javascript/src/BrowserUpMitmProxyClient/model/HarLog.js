@@ -73,6 +73,12 @@ class HarLog {
             if (data.hasOwnProperty('entries')) {
                 obj['entries'] = ApiClient.convertToType(data['entries'], [HarEntry]);
             }
+            if (data.hasOwnProperty('_trace_id')) {
+                obj['_trace_id'] = ApiClient.convertToType(data['_trace_id'], 'String');
+            }
+            if (data.hasOwnProperty('_span_id')) {
+                obj['_span_id'] = ApiClient.convertToType(data['_span_id'], 'String');
+            }
             if (data.hasOwnProperty('comment')) {
                 obj['comment'] = ApiClient.convertToType(data['comment'], 'String');
             }
@@ -88,7 +94,7 @@ class HarLog {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of HarLog.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
@@ -117,6 +123,14 @@ class HarLog {
             for (const item of data['entries']) {
                 HarEntry.validateJSON(item);
             };
+        }
+        // ensure the json data is a string
+        if (data['_trace_id'] && !(typeof data['_trace_id'] === 'string' || data['_trace_id'] instanceof String)) {
+            throw new Error("Expected the field `_trace_id` to be a primitive type in the JSON string but got " + data['_trace_id']);
+        }
+        // ensure the json data is a string
+        if (data['_span_id'] && !(typeof data['_span_id'] === 'string' || data['_span_id'] instanceof String)) {
+            throw new Error("Expected the field `_span_id` to be a primitive type in the JSON string but got " + data['_span_id']);
         }
         // ensure the json data is a string
         if (data['comment'] && !(typeof data['comment'] === 'string' || data['comment'] instanceof String)) {
@@ -155,6 +169,18 @@ HarLog.prototype['pages'] = undefined;
  * @member {Array.<module:BrowserUpMitmProxyClient/model/HarEntry>} entries
  */
 HarLog.prototype['entries'] = undefined;
+
+/**
+ * W3C Trace Context trace ID for distributed tracing
+ * @member {String} _trace_id
+ */
+HarLog.prototype['_trace_id'] = undefined;
+
+/**
+ * W3C Trace Context span ID for this HAR trace root
+ * @member {String} _span_id
+ */
+HarLog.prototype['_span_id'] = undefined;
 
 /**
  * @member {String} comment

@@ -13,8 +13,9 @@
 
 package com.browserup.proxy_client;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.util.Objects;
-import java.util.Arrays;
 import com.browserup.proxy_client.HarEntryCache;
 import com.browserup.proxy_client.HarEntryRequest;
 import com.browserup.proxy_client.HarEntryResponse;
@@ -28,6 +29,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -40,13 +42,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.browserup.proxy_client.JSON;
@@ -54,234 +58,235 @@ import com.browserup.proxy_client.JSON;
 /**
  * HarEntry
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class HarEntry {
   public static final String SERIALIZED_NAME_PAGEREF = "pageref";
   @SerializedName(SERIALIZED_NAME_PAGEREF)
+  @javax.annotation.Nullable
   private String pageref;
 
   public static final String SERIALIZED_NAME_STARTED_DATE_TIME = "startedDateTime";
   @SerializedName(SERIALIZED_NAME_STARTED_DATE_TIME)
+  @javax.annotation.Nonnull
   private OffsetDateTime startedDateTime;
 
   public static final String SERIALIZED_NAME_TIME = "time";
   @SerializedName(SERIALIZED_NAME_TIME)
+  @javax.annotation.Nonnull
   private Long time;
 
   public static final String SERIALIZED_NAME_REQUEST = "request";
   @SerializedName(SERIALIZED_NAME_REQUEST)
+  @javax.annotation.Nonnull
   private HarEntryRequest request;
 
   public static final String SERIALIZED_NAME_RESPONSE = "response";
   @SerializedName(SERIALIZED_NAME_RESPONSE)
+  @javax.annotation.Nonnull
   private HarEntryResponse response;
 
   public static final String SERIALIZED_NAME_CACHE = "cache";
   @SerializedName(SERIALIZED_NAME_CACHE)
+  @javax.annotation.Nonnull
   private HarEntryCache cache;
 
   public static final String SERIALIZED_NAME_TIMINGS = "timings";
   @SerializedName(SERIALIZED_NAME_TIMINGS)
+  @javax.annotation.Nonnull
   private HarEntryTimings timings;
 
   public static final String SERIALIZED_NAME_SERVER_I_P_ADDRESS = "serverIPAddress";
   @SerializedName(SERIALIZED_NAME_SERVER_I_P_ADDRESS)
+  @javax.annotation.Nullable
   private String serverIPAddress;
 
   public static final String SERIALIZED_NAME_WEB_SOCKET_MESSAGES = "_webSocketMessages";
   @SerializedName(SERIALIZED_NAME_WEB_SOCKET_MESSAGES)
+  @javax.annotation.Nullable
   private List<WebSocketMessage> webSocketMessages = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_SPAN_ID = "_span_id";
+  @SerializedName(SERIALIZED_NAME_SPAN_ID)
+  @javax.annotation.Nullable
+  private String spanId;
+
+  public static final String SERIALIZED_NAME_PARENT_ID = "_parent_id";
+  @SerializedName(SERIALIZED_NAME_PARENT_ID)
+  @javax.annotation.Nullable
+  private String parentId;
+
+  public static final String SERIALIZED_NAME_TRACE_ID = "_trace_id";
+  @SerializedName(SERIALIZED_NAME_TRACE_ID)
+  @javax.annotation.Nullable
+  private String traceId;
 
   public static final String SERIALIZED_NAME_CONNECTION = "connection";
   @SerializedName(SERIALIZED_NAME_CONNECTION)
+  @javax.annotation.Nullable
   private String connection;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private String comment;
 
   public HarEntry() {
   }
 
-  public HarEntry pageref(String pageref) {
-    
+  public HarEntry pageref(@javax.annotation.Nullable String pageref) {
     this.pageref = pageref;
     return this;
   }
 
-   /**
+  /**
    * Get pageref
    * @return pageref
-  **/
+   */
   @javax.annotation.Nullable
-
   public String getPageref() {
     return pageref;
   }
 
-
-  public void setPageref(String pageref) {
+  public void setPageref(@javax.annotation.Nullable String pageref) {
     this.pageref = pageref;
   }
 
 
-  public HarEntry startedDateTime(OffsetDateTime startedDateTime) {
-    
+  public HarEntry startedDateTime(@javax.annotation.Nonnull OffsetDateTime startedDateTime) {
     this.startedDateTime = startedDateTime;
     return this;
   }
 
-   /**
+  /**
    * Get startedDateTime
    * @return startedDateTime
-  **/
+   */
   @javax.annotation.Nonnull
-
   public OffsetDateTime getStartedDateTime() {
     return startedDateTime;
   }
 
-
-  public void setStartedDateTime(OffsetDateTime startedDateTime) {
+  public void setStartedDateTime(@javax.annotation.Nonnull OffsetDateTime startedDateTime) {
     this.startedDateTime = startedDateTime;
   }
 
 
-  public HarEntry time(Long time) {
-    
+  public HarEntry time(@javax.annotation.Nonnull Long time) {
     this.time = time;
     return this;
   }
 
-   /**
+  /**
    * Get time
    * minimum: 0
    * @return time
-  **/
+   */
   @javax.annotation.Nonnull
-
   public Long getTime() {
     return time;
   }
 
-
-  public void setTime(Long time) {
+  public void setTime(@javax.annotation.Nonnull Long time) {
     this.time = time;
   }
 
 
-  public HarEntry request(HarEntryRequest request) {
-    
+  public HarEntry request(@javax.annotation.Nonnull HarEntryRequest request) {
     this.request = request;
     return this;
   }
 
-   /**
+  /**
    * Get request
    * @return request
-  **/
+   */
   @javax.annotation.Nonnull
-
   public HarEntryRequest getRequest() {
     return request;
   }
 
-
-  public void setRequest(HarEntryRequest request) {
+  public void setRequest(@javax.annotation.Nonnull HarEntryRequest request) {
     this.request = request;
   }
 
 
-  public HarEntry response(HarEntryResponse response) {
-    
+  public HarEntry response(@javax.annotation.Nonnull HarEntryResponse response) {
     this.response = response;
     return this;
   }
 
-   /**
+  /**
    * Get response
    * @return response
-  **/
+   */
   @javax.annotation.Nonnull
-
   public HarEntryResponse getResponse() {
     return response;
   }
 
-
-  public void setResponse(HarEntryResponse response) {
+  public void setResponse(@javax.annotation.Nonnull HarEntryResponse response) {
     this.response = response;
   }
 
 
-  public HarEntry cache(HarEntryCache cache) {
-    
+  public HarEntry cache(@javax.annotation.Nonnull HarEntryCache cache) {
     this.cache = cache;
     return this;
   }
 
-   /**
+  /**
    * Get cache
    * @return cache
-  **/
+   */
   @javax.annotation.Nonnull
-
   public HarEntryCache getCache() {
     return cache;
   }
 
-
-  public void setCache(HarEntryCache cache) {
+  public void setCache(@javax.annotation.Nonnull HarEntryCache cache) {
     this.cache = cache;
   }
 
 
-  public HarEntry timings(HarEntryTimings timings) {
-    
+  public HarEntry timings(@javax.annotation.Nonnull HarEntryTimings timings) {
     this.timings = timings;
     return this;
   }
 
-   /**
+  /**
    * Get timings
    * @return timings
-  **/
+   */
   @javax.annotation.Nonnull
-
   public HarEntryTimings getTimings() {
     return timings;
   }
 
-
-  public void setTimings(HarEntryTimings timings) {
+  public void setTimings(@javax.annotation.Nonnull HarEntryTimings timings) {
     this.timings = timings;
   }
 
 
-  public HarEntry serverIPAddress(String serverIPAddress) {
-    
+  public HarEntry serverIPAddress(@javax.annotation.Nullable String serverIPAddress) {
     this.serverIPAddress = serverIPAddress;
     return this;
   }
 
-   /**
+  /**
    * Get serverIPAddress
    * @return serverIPAddress
-  **/
+   */
   @javax.annotation.Nullable
-
   public String getServerIPAddress() {
     return serverIPAddress;
   }
 
-
-  public void setServerIPAddress(String serverIPAddress) {
+  public void setServerIPAddress(@javax.annotation.Nullable String serverIPAddress) {
     this.serverIPAddress = serverIPAddress;
   }
 
 
-  public HarEntry webSocketMessages(List<WebSocketMessage> webSocketMessages) {
-    
+  public HarEntry webSocketMessages(@javax.annotation.Nullable List<WebSocketMessage> webSocketMessages) {
     this.webSocketMessages = webSocketMessages;
     return this;
   }
@@ -294,62 +299,111 @@ public class HarEntry {
     return this;
   }
 
-   /**
+  /**
    * Get webSocketMessages
    * @return webSocketMessages
-  **/
+   */
   @javax.annotation.Nullable
-
   public List<WebSocketMessage> getWebSocketMessages() {
     return webSocketMessages;
   }
 
-
-  public void setWebSocketMessages(List<WebSocketMessage> webSocketMessages) {
+  public void setWebSocketMessages(@javax.annotation.Nullable List<WebSocketMessage> webSocketMessages) {
     this.webSocketMessages = webSocketMessages;
   }
 
 
-  public HarEntry connection(String connection) {
-    
+  public HarEntry spanId(@javax.annotation.Nullable String spanId) {
+    this.spanId = spanId;
+    return this;
+  }
+
+  /**
+   * W3C Trace Context span ID for this entry
+   * @return spanId
+   */
+  @javax.annotation.Nullable
+  public String getSpanId() {
+    return spanId;
+  }
+
+  public void setSpanId(@javax.annotation.Nullable String spanId) {
+    this.spanId = spanId;
+  }
+
+
+  public HarEntry parentId(@javax.annotation.Nullable String parentId) {
+    this.parentId = parentId;
+    return this;
+  }
+
+  /**
+   * W3C Trace Context parent span ID (typically the page span ID)
+   * @return parentId
+   */
+  @javax.annotation.Nullable
+  public String getParentId() {
+    return parentId;
+  }
+
+  public void setParentId(@javax.annotation.Nullable String parentId) {
+    this.parentId = parentId;
+  }
+
+
+  public HarEntry traceId(@javax.annotation.Nullable String traceId) {
+    this.traceId = traceId;
+    return this;
+  }
+
+  /**
+   * W3C Trace Context trace ID for distributed tracing
+   * @return traceId
+   */
+  @javax.annotation.Nullable
+  public String getTraceId() {
+    return traceId;
+  }
+
+  public void setTraceId(@javax.annotation.Nullable String traceId) {
+    this.traceId = traceId;
+  }
+
+
+  public HarEntry connection(@javax.annotation.Nullable String connection) {
     this.connection = connection;
     return this;
   }
 
-   /**
+  /**
    * Get connection
    * @return connection
-  **/
+   */
   @javax.annotation.Nullable
-
   public String getConnection() {
     return connection;
   }
 
-
-  public void setConnection(String connection) {
+  public void setConnection(@javax.annotation.Nullable String connection) {
     this.connection = connection;
   }
 
 
-  public HarEntry comment(String comment) {
-    
+  public HarEntry comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
-
   public String getComment() {
     return comment;
   }
 
-
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
@@ -357,29 +411,12 @@ public class HarEntry {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    HarEntry harEntry = (HarEntry) o;
-    return Objects.equals(this.pageref, harEntry.pageref) &&
-        Objects.equals(this.startedDateTime, harEntry.startedDateTime) &&
-        Objects.equals(this.time, harEntry.time) &&
-        Objects.equals(this.request, harEntry.request) &&
-        Objects.equals(this.response, harEntry.response) &&
-        Objects.equals(this.cache, harEntry.cache) &&
-        Objects.equals(this.timings, harEntry.timings) &&
-        Objects.equals(this.serverIPAddress, harEntry.serverIPAddress) &&
-        Objects.equals(this.webSocketMessages, harEntry.webSocketMessages) &&
-        Objects.equals(this.connection, harEntry.connection) &&
-        Objects.equals(this.comment, harEntry.comment);
+    return EqualsBuilder.reflectionEquals(this, o, false, null, true);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageref, startedDateTime, time, request, response, cache, timings, serverIPAddress, webSocketMessages, connection, comment);
+    return HashCodeBuilder.reflectionHashCode(this);
   }
 
   @Override
@@ -395,6 +432,9 @@ public class HarEntry {
     sb.append("    timings: ").append(toIndentedString(timings)).append("\n");
     sb.append("    serverIPAddress: ").append(toIndentedString(serverIPAddress)).append("\n");
     sb.append("    webSocketMessages: ").append(toIndentedString(webSocketMessages)).append("\n");
+    sb.append("    spanId: ").append(toIndentedString(spanId)).append("\n");
+    sb.append("    parentId: ").append(toIndentedString(parentId)).append("\n");
+    sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
     sb.append("    connection: ").append(toIndentedString(connection)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("}");
@@ -428,6 +468,9 @@ public class HarEntry {
     openapiFields.add("timings");
     openapiFields.add("serverIPAddress");
     openapiFields.add("_webSocketMessages");
+    openapiFields.add("_span_id");
+    openapiFields.add("_parent_id");
+    openapiFields.add("_trace_id");
     openapiFields.add("connection");
     openapiFields.add("comment");
 
@@ -441,40 +484,41 @@ public class HarEntry {
     openapiRequiredFields.add("timings");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to HarEntry
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!HarEntry.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to HarEntry
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!HarEntry.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in HarEntry is not found in the empty JSON string", HarEntry.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!HarEntry.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HarEntry` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HarEntry` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : HarEntry.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("pageref") != null && !jsonObj.get("pageref").isJsonNull()) && !jsonObj.get("pageref").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `pageref` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pageref").toString()));
       }
       // validate the required field `cache`
-      HarEntryCache.validateJsonObject(jsonObj.getAsJsonObject("cache"));
+      HarEntryCache.validateJsonElement(jsonObj.get("cache"));
       // validate the required field `timings`
-      HarEntryTimings.validateJsonObject(jsonObj.getAsJsonObject("timings"));
+      HarEntryTimings.validateJsonElement(jsonObj.get("timings"));
       if ((jsonObj.get("serverIPAddress") != null && !jsonObj.get("serverIPAddress").isJsonNull()) && !jsonObj.get("serverIPAddress").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `serverIPAddress` to be a primitive type in the JSON string but got `%s`", jsonObj.get("serverIPAddress").toString()));
       }
@@ -488,9 +532,18 @@ public class HarEntry {
 
           // validate the optional field `_webSocketMessages` (array)
           for (int i = 0; i < jsonArraywebSocketMessages.size(); i++) {
-            WebSocketMessage.validateJsonObject(jsonArraywebSocketMessages.get(i).getAsJsonObject());
+            WebSocketMessage.validateJsonElement(jsonArraywebSocketMessages.get(i));
           };
         }
+      }
+      if ((jsonObj.get("_span_id") != null && !jsonObj.get("_span_id").isJsonNull()) && !jsonObj.get("_span_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `_span_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_span_id").toString()));
+      }
+      if ((jsonObj.get("_parent_id") != null && !jsonObj.get("_parent_id").isJsonNull()) && !jsonObj.get("_parent_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `_parent_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_parent_id").toString()));
+      }
+      if ((jsonObj.get("_trace_id") != null && !jsonObj.get("_trace_id").isJsonNull()) && !jsonObj.get("_trace_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `_trace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_trace_id").toString()));
       }
       if ((jsonObj.get("connection") != null && !jsonObj.get("connection").isJsonNull()) && !jsonObj.get("connection").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `connection` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection").toString()));
@@ -520,31 +573,31 @@ public class HarEntry {
 
            @Override
            public HarEntry read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of HarEntry given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of HarEntry
-  * @throws IOException if the JSON string is invalid with respect to HarEntry
-  */
+  /**
+   * Create an instance of HarEntry given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of HarEntry
+   * @throws IOException if the JSON string is invalid with respect to HarEntry
+   */
   public static HarEntry fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, HarEntry.class);
   }
 
- /**
-  * Convert an instance of HarEntry to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of HarEntry to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

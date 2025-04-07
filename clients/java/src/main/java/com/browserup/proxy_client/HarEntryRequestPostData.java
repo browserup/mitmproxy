@@ -13,8 +13,9 @@
 
 package com.browserup.proxy_client;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.util.Objects;
-import java.util.Arrays;
 import com.browserup.proxy_client.HarEntryRequestPostDataParamsInner;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -23,6 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -35,13 +37,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.browserup.proxy_client.JSON;
@@ -49,69 +53,65 @@ import com.browserup.proxy_client.JSON;
 /**
  * Posted data info.
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class HarEntryRequestPostData {
   public static final String SERIALIZED_NAME_MIME_TYPE = "mimeType";
   @SerializedName(SERIALIZED_NAME_MIME_TYPE)
+  @javax.annotation.Nonnull
   private String mimeType;
 
   public static final String SERIALIZED_NAME_TEXT = "text";
   @SerializedName(SERIALIZED_NAME_TEXT)
+  @javax.annotation.Nullable
   private String text;
 
   public static final String SERIALIZED_NAME_PARAMS = "params";
   @SerializedName(SERIALIZED_NAME_PARAMS)
+  @javax.annotation.Nullable
   private List<HarEntryRequestPostDataParamsInner> params = new ArrayList<>();
 
   public HarEntryRequestPostData() {
   }
 
-  public HarEntryRequestPostData mimeType(String mimeType) {
-    
+  public HarEntryRequestPostData mimeType(@javax.annotation.Nonnull String mimeType) {
     this.mimeType = mimeType;
     return this;
   }
 
-   /**
+  /**
    * Get mimeType
    * @return mimeType
-  **/
+   */
   @javax.annotation.Nonnull
-
   public String getMimeType() {
     return mimeType;
   }
 
-
-  public void setMimeType(String mimeType) {
+  public void setMimeType(@javax.annotation.Nonnull String mimeType) {
     this.mimeType = mimeType;
   }
 
 
-  public HarEntryRequestPostData text(String text) {
-    
+  public HarEntryRequestPostData text(@javax.annotation.Nullable String text) {
     this.text = text;
     return this;
   }
 
-   /**
+  /**
    * Get text
    * @return text
-  **/
+   */
   @javax.annotation.Nullable
-
   public String getText() {
     return text;
   }
 
-
-  public void setText(String text) {
+  public void setText(@javax.annotation.Nullable String text) {
     this.text = text;
   }
 
 
-  public HarEntryRequestPostData params(List<HarEntryRequestPostDataParamsInner> params) {
-    
+  public HarEntryRequestPostData params(@javax.annotation.Nullable List<HarEntryRequestPostDataParamsInner> params) {
     this.params = params;
     return this;
   }
@@ -124,18 +124,16 @@ public class HarEntryRequestPostData {
     return this;
   }
 
-   /**
+  /**
    * Get params
    * @return params
-  **/
+   */
   @javax.annotation.Nullable
-
   public List<HarEntryRequestPostDataParamsInner> getParams() {
     return params;
   }
 
-
-  public void setParams(List<HarEntryRequestPostDataParamsInner> params) {
+  public void setParams(@javax.annotation.Nullable List<HarEntryRequestPostDataParamsInner> params) {
     this.params = params;
   }
 
@@ -143,21 +141,12 @@ public class HarEntryRequestPostData {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    HarEntryRequestPostData harEntryRequestPostData = (HarEntryRequestPostData) o;
-    return Objects.equals(this.mimeType, harEntryRequestPostData.mimeType) &&
-        Objects.equals(this.text, harEntryRequestPostData.text) &&
-        Objects.equals(this.params, harEntryRequestPostData.params);
+    return EqualsBuilder.reflectionEquals(this, o, false, null, true);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mimeType, text, params);
+    return HashCodeBuilder.reflectionHashCode(this);
   }
 
   @Override
@@ -198,33 +187,34 @@ public class HarEntryRequestPostData {
     openapiRequiredFields.add("mimeType");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to HarEntryRequestPostData
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!HarEntryRequestPostData.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to HarEntryRequestPostData
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!HarEntryRequestPostData.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in HarEntryRequestPostData is not found in the empty JSON string", HarEntryRequestPostData.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!HarEntryRequestPostData.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HarEntryRequestPostData` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HarEntryRequestPostData` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : HarEntryRequestPostData.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("mimeType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mimeType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mimeType").toString()));
       }
@@ -241,7 +231,7 @@ public class HarEntryRequestPostData {
 
           // validate the optional field `params` (array)
           for (int i = 0; i < jsonArrayparams.size(); i++) {
-            HarEntryRequestPostDataParamsInner.validateJsonObject(jsonArrayparams.get(i).getAsJsonObject());
+            HarEntryRequestPostDataParamsInner.validateJsonElement(jsonArrayparams.get(i));
           };
         }
       }
@@ -267,31 +257,31 @@ public class HarEntryRequestPostData {
 
            @Override
            public HarEntryRequestPostData read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of HarEntryRequestPostData given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of HarEntryRequestPostData
-  * @throws IOException if the JSON string is invalid with respect to HarEntryRequestPostData
-  */
+  /**
+   * Create an instance of HarEntryRequestPostData given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of HarEntryRequestPostData
+   * @throws IOException if the JSON string is invalid with respect to HarEntryRequestPostData
+   */
   public static HarEntryRequestPostData fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, HarEntryRequestPostData.class);
   }
 
- /**
-  * Convert an instance of HarEntryRequestPostData to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of HarEntryRequestPostData to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

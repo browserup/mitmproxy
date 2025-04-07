@@ -16,5 +16,7 @@ Name | Type | Description | Notes
 **ssl** | **Number** | Ssl connect time from the browser | [optional] 
 **timeToFirstByte** | **Number** | Time to first byte of the page&#39;s first request per the browser | [optional] 
 **href** | **String** | Top level href, including hashtag, etc per the browser | [optional] 
+**spanId** | **String** | W3C Trace Context span ID for this page | [optional] 
+**parentId** | **String** | W3C Trace Context parent span ID (typically the HAR log span ID) | [optional] 
 
 

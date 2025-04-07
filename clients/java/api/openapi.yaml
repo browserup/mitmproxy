@@ -35,7 +35,8 @@ paths:
           description: The current Har file.
       tags:
       - BrowserUpProxy
-      x-accepts: application/json
+      x-accepts:
+      - application/json
     put:
       description: Starts a fresh HAR capture session.
       operationId: resetHarLog
@@ -48,7 +49,8 @@ paths:
           description: The current Har file.
       tags:
       - BrowserUpProxy
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /har/page:
     post:
       description: Starts a fresh HAR Page (Step) in the current active HAR to group
@@ -73,7 +75,8 @@ paths:
           description: The current Har file.
       tags:
       - BrowserUpProxy
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /verify/present/{name}:
     post:
       description: Verify at least one matching item is present in the captured traffic
@@ -107,7 +110,8 @@ paths:
       tags:
       - BrowserUpProxy
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /verify/not_present/{name}:
     post:
       description: Verify no matching items are present in the captured traffic
@@ -141,7 +145,8 @@ paths:
       tags:
       - BrowserUpProxy
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /verify/size/{size}/{name}:
     post:
       description: Verify matching items in the captured traffic meet the size criteria
@@ -184,7 +189,8 @@ paths:
       tags:
       - BrowserUpProxy
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /verify/sla/{time}/{name}:
     post:
       description: Verify each traffic item matching the criteria meets is below SLA
@@ -228,7 +234,8 @@ paths:
       tags:
       - BrowserUpProxy
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /har/errors:
     post:
       description: Add Custom Error to the captured traffic har
@@ -249,7 +256,8 @@ paths:
       tags:
       - BrowserUpProxy
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /har/metrics:
     post:
       description: Add Custom Metric to the captured traffic har
@@ -270,7 +278,8 @@ paths:
       tags:
       - BrowserUpProxy
       x-content-type: application/json
-      x-accepts: application/json
+      x-accepts:
+      - application/json
   /healthcheck:
     get:
       description: Get the healthcheck
@@ -280,7 +289,8 @@ paths:
           description: OK means all is well.
       tags:
       - BrowserUpProxy
-      x-accepts: application/json
+      x-accepts:
+      - application/json
 components:
   schemas:
     PageTiming:
@@ -321,6 +331,13 @@ components:
         _href:
           description: "Top level href, including hashtag, etc per the browser"
           type: string
+        _span_id:
+          description: W3C Trace Context span ID for this page
+          type: string
+        _parent_id:
+          description: W3C Trace Context parent span ID (typically the HAR log span
+            ID)
+          type: string
       type: object
     NameValuePair:
       properties:
@@ -336,15 +353,15 @@ components:
         A set of criteria for filtering HTTP Requests and Responses.
                                  Criteria are AND based, and use python regular expressions for string comparison
       example:
-        request_cookie: null
-        response_cookie: null
+        request_cookie: ""
+        response_cookie: ""
         json_path: json_path
         error_if_no_traffic: true
         url: url
         content: content
-        response_header: null
+        response_header: ""
         content_type: content_type
-        request_header: null
+        request_header: ""
         json_schema: json_schema
         json_valid: true
         page: page
@@ -388,13 +405,29 @@ components:
             url: https://docs.python.org/3/howto/regex.html
           type: string
         request_header:
-          $ref: '#/components/schemas/MatchCriteria_request_header'
+          allOf:
+          - $ref: '#/components/schemas/NameValuePair'
+          externalDocs:
+            description: Python Regex
+            url: https://docs.python.org/3/howto/regex.html
         request_cookie:
-          $ref: '#/components/schemas/MatchCriteria_request_header'
+          allOf:
+          - $ref: '#/components/schemas/NameValuePair'
+          externalDocs:
+            description: Python Regex
+            url: https://docs.python.org/3/howto/regex.html
         response_header:
-          $ref: '#/components/schemas/MatchCriteria_request_header'
+          allOf:
+          - $ref: '#/components/schemas/NameValuePair'
+          externalDocs:
+            description: Python Regex
+            url: https://docs.python.org/3/howto/regex.html
         response_cookie:
-          $ref: '#/components/schemas/MatchCriteria_request_header'
+          allOf:
+          - $ref: '#/components/schemas/NameValuePair'
+          externalDocs:
+            description: Python Regex
+            url: https://docs.python.org/3/howto/regex.html
         json_valid:
           description: Is valid JSON
           type: boolean
@@ -454,9 +487,9 @@ components:
       additionalProperties: true
       example:
         size: 0
-        domPath: domPath
+        domPath: ""
         startTime: 0
-        tag: tag
+        tag: ""
       properties:
         startTime:
           default: -1
@@ -478,9 +511,9 @@ components:
     WebSocketMessage:
       example:
         data: data
-        time: 0.8851374739011653
+        time: 7.058770351582356
         type: type
-        opcode: 7.143538047012306
+        opcode: 0.8851374739011653
       properties:
         type:
           type: string
@@ -535,16 +568,16 @@ components:
     PageTimings:
       additionalProperties: true
       example:
-        _href: _href
+        _href: ""
         _ssl: 0
         _firstPaint: 0
         _cumulativeLayoutShift: -0.29385987
         _dns: 0
         _largestContentfulPaint:
           size: 0
-          domPath: domPath
+          domPath: ""
           startTime: 0
-          tag: tag
+          tag: ""
         _firstInputDelay: -0.5854392
         _domInteractive: 0
         _timeToFirstByte: 0
@@ -677,18 +710,31 @@ components:
                 secure: true
                 value: value
             cache:
-              afterRequest: null
+              afterRequest:
+                expires: expires
+                hitCount: 2
+                lastAccess: lastAccess
+                eTag: eTag
+                comment: comment
               comment: comment
-              beforeRequest: null
+              beforeRequest:
+                expires: expires
+                hitCount: 2
+                lastAccess: lastAccess
+                eTag: eTag
+                comment: comment
             _webSocketMessages:
             - data: data
-              time: 0.8851374739011653
+              time: 7.058770351582356
               type: type
-              opcode: 7.143538047012306
+              opcode: 0.8851374739011653
             - data: data
-              time: 0.8851374739011653
+              time: 7.058770351582356
               type: type
-              opcode: 7.143538047012306
+              opcode: 0.8851374739011653
+            serverIPAddress: serverIPAddress
+            _trace_id: _trace_id
+            _span_id: _span_id
             response:
               headers:
               - name: name
@@ -736,7 +782,7 @@ components:
                 compression: 4
                 _videoWaitingCount: 0
               status: 7
-            serverIPAddress: serverIPAddress
+            _parent_id: _parent_id
             timings:
               receive: 0
               wait: 0
@@ -804,18 +850,31 @@ components:
                 secure: true
                 value: value
             cache:
-              afterRequest: null
+              afterRequest:
+                expires: expires
+                hitCount: 2
+                lastAccess: lastAccess
+                eTag: eTag
+                comment: comment
               comment: comment
-              beforeRequest: null
+              beforeRequest:
+                expires: expires
+                hitCount: 2
+                lastAccess: lastAccess
+                eTag: eTag
+                comment: comment
             _webSocketMessages:
             - data: data
-              time: 0.8851374739011653
+              time: 7.058770351582356
               type: type
-              opcode: 7.143538047012306
+              opcode: 0.8851374739011653
             - data: data
-              time: 0.8851374739011653
+              time: 7.058770351582356
               type: type
-              opcode: 7.143538047012306
+              opcode: 0.8851374739011653
+            serverIPAddress: serverIPAddress
+            _trace_id: _trace_id
+            _span_id: _span_id
             response:
               headers:
               - name: name
@@ -863,7 +922,7 @@ components:
                 compression: 4
                 _videoWaitingCount: 0
               status: 7
-            serverIPAddress: serverIPAddress
+            _parent_id: _parent_id
             timings:
               receive: 0
               wait: 0
@@ -880,16 +939,16 @@ components:
           pages:
           - startedDateTime: 2000-01-23T04:56:07.000+00:00
             pageTimings:
-              _href: _href
+              _href: ""
               _ssl: 0
               _firstPaint: 0
               _cumulativeLayoutShift: -0.29385987
               _dns: 0
               _largestContentfulPaint:
                 size: 0
-                domPath: domPath
+                domPath: ""
                 startTime: 0
-                tag: tag
+                tag: ""
               _firstInputDelay: -0.5854392
               _domInteractive: 0
               _timeToFirstByte: 0
@@ -897,6 +956,8 @@ components:
               onContentLoad: 0
               onLoad: 0
               comment: comment
+            _span_id: _span_id
+            _parent_id: _parent_id
             comment: comment
             id: id
             _verifications:
@@ -919,16 +980,16 @@ components:
               details: details
           - startedDateTime: 2000-01-23T04:56:07.000+00:00
             pageTimings:
-              _href: _href
+              _href: ""
               _ssl: 0
               _firstPaint: 0
               _cumulativeLayoutShift: -0.29385987
               _dns: 0
               _largestContentfulPaint:
                 size: 0
-                domPath: domPath
+                domPath: ""
                 startTime: 0
-                tag: tag
+                tag: ""
               _firstInputDelay: -0.5854392
               _domInteractive: 0
               _timeToFirstByte: 0
@@ -936,6 +997,8 @@ components:
               onContentLoad: 0
               onLoad: 0
               comment: comment
+            _span_id: _span_id
+            _parent_id: _parent_id
             comment: comment
             id: id
             _verifications:
@@ -956,10 +1019,12 @@ components:
               details: details
             - name: name
               details: details
+          _span_id: _span_id
           browser:
             name: name
             comment: comment
             version: version
+          _trace_id: _trace_id
           comment: comment
           version: version
       properties:
@@ -1024,18 +1089,31 @@ components:
             secure: true
             value: value
         cache:
-          afterRequest: null
+          afterRequest:
+            expires: expires
+            hitCount: 2
+            lastAccess: lastAccess
+            eTag: eTag
+            comment: comment
           comment: comment
-          beforeRequest: null
+          beforeRequest:
+            expires: expires
+            hitCount: 2
+            lastAccess: lastAccess
+            eTag: eTag
+            comment: comment
         _webSocketMessages:
         - data: data
-          time: 0.8851374739011653
+          time: 7.058770351582356
           type: type
-          opcode: 7.143538047012306
+          opcode: 0.8851374739011653
         - data: data
-          time: 0.8851374739011653
+          time: 7.058770351582356
           type: type
-          opcode: 7.143538047012306
+          opcode: 0.8851374739011653
+        serverIPAddress: serverIPAddress
+        _trace_id: _trace_id
+        _span_id: _span_id
         response:
           headers:
           - name: name
@@ -1083,7 +1161,7 @@ components:
             compression: 4
             _videoWaitingCount: 0
           status: 7
-        serverIPAddress: serverIPAddress
+        _parent_id: _parent_id
         timings:
           receive: 0
           wait: 0
@@ -1121,6 +1199,15 @@ components:
           items:
             $ref: '#/components/schemas/WebSocketMessage'
           type: array
+        _span_id:
+          description: W3C Trace Context span ID for this entry
+          type: string
+        _parent_id:
+          description: W3C Trace Context parent span ID (typically the page span ID)
+          type: string
+        _trace_id:
+          description: W3C Trace Context trace ID for distributed tracing
+          type: string
         connection:
           type: string
         comment:
@@ -1141,16 +1228,16 @@ components:
       example:
         startedDateTime: 2000-01-23T04:56:07.000+00:00
         pageTimings:
-          _href: _href
+          _href: ""
           _ssl: 0
           _firstPaint: 0
           _cumulativeLayoutShift: -0.29385987
           _dns: 0
           _largestContentfulPaint:
             size: 0
-            domPath: domPath
+            domPath: ""
             startTime: 0
-            tag: tag
+            tag: ""
           _firstInputDelay: -0.5854392
           _domInteractive: 0
           _timeToFirstByte: 0
@@ -1158,6 +1245,8 @@ components:
           onContentLoad: 0
           onLoad: 0
           comment: comment
+        _span_id: _span_id
+        _parent_id: _parent_id
         comment: comment
         id: id
         _verifications:
@@ -1201,6 +1290,13 @@ components:
           items:
             $ref: '#/components/schemas/Error'
           type: array
+        _span_id:
+          description: W3C Trace Context span ID for this page
+          type: string
+        _parent_id:
+          description: W3C Trace Context parent span ID (typically the HAR log span
+            ID)
+          type: string
         pageTimings:
           $ref: '#/components/schemas/PageTimings'
         comment:
@@ -1211,12 +1307,6 @@ components:
       - startedDateTime
       - title
       type: object
-    MatchCriteria_request_header:
-      allOf:
-      - $ref: '#/components/schemas/NameValuePair'
-      externalDocs:
-        description: Python Regex
-        url: https://docs.python.org/3/howto/regex.html
     Har_log_creator:
       example:
         name: name
@@ -1294,18 +1384,31 @@ components:
               secure: true
               value: value
           cache:
-            afterRequest: null
+            afterRequest:
+              expires: expires
+              hitCount: 2
+              lastAccess: lastAccess
+              eTag: eTag
+              comment: comment
             comment: comment
-            beforeRequest: null
+            beforeRequest:
+              expires: expires
+              hitCount: 2
+              lastAccess: lastAccess
+              eTag: eTag
+              comment: comment
           _webSocketMessages:
           - data: data
-            time: 0.8851374739011653
+            time: 7.058770351582356
             type: type
-            opcode: 7.143538047012306
+            opcode: 0.8851374739011653
           - data: data
-            time: 0.8851374739011653
+            time: 7.058770351582356
             type: type
-            opcode: 7.143538047012306
+            opcode: 0.8851374739011653
+          serverIPAddress: serverIPAddress
+          _trace_id: _trace_id
+          _span_id: _span_id
           response:
             headers:
             - name: name
@@ -1353,7 +1456,7 @@ components:
               compression: 4
               _videoWaitingCount: 0
             status: 7
-          serverIPAddress: serverIPAddress
+          _parent_id: _parent_id
           timings:
             receive: 0
             wait: 0
@@ -1421,18 +1524,31 @@ components:
               secure: true
               value: value
           cache:
-            afterRequest: null
+            afterRequest:
+              expires: expires
+              hitCount: 2
+              lastAccess: lastAccess
+              eTag: eTag
+              comment: comment
             comment: comment
-            beforeRequest: null
+            beforeRequest:
+              expires: expires
+              hitCount: 2
+              lastAccess: lastAccess
+              eTag: eTag
+              comment: comment
           _webSocketMessages:
           - data: data
-            time: 0.8851374739011653
+            time: 7.058770351582356
             type: type
-            opcode: 7.143538047012306
+            opcode: 0.8851374739011653
           - data: data
-            time: 0.8851374739011653
+            time: 7.058770351582356
             type: type
-            opcode: 7.143538047012306
+            opcode: 0.8851374739011653
+          serverIPAddress: serverIPAddress
+          _trace_id: _trace_id
+          _span_id: _span_id
           response:
             headers:
             - name: name
@@ -1480,7 +1596,7 @@ components:
               compression: 4
               _videoWaitingCount: 0
             status: 7
-          serverIPAddress: serverIPAddress
+          _parent_id: _parent_id
           timings:
             receive: 0
             wait: 0
@@ -1497,16 +1613,16 @@ components:
         pages:
         - startedDateTime: 2000-01-23T04:56:07.000+00:00
           pageTimings:
-            _href: _href
+            _href: ""
             _ssl: 0
             _firstPaint: 0
             _cumulativeLayoutShift: -0.29385987
             _dns: 0
             _largestContentfulPaint:
               size: 0
-              domPath: domPath
+              domPath: ""
               startTime: 0
-              tag: tag
+              tag: ""
             _firstInputDelay: -0.5854392
             _domInteractive: 0
             _timeToFirstByte: 0
@@ -1514,6 +1630,8 @@ components:
             onContentLoad: 0
             onLoad: 0
             comment: comment
+          _span_id: _span_id
+          _parent_id: _parent_id
           comment: comment
           id: id
           _verifications:
@@ -1536,16 +1654,16 @@ components:
             details: details
         - startedDateTime: 2000-01-23T04:56:07.000+00:00
           pageTimings:
-            _href: _href
+            _href: ""
             _ssl: 0
             _firstPaint: 0
             _cumulativeLayoutShift: -0.29385987
             _dns: 0
             _largestContentfulPaint:
               size: 0
-              domPath: domPath
+              domPath: ""
               startTime: 0
-              tag: tag
+              tag: ""
             _firstInputDelay: -0.5854392
             _domInteractive: 0
             _timeToFirstByte: 0
@@ -1553,6 +1671,8 @@ components:
             onContentLoad: 0
             onLoad: 0
             comment: comment
+          _span_id: _span_id
+          _parent_id: _parent_id
           comment: comment
           id: id
           _verifications:
@@ -1573,10 +1693,12 @@ components:
             details: details
           - name: name
             details: details
+        _span_id: _span_id
         browser:
           name: name
           comment: comment
           version: version
+        _trace_id: _trace_id
         comment: comment
         version: version
       externalDocs:
@@ -1597,6 +1719,12 @@ components:
           items:
             $ref: '#/components/schemas/HarEntry'
           type: array
+        _trace_id:
+          description: W3C Trace Context trace ID for distributed tracing
+          type: string
+        _span_id:
+          description: W3C Trace Context span ID for this HAR trace root
+          type: string
         comment:
           type: string
       required:
@@ -1947,7 +2075,14 @@ components:
       - status
       - statusText
       type: object
-    HarEntry_cache_beforeRequest_oneOf:
+    HarEntry_cache_beforeRequest:
+      example:
+        expires: expires
+        hitCount: 2
+        lastAccess: lastAccess
+        eTag: eTag
+        comment: comment
+      nullable: true
       properties:
         expires:
           type: string
@@ -1964,15 +2099,21 @@ components:
       - hitCount
       - lastAccess
       type: object
-    HarEntry_cache_beforeRequest:
-      oneOf:
-      - type: "null"
-      - $ref: '#/components/schemas/HarEntry_cache_beforeRequest_oneOf'
     HarEntry_cache:
       example:
-        afterRequest: null
+        afterRequest:
+          expires: expires
+          hitCount: 2
+          lastAccess: lastAccess
+          eTag: eTag
+          comment: comment
         comment: comment
-        beforeRequest: null
+        beforeRequest:
+          expires: expires
+          hitCount: 2
+          lastAccess: lastAccess
+          eTag: eTag
+          comment: comment
       properties:
         beforeRequest:
           $ref: '#/components/schemas/HarEntry_cache_beforeRequest'

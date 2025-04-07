@@ -13,8 +13,9 @@
 
 package com.browserup.proxy_client;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.util.Objects;
-import java.util.Arrays;
 import com.browserup.proxy_client.HarEntry;
 import com.browserup.proxy_client.HarLogCreator;
 import com.browserup.proxy_client.Page;
@@ -25,6 +26,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -37,13 +39,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.browserup.proxy_client.JSON;
@@ -51,173 +55,215 @@ import com.browserup.proxy_client.JSON;
 /**
  * HarLog
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class HarLog {
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
+  @javax.annotation.Nonnull
   private String version;
 
   public static final String SERIALIZED_NAME_CREATOR = "creator";
   @SerializedName(SERIALIZED_NAME_CREATOR)
+  @javax.annotation.Nonnull
   private HarLogCreator creator;
 
   public static final String SERIALIZED_NAME_BROWSER = "browser";
   @SerializedName(SERIALIZED_NAME_BROWSER)
+  @javax.annotation.Nullable
   private HarLogCreator browser;
 
   public static final String SERIALIZED_NAME_PAGES = "pages";
   @SerializedName(SERIALIZED_NAME_PAGES)
+  @javax.annotation.Nonnull
   private List<Page> pages = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_ENTRIES = "entries";
   @SerializedName(SERIALIZED_NAME_ENTRIES)
+  @javax.annotation.Nonnull
   private List<HarEntry> entries = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_TRACE_ID = "_trace_id";
+  @SerializedName(SERIALIZED_NAME_TRACE_ID)
+  @javax.annotation.Nullable
+  private String traceId;
+
+  public static final String SERIALIZED_NAME_SPAN_ID = "_span_id";
+  @SerializedName(SERIALIZED_NAME_SPAN_ID)
+  @javax.annotation.Nullable
+  private String spanId;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private String comment;
 
   public HarLog() {
   }
 
-  public HarLog version(String version) {
-    
+  public HarLog version(@javax.annotation.Nonnull String version) {
     this.version = version;
     return this;
   }
 
-   /**
+  /**
    * Get version
    * @return version
-  **/
+   */
   @javax.annotation.Nonnull
-
   public String getVersion() {
     return version;
   }
 
-
-  public void setVersion(String version) {
+  public void setVersion(@javax.annotation.Nonnull String version) {
     this.version = version;
   }
 
 
-  public HarLog creator(HarLogCreator creator) {
-    
+  public HarLog creator(@javax.annotation.Nonnull HarLogCreator creator) {
     this.creator = creator;
     return this;
   }
 
-   /**
+  /**
    * Get creator
    * @return creator
-  **/
+   */
   @javax.annotation.Nonnull
-
   public HarLogCreator getCreator() {
     return creator;
   }
 
-
-  public void setCreator(HarLogCreator creator) {
+  public void setCreator(@javax.annotation.Nonnull HarLogCreator creator) {
     this.creator = creator;
   }
 
 
-  public HarLog browser(HarLogCreator browser) {
-    
+  public HarLog browser(@javax.annotation.Nullable HarLogCreator browser) {
     this.browser = browser;
     return this;
   }
 
-   /**
+  /**
    * Get browser
    * @return browser
-  **/
+   */
   @javax.annotation.Nullable
-
   public HarLogCreator getBrowser() {
     return browser;
   }
 
-
-  public void setBrowser(HarLogCreator browser) {
+  public void setBrowser(@javax.annotation.Nullable HarLogCreator browser) {
     this.browser = browser;
   }
 
 
-  public HarLog pages(List<Page> pages) {
-    
+  public HarLog pages(@javax.annotation.Nonnull List<Page> pages) {
     this.pages = pages;
     return this;
   }
 
   public HarLog addPagesItem(Page pagesItem) {
+    if (this.pages == null) {
+      this.pages = new ArrayList<>();
+    }
     this.pages.add(pagesItem);
     return this;
   }
 
-   /**
+  /**
    * Get pages
    * @return pages
-  **/
+   */
   @javax.annotation.Nonnull
-
   public List<Page> getPages() {
     return pages;
   }
 
-
-  public void setPages(List<Page> pages) {
+  public void setPages(@javax.annotation.Nonnull List<Page> pages) {
     this.pages = pages;
   }
 
 
-  public HarLog entries(List<HarEntry> entries) {
-    
+  public HarLog entries(@javax.annotation.Nonnull List<HarEntry> entries) {
     this.entries = entries;
     return this;
   }
 
   public HarLog addEntriesItem(HarEntry entriesItem) {
+    if (this.entries == null) {
+      this.entries = new ArrayList<>();
+    }
     this.entries.add(entriesItem);
     return this;
   }
 
-   /**
+  /**
    * Get entries
    * @return entries
-  **/
+   */
   @javax.annotation.Nonnull
-
   public List<HarEntry> getEntries() {
     return entries;
   }
 
-
-  public void setEntries(List<HarEntry> entries) {
+  public void setEntries(@javax.annotation.Nonnull List<HarEntry> entries) {
     this.entries = entries;
   }
 
 
-  public HarLog comment(String comment) {
-    
+  public HarLog traceId(@javax.annotation.Nullable String traceId) {
+    this.traceId = traceId;
+    return this;
+  }
+
+  /**
+   * W3C Trace Context trace ID for distributed tracing
+   * @return traceId
+   */
+  @javax.annotation.Nullable
+  public String getTraceId() {
+    return traceId;
+  }
+
+  public void setTraceId(@javax.annotation.Nullable String traceId) {
+    this.traceId = traceId;
+  }
+
+
+  public HarLog spanId(@javax.annotation.Nullable String spanId) {
+    this.spanId = spanId;
+    return this;
+  }
+
+  /**
+   * W3C Trace Context span ID for this HAR trace root
+   * @return spanId
+   */
+  @javax.annotation.Nullable
+  public String getSpanId() {
+    return spanId;
+  }
+
+  public void setSpanId(@javax.annotation.Nullable String spanId) {
+    this.spanId = spanId;
+  }
+
+
+  public HarLog comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
-
   public String getComment() {
     return comment;
   }
 
-
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
@@ -225,24 +271,12 @@ public class HarLog {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    HarLog harLog = (HarLog) o;
-    return Objects.equals(this.version, harLog.version) &&
-        Objects.equals(this.creator, harLog.creator) &&
-        Objects.equals(this.browser, harLog.browser) &&
-        Objects.equals(this.pages, harLog.pages) &&
-        Objects.equals(this.entries, harLog.entries) &&
-        Objects.equals(this.comment, harLog.comment);
+    return EqualsBuilder.reflectionEquals(this, o, false, null, true);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(version, creator, browser, pages, entries, comment);
+    return HashCodeBuilder.reflectionHashCode(this);
   }
 
   @Override
@@ -254,6 +288,8 @@ public class HarLog {
     sb.append("    browser: ").append(toIndentedString(browser)).append("\n");
     sb.append("    pages: ").append(toIndentedString(pages)).append("\n");
     sb.append("    entries: ").append(toIndentedString(entries)).append("\n");
+    sb.append("    traceId: ").append(toIndentedString(traceId)).append("\n");
+    sb.append("    spanId: ").append(toIndentedString(spanId)).append("\n");
     sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -282,6 +318,8 @@ public class HarLog {
     openapiFields.add("browser");
     openapiFields.add("pages");
     openapiFields.add("entries");
+    openapiFields.add("_trace_id");
+    openapiFields.add("_span_id");
     openapiFields.add("comment");
 
     // a set of required properties/fields (JSON key names)
@@ -292,41 +330,42 @@ public class HarLog {
     openapiRequiredFields.add("entries");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to HarLog
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!HarLog.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to HarLog
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!HarLog.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in HarLog is not found in the empty JSON string", HarLog.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!HarLog.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HarLog` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HarLog` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : HarLog.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("version").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
       }
       // validate the required field `creator`
-      HarLogCreator.validateJsonObject(jsonObj.getAsJsonObject("creator"));
+      HarLogCreator.validateJsonElement(jsonObj.get("creator"));
       // validate the optional field `browser`
       if (jsonObj.get("browser") != null && !jsonObj.get("browser").isJsonNull()) {
-        HarLogCreator.validateJsonObject(jsonObj.getAsJsonObject("browser"));
+        HarLogCreator.validateJsonElement(jsonObj.get("browser"));
       }
       // ensure the required json array is present
       if (jsonObj.get("pages") == null) {
@@ -342,8 +381,14 @@ public class HarLog {
       JsonArray jsonArrayentries = jsonObj.getAsJsonArray("entries");
       // validate the required field `entries` (array)
       for (int i = 0; i < jsonArrayentries.size(); i++) {
-        HarEntry.validateJsonObject(jsonArrayentries.get(i).getAsJsonObject());
+        HarEntry.validateJsonElement(jsonArrayentries.get(i));
       };
+      if ((jsonObj.get("_trace_id") != null && !jsonObj.get("_trace_id").isJsonNull()) && !jsonObj.get("_trace_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `_trace_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_trace_id").toString()));
+      }
+      if ((jsonObj.get("_span_id") != null && !jsonObj.get("_span_id").isJsonNull()) && !jsonObj.get("_span_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `_span_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("_span_id").toString()));
+      }
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
       }
@@ -369,31 +414,31 @@ public class HarLog {
 
            @Override
            public HarLog read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of HarLog given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of HarLog
-  * @throws IOException if the JSON string is invalid with respect to HarLog
-  */
+  /**
+   * Create an instance of HarLog given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of HarLog
+   * @throws IOException if the JSON string is invalid with respect to HarLog
+   */
   public static HarLog fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, HarLog.class);
   }
 
- /**
-  * Convert an instance of HarLog to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of HarLog to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

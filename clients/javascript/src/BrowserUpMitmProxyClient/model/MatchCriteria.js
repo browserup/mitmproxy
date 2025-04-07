@@ -12,7 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
-import MatchCriteriaRequestHeader from './MatchCriteriaRequestHeader';
+import NameValuePair from './NameValuePair';
 
 /**
  * The MatchCriteria model module.
@@ -36,6 +36,7 @@ class MatchCriteria {
      * Only for internal use.
      */
     static initialize(obj) { 
+        obj['error_if_no_traffic'] = true;
     }
 
     /**
@@ -68,16 +69,16 @@ class MatchCriteria {
                 obj['websocket_message'] = ApiClient.convertToType(data['websocket_message'], 'String');
             }
             if (data.hasOwnProperty('request_header')) {
-                obj['request_header'] = MatchCriteriaRequestHeader.constructFromObject(data['request_header']);
+                obj['request_header'] = ApiClient.convertToType(data['request_header'], NameValuePair);
             }
             if (data.hasOwnProperty('request_cookie')) {
-                obj['request_cookie'] = MatchCriteriaRequestHeader.constructFromObject(data['request_cookie']);
+                obj['request_cookie'] = ApiClient.convertToType(data['request_cookie'], NameValuePair);
             }
             if (data.hasOwnProperty('response_header')) {
-                obj['response_header'] = MatchCriteriaRequestHeader.constructFromObject(data['response_header']);
+                obj['response_header'] = ApiClient.convertToType(data['response_header'], NameValuePair);
             }
             if (data.hasOwnProperty('response_cookie')) {
-                obj['response_cookie'] = MatchCriteriaRequestHeader.constructFromObject(data['response_cookie']);
+                obj['response_cookie'] = ApiClient.convertToType(data['response_cookie'], NameValuePair);
             }
             if (data.hasOwnProperty('json_valid')) {
                 obj['json_valid'] = ApiClient.convertToType(data['json_valid'], 'Boolean');
@@ -127,19 +128,19 @@ class MatchCriteria {
         }
         // validate the optional field `request_header`
         if (data['request_header']) { // data not null
-          MatchCriteriaRequestHeader.validateJSON(data['request_header']);
+          NameValuePair.validateJSON(data['request_header']);
         }
         // validate the optional field `request_cookie`
         if (data['request_cookie']) { // data not null
-          MatchCriteriaRequestHeader.validateJSON(data['request_cookie']);
+          NameValuePair.validateJSON(data['request_cookie']);
         }
         // validate the optional field `response_header`
         if (data['response_header']) { // data not null
-          MatchCriteriaRequestHeader.validateJSON(data['response_header']);
+          NameValuePair.validateJSON(data['response_header']);
         }
         // validate the optional field `response_cookie`
         if (data['response_cookie']) { // data not null
-          MatchCriteriaRequestHeader.validateJSON(data['response_cookie']);
+          NameValuePair.validateJSON(data['response_cookie']);
         }
         // ensure the json data is a string
         if (data['json_path'] && !(typeof data['json_path'] === 'string' || data['json_path'] instanceof String)) {
@@ -195,22 +196,22 @@ MatchCriteria.prototype['content_type'] = undefined;
 MatchCriteria.prototype['websocket_message'] = undefined;
 
 /**
- * @member {module:BrowserUpMitmProxyClient/model/MatchCriteriaRequestHeader} request_header
+ * @member {module:BrowserUpMitmProxyClient/model/NameValuePair} request_header
  */
 MatchCriteria.prototype['request_header'] = undefined;
 
 /**
- * @member {module:BrowserUpMitmProxyClient/model/MatchCriteriaRequestHeader} request_cookie
+ * @member {module:BrowserUpMitmProxyClient/model/NameValuePair} request_cookie
  */
 MatchCriteria.prototype['request_cookie'] = undefined;
 
 /**
- * @member {module:BrowserUpMitmProxyClient/model/MatchCriteriaRequestHeader} response_header
+ * @member {module:BrowserUpMitmProxyClient/model/NameValuePair} response_header
  */
 MatchCriteria.prototype['response_header'] = undefined;
 
 /**
- * @member {module:BrowserUpMitmProxyClient/model/MatchCriteriaRequestHeader} response_cookie
+ * @member {module:BrowserUpMitmProxyClient/model/NameValuePair} response_cookie
  */
 MatchCriteria.prototype['response_cookie'] = undefined;
 

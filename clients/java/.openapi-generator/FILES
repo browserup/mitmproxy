@@ -13,7 +13,6 @@ docs/Har.md
 docs/HarEntry.md
 docs/HarEntryCache.md
 docs/HarEntryCacheBeforeRequest.md
-docs/HarEntryCacheBeforeRequestOneOf.md
 docs/HarEntryRequest.md
 docs/HarEntryRequestCookiesInner.md
 docs/HarEntryRequestPostData.md
@@ -27,7 +26,6 @@ docs/HarLogCreator.md
 docs/Header.md
 docs/LargestContentfulPaint.md
 docs/MatchCriteria.md
-docs/MatchCriteriaRequestHeader.md
 docs/Metric.md
 docs/NameValuePair.md
 docs/Page.md
@@ -58,7 +56,6 @@ src/main/java/com/browserup/proxy_client/Har.java
 src/main/java/com/browserup/proxy_client/HarEntry.java
 src/main/java/com/browserup/proxy_client/HarEntryCache.java
 src/main/java/com/browserup/proxy_client/HarEntryCacheBeforeRequest.java
-src/main/java/com/browserup/proxy_client/HarEntryCacheBeforeRequestOneOf.java
 src/main/java/com/browserup/proxy_client/HarEntryRequest.java
 src/main/java/com/browserup/proxy_client/HarEntryRequestCookiesInner.java
 src/main/java/com/browserup/proxy_client/HarEntryRequestPostData.java
@@ -73,7 +70,6 @@ src/main/java/com/browserup/proxy_client/Header.java
 src/main/java/com/browserup/proxy_client/JSON.java
 src/main/java/com/browserup/proxy_client/LargestContentfulPaint.java
 src/main/java/com/browserup/proxy_client/MatchCriteria.java
-src/main/java/com/browserup/proxy_client/MatchCriteriaRequestHeader.java
 src/main/java/com/browserup/proxy_client/Metric.java
 src/main/java/com/browserup/proxy_client/NameValuePair.java
 src/main/java/com/browserup/proxy_client/Page.java
@@ -94,7 +90,6 @@ src/main/java/com/browserup/proxy_client/auth/HttpBearerAuth.java
 src/test/java/com/browserup/proxy/api/BrowserUpProxyApiTest.java
 src/test/java/com/browserup/proxy_client/ActionTest.java
 src/test/java/com/browserup/proxy_client/ErrorTest.java
-src/test/java/com/browserup/proxy_client/HarEntryCacheBeforeRequestOneOfTest.java
 src/test/java/com/browserup/proxy_client/HarEntryCacheBeforeRequestTest.java
 src/test/java/com/browserup/proxy_client/HarEntryCacheTest.java
 src/test/java/com/browserup/proxy_client/HarEntryRequestCookiesInnerTest.java
@@ -111,7 +106,6 @@ src/test/java/com/browserup/proxy_client/HarLogTest.java
 src/test/java/com/browserup/proxy_client/HarTest.java
 src/test/java/com/browserup/proxy_client/HeaderTest.java
 src/test/java/com/browserup/proxy_client/LargestContentfulPaintTest.java
-src/test/java/com/browserup/proxy_client/MatchCriteriaRequestHeaderTest.java
 src/test/java/com/browserup/proxy_client/MatchCriteriaTest.java
 src/test/java/com/browserup/proxy_client/MetricTest.java
 src/test/java/com/browserup/proxy_client/NameValuePairTest.java

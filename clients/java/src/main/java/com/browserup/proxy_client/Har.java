@@ -13,8 +13,9 @@
 
 package com.browserup.proxy_client;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.util.Objects;
-import java.util.Arrays;
 import com.browserup.proxy_client.HarLog;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
@@ -22,6 +23,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -33,13 +35,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.browserup.proxy_client.JSON;
@@ -47,33 +51,31 @@ import com.browserup.proxy_client.JSON;
 /**
  * Har
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class Har {
   public static final String SERIALIZED_NAME_LOG = "log";
   @SerializedName(SERIALIZED_NAME_LOG)
+  @javax.annotation.Nonnull
   private HarLog log;
 
   public Har() {
   }
 
-  public Har log(HarLog log) {
-    
+  public Har log(@javax.annotation.Nonnull HarLog log) {
     this.log = log;
     return this;
   }
 
-   /**
+  /**
    * Get log
    * @return log
-  **/
+   */
   @javax.annotation.Nonnull
-
   public HarLog getLog() {
     return log;
   }
 
-
-  public void setLog(HarLog log) {
+  public void setLog(@javax.annotation.Nonnull HarLog log) {
     this.log = log;
   }
 
@@ -125,20 +127,12 @@ public class Har {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    Har har = (Har) o;
-    return Objects.equals(this.log, har.log)&&
-        Objects.equals(this.additionalProperties, har.additionalProperties);
+    return EqualsBuilder.reflectionEquals(this, o, false, null, true);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(log, additionalProperties);
+    return HashCodeBuilder.reflectionHashCode(this);
   }
 
   @Override
@@ -176,27 +170,28 @@ public class Har {
     openapiRequiredFields.add("log");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Har
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Har.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to Har
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Har.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Har is not found in the empty JSON string", Har.openapiRequiredFields.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Har.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `log`
-      HarLog.validateJsonObject(jsonObj.getAsJsonObject("log"));
+      HarLog.validateJsonElement(jsonObj.get("log"));
   }
 
   public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -227,7 +222,12 @@ public class Har {
                  else if (entry.getValue() instanceof Character)
                    obj.addProperty(entry.getKey(), (Character) entry.getValue());
                  else {
-                   obj.add(entry.getKey(), gson.toJsonTree(entry.getValue()).getAsJsonObject());
+                   JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                   if (jsonElement.isJsonArray()) {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                   } else {
+                     obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                   }
                  }
                }
              }
@@ -236,8 +236,9 @@ public class Har {
 
            @Override
            public Har read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             JsonObject jsonObj = jsonElement.getAsJsonObject();
              // store additional fields in the deserialized instance
              Har instance = thisAdapter.fromJsonTree(jsonObj);
              for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
@@ -265,22 +266,22 @@ public class Har {
     }
   }
 
- /**
-  * Create an instance of Har given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of Har
-  * @throws IOException if the JSON string is invalid with respect to Har
-  */
+  /**
+   * Create an instance of Har given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of Har
+   * @throws IOException if the JSON string is invalid with respect to Har
+   */
   public static Har fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Har.class);
   }
 
- /**
-  * Convert an instance of Har to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of Har to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

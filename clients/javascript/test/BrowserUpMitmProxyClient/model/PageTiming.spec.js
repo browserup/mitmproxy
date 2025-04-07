@@ -126,6 +126,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property spanId (base name: "_span_id")', function() {
+      // uncomment below and update the code to test the property spanId
+      //var instance = new BrowserUpMitmProxyClient.PageTiming();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property parentId (base name: "_parent_id")', function() {
+      // uncomment below and update the code to test the property parentId
+      //var instance = new BrowserUpMitmProxyClient.PageTiming();
+      //expect(instance).to.be();
+    });
+
   });
 
 }));

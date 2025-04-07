@@ -10,6 +10,8 @@
 | **_verifications** | [**Array&lt;VerifyResult&gt;**](VerifyResult.md) |  | [optional] |
 | **_metrics** | [**Array&lt;Metric&gt;**](Metric.md) |  | [optional] |
 | **_errors** | [**Array&lt;Error&gt;**](Error.md) |  | [optional] |
+| **_span_id** | **String** | W3C Trace Context span ID for this page | [optional] |
+| **_parent_id** | **String** | W3C Trace Context parent span ID (typically the HAR log span ID) | [optional] |
 | **page_timings** | [**PageTimings**](PageTimings.md) |  |  |
 | **comment** | **String** |  | [optional] |
 
@@ -25,6 +27,8 @@ instance = BrowserupMitmProxy::Page.new(
   _verifications: null,
   _metrics: null,
   _errors: null,
+  _span_id: null,
+  _parent_id: null,
   page_timings: null,
   comment: null
 )

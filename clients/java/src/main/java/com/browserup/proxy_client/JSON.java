@@ -87,7 +87,7 @@ public class JSON {
         return clazz;
     }
 
-    {
+    static {
         GsonBuilder gsonBuilder = createGson();
         gsonBuilder.registerTypeAdapter(Date.class, dateTypeAdapter);
         gsonBuilder.registerTypeAdapter(java.sql.Date.class, sqlDateTypeAdapter);
@@ -100,7 +100,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.HarEntry.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.HarEntryCache.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.HarEntryCacheBeforeRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.HarEntryCacheBeforeRequestOneOf.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.HarEntryRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.HarEntryRequestCookiesInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.HarEntryRequestPostData.CustomTypeAdapterFactory());
@@ -114,7 +113,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.Header.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.LargestContentfulPaint.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.MatchCriteria.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.MatchCriteriaRequestHeader.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.Metric.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.NameValuePair.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.browserup.proxy_client.Page.CustomTypeAdapterFactory());

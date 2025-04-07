@@ -13,14 +13,16 @@
 
 package com.browserup.proxy_client;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,13 +34,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapterFactory;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import com.browserup.proxy_client.JSON;
@@ -46,222 +50,206 @@ import com.browserup.proxy_client.JSON;
 /**
  * HarEntryTimings
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.12.0")
 public class HarEntryTimings {
   public static final String SERIALIZED_NAME_DNS = "dns";
   @SerializedName(SERIALIZED_NAME_DNS)
+  @javax.annotation.Nonnull
   private Long dns = -1l;
 
   public static final String SERIALIZED_NAME_CONNECT = "connect";
   @SerializedName(SERIALIZED_NAME_CONNECT)
+  @javax.annotation.Nonnull
   private Long connect = -1l;
 
   public static final String SERIALIZED_NAME_BLOCKED = "blocked";
   @SerializedName(SERIALIZED_NAME_BLOCKED)
+  @javax.annotation.Nonnull
   private Long blocked = -1l;
 
   public static final String SERIALIZED_NAME_SEND = "send";
   @SerializedName(SERIALIZED_NAME_SEND)
+  @javax.annotation.Nonnull
   private Long send = -1l;
 
   public static final String SERIALIZED_NAME_WAIT = "wait";
   @SerializedName(SERIALIZED_NAME_WAIT)
+  @javax.annotation.Nonnull
   private Long wait = -1l;
 
   public static final String SERIALIZED_NAME_RECEIVE = "receive";
   @SerializedName(SERIALIZED_NAME_RECEIVE)
+  @javax.annotation.Nonnull
   private Long receive = -1l;
 
   public static final String SERIALIZED_NAME_SSL = "ssl";
   @SerializedName(SERIALIZED_NAME_SSL)
+  @javax.annotation.Nonnull
   private Long ssl = -1l;
 
   public static final String SERIALIZED_NAME_COMMENT = "comment";
   @SerializedName(SERIALIZED_NAME_COMMENT)
+  @javax.annotation.Nullable
   private String comment;
 
   public HarEntryTimings() {
   }
 
-  public HarEntryTimings dns(Long dns) {
-    
+  public HarEntryTimings dns(@javax.annotation.Nonnull Long dns) {
     this.dns = dns;
     return this;
   }
 
-   /**
+  /**
    * Get dns
    * minimum: -1
    * @return dns
-  **/
+   */
   @javax.annotation.Nonnull
-
   public Long getDns() {
     return dns;
   }
 
-
-  public void setDns(Long dns) {
+  public void setDns(@javax.annotation.Nonnull Long dns) {
     this.dns = dns;
   }
 
 
-  public HarEntryTimings connect(Long connect) {
-    
+  public HarEntryTimings connect(@javax.annotation.Nonnull Long connect) {
     this.connect = connect;
     return this;
   }
 
-   /**
+  /**
    * Get connect
    * minimum: -1
    * @return connect
-  **/
+   */
   @javax.annotation.Nonnull
-
   public Long getConnect() {
     return connect;
   }
 
-
-  public void setConnect(Long connect) {
+  public void setConnect(@javax.annotation.Nonnull Long connect) {
     this.connect = connect;
   }
 
 
-  public HarEntryTimings blocked(Long blocked) {
-    
+  public HarEntryTimings blocked(@javax.annotation.Nonnull Long blocked) {
     this.blocked = blocked;
     return this;
   }
 
-   /**
+  /**
    * Get blocked
    * minimum: -1
    * @return blocked
-  **/
+   */
   @javax.annotation.Nonnull
-
   public Long getBlocked() {
     return blocked;
   }
 
-
-  public void setBlocked(Long blocked) {
+  public void setBlocked(@javax.annotation.Nonnull Long blocked) {
     this.blocked = blocked;
   }
 
 
-  public HarEntryTimings send(Long send) {
-    
+  public HarEntryTimings send(@javax.annotation.Nonnull Long send) {
     this.send = send;
     return this;
   }
 
-   /**
+  /**
    * Get send
    * minimum: -1
    * @return send
-  **/
+   */
   @javax.annotation.Nonnull
-
   public Long getSend() {
     return send;
   }
 
-
-  public void setSend(Long send) {
+  public void setSend(@javax.annotation.Nonnull Long send) {
     this.send = send;
   }
 
 
-  public HarEntryTimings wait(Long wait) {
-    
+  public HarEntryTimings wait(@javax.annotation.Nonnull Long wait) {
     this.wait = wait;
     return this;
   }
 
-   /**
+  /**
    * Get wait
    * minimum: -1
    * @return wait
-  **/
+   */
   @javax.annotation.Nonnull
-
   public Long getWait() {
     return wait;
   }
 
-
-  public void setWait(Long wait) {
+  public void setWait(@javax.annotation.Nonnull Long wait) {
     this.wait = wait;
   }
 
 
-  public HarEntryTimings receive(Long receive) {
-    
+  public HarEntryTimings receive(@javax.annotation.Nonnull Long receive) {
     this.receive = receive;
     return this;
   }
 
-   /**
+  /**
    * Get receive
    * minimum: -1
    * @return receive
-  **/
+   */
   @javax.annotation.Nonnull
-
   public Long getReceive() {
     return receive;
   }
 
-
-  public void setReceive(Long receive) {
+  public void setReceive(@javax.annotation.Nonnull Long receive) {
     this.receive = receive;
   }
 
 
-  public HarEntryTimings ssl(Long ssl) {
-    
+  public HarEntryTimings ssl(@javax.annotation.Nonnull Long ssl) {
     this.ssl = ssl;
     return this;
   }
 
-   /**
+  /**
    * Get ssl
    * minimum: -1
    * @return ssl
-  **/
+   */
   @javax.annotation.Nonnull
-
   public Long getSsl() {
     return ssl;
   }
 
-
-  public void setSsl(Long ssl) {
+  public void setSsl(@javax.annotation.Nonnull Long ssl) {
     this.ssl = ssl;
   }
 
 
-  public HarEntryTimings comment(String comment) {
-    
+  public HarEntryTimings comment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
     return this;
   }
 
-   /**
+  /**
    * Get comment
    * @return comment
-  **/
+   */
   @javax.annotation.Nullable
-
   public String getComment() {
     return comment;
   }
 
-
-  public void setComment(String comment) {
+  public void setComment(@javax.annotation.Nullable String comment) {
     this.comment = comment;
   }
 
@@ -269,26 +257,12 @@ public class HarEntryTimings {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    HarEntryTimings harEntryTimings = (HarEntryTimings) o;
-    return Objects.equals(this.dns, harEntryTimings.dns) &&
-        Objects.equals(this.connect, harEntryTimings.connect) &&
-        Objects.equals(this.blocked, harEntryTimings.blocked) &&
-        Objects.equals(this.send, harEntryTimings.send) &&
-        Objects.equals(this.wait, harEntryTimings.wait) &&
-        Objects.equals(this.receive, harEntryTimings.receive) &&
-        Objects.equals(this.ssl, harEntryTimings.ssl) &&
-        Objects.equals(this.comment, harEntryTimings.comment);
+    return EqualsBuilder.reflectionEquals(this, o, false, null, true);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dns, connect, blocked, send, wait, receive, ssl, comment);
+    return HashCodeBuilder.reflectionHashCode(this);
   }
 
   @Override
@@ -345,33 +319,34 @@ public class HarEntryTimings {
     openapiRequiredFields.add("ssl");
   }
 
- /**
-  * Validates the JSON Object and throws an exception if issues found
-  *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to HarEntryTimings
-  */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!HarEntryTimings.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  /**
+   * Validates the JSON Element and throws an exception if issues found
+   *
+   * @param jsonElement JSON Element
+   * @throws IOException if the JSON Element is invalid with respect to HarEntryTimings
+   */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!HarEntryTimings.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in HarEntryTimings is not found in the empty JSON string", HarEntryTimings.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!HarEntryTimings.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HarEntryTimings` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HarEntryTimings` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : HarEntryTimings.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("comment") != null && !jsonObj.get("comment").isJsonNull()) && !jsonObj.get("comment").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `comment` to be a primitive type in the JSON string but got `%s`", jsonObj.get("comment").toString()));
       }
@@ -397,31 +372,31 @@ public class HarEntryTimings {
 
            @Override
            public HarEntryTimings read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();
     }
   }
 
- /**
-  * Create an instance of HarEntryTimings given an JSON string
-  *
-  * @param jsonString JSON string
-  * @return An instance of HarEntryTimings
-  * @throws IOException if the JSON string is invalid with respect to HarEntryTimings
-  */
+  /**
+   * Create an instance of HarEntryTimings given an JSON string
+   *
+   * @param jsonString JSON string
+   * @return An instance of HarEntryTimings
+   * @throws IOException if the JSON string is invalid with respect to HarEntryTimings
+   */
   public static HarEntryTimings fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, HarEntryTimings.class);
   }
 
- /**
-  * Convert an instance of HarEntryTimings to an JSON string
-  *
-  * @return JSON string
-  */
+  /**
+   * Convert an instance of HarEntryTimings to an JSON string
+   *
+   * @return JSON string
+   */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

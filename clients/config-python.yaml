@@ -6,7 +6,8 @@ infoName: BrowserUp, Inc.
 packageVersion: "1.0.1"
 
 packageUrl: https://github.com/browserup/mitmproxy
-
+  
+enablePostProcessFile: true
 
 templateDir: python-overlay
 files:

@@ -13,6 +13,9 @@
 | **timings** | [**HarEntryTimings**](HarEntryTimings.md) |  |  |
 | **server_ip_address** | **String** |  | [optional] |
 | **_web_socket_messages** | [**Array&lt;WebSocketMessage&gt;**](WebSocketMessage.md) |  | [optional] |
+| **_span_id** | **String** | W3C Trace Context span ID for this entry | [optional] |
+| **_parent_id** | **String** | W3C Trace Context parent span ID (typically the page span ID) | [optional] |
+| **_trace_id** | **String** | W3C Trace Context trace ID for distributed tracing | [optional] |
 | **connection** | **String** |  | [optional] |
 | **comment** | **String** |  | [optional] |
 
@@ -31,6 +34,9 @@ instance = BrowserupMitmProxy::HarEntry.new(
   timings: null,
   server_ip_address: null,
   _web_socket_messages: null,
+  _span_id: null,
+  _parent_id: null,
+  _trace_id: null,
   connection: null,
   comment: null
 )

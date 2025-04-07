@@ -84,6 +84,18 @@
       //expect(instance).to.be();
     });
 
+    it('should have the property traceId (base name: "_trace_id")', function() {
+      // uncomment below and update the code to test the property traceId
+      //var instance = new BrowserUpMitmProxyClient.HarLog();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property spanId (base name: "_span_id")', function() {
+      // uncomment below and update the code to test the property spanId
+      //var instance = new BrowserUpMitmProxyClient.HarLog();
+      //expect(instance).to.be();
+    });
+
     it('should have the property comment (base name: "comment")', function() {
       // uncomment below and update the code to test the property comment
       //var instance = new BrowserUpMitmProxyClient.HarLog();

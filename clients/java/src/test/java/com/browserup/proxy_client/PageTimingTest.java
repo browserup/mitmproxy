@@ -20,9 +20,9 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
 
 /**
  * Model tests for PageTiming
@@ -132,6 +132,22 @@ public class PageTimingTest {
     @Test
     public void hrefTest() {
         // TODO: test href
+    }
+
+    /**
+     * Test the property 'spanId'
+     */
+    @Test
+    public void spanIdTest() {
+        // TODO: test spanId
+    }
+
+    /**
+     * Test the property 'parentId'
+     */
+    @Test
+    public void parentIdTest() {
+        // TODO: test parentId
     }
 
 }

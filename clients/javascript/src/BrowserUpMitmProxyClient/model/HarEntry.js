@@ -91,6 +91,15 @@ class HarEntry {
             if (data.hasOwnProperty('_webSocketMessages')) {
                 obj['_webSocketMessages'] = ApiClient.convertToType(data['_webSocketMessages'], [WebSocketMessage]);
             }
+            if (data.hasOwnProperty('_span_id')) {
+                obj['_span_id'] = ApiClient.convertToType(data['_span_id'], 'String');
+            }
+            if (data.hasOwnProperty('_parent_id')) {
+                obj['_parent_id'] = ApiClient.convertToType(data['_parent_id'], 'String');
+            }
+            if (data.hasOwnProperty('_trace_id')) {
+                obj['_trace_id'] = ApiClient.convertToType(data['_trace_id'], 'String');
+            }
             if (data.hasOwnProperty('connection')) {
                 obj['connection'] = ApiClient.convertToType(data['connection'], 'String');
             }
@@ -109,7 +118,7 @@ class HarEntry {
     static validateJSON(data) {
         // check to make sure all required properties are present in the JSON string
         for (const property of HarEntry.RequiredProperties) {
-            if (!data[property]) {
+            if (!data.hasOwnProperty(property)) {
                 throw new Error("The required field `" + property + "` is not found in the JSON data: " + JSON.stringify(data));
             }
         }
@@ -138,6 +147,18 @@ class HarEntry {
             for (const item of data['_webSocketMessages']) {
                 WebSocketMessage.validateJSON(item);
             };
+        }
+        // ensure the json data is a string
+        if (data['_span_id'] && !(typeof data['_span_id'] === 'string' || data['_span_id'] instanceof String)) {
+            throw new Error("Expected the field `_span_id` to be a primitive type in the JSON string but got " + data['_span_id']);
+        }
+        // ensure the json data is a string
+        if (data['_parent_id'] && !(typeof data['_parent_id'] === 'string' || data['_parent_id'] instanceof String)) {
+            throw new Error("Expected the field `_parent_id` to be a primitive type in the JSON string but got " + data['_parent_id']);
+        }
+        // ensure the json data is a string
+        if (data['_trace_id'] && !(typeof data['_trace_id'] === 'string' || data['_trace_id'] instanceof String)) {
+            throw new Error("Expected the field `_trace_id` to be a primitive type in the JSON string but got " + data['_trace_id']);
         }
         // ensure the json data is a string
         if (data['connection'] && !(typeof data['connection'] === 'string' || data['connection'] instanceof String)) {
@@ -200,6 +221,24 @@ HarEntry.prototype['serverIPAddress'] = undefined;
  * @member {Array.<module:BrowserUpMitmProxyClient/model/WebSocketMessage>} _webSocketMessages
  */
 HarEntry.prototype['_webSocketMessages'] = undefined;
+
+/**
+ * W3C Trace Context span ID for this entry
+ * @member {String} _span_id
+ */
+HarEntry.prototype['_span_id'] = undefined;
+
+/**
+ * W3C Trace Context parent span ID (typically the page span ID)
+ * @member {String} _parent_id
+ */
+HarEntry.prototype['_parent_id'] = undefined;
+
+/**
+ * W3C Trace Context trace ID for distributed tracing
+ * @member {String} _trace_id
+ */
+HarEntry.prototype['_trace_id'] = undefined;
 
 /**
  * @member {String} connection

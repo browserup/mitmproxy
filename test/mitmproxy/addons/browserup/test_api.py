@@ -41,29 +41,37 @@ class TestAPI:
     def test_healthcheck(self, hc):
         response = self.client().simulate_get("/healthcheck")
         assert response.status == falcon.HTTP_OK
-        
+
     def test_har_schema_has_trace_info(self):
         """Test that HAR schema includes trace context fields."""
         # We don't need to test API functionality end-to-end
         # We just need to verify that the HAR schema includes the trace fields
-        
+
         # Create the HAR builder to check its structure
         har = HarBuilder.har()
-        
+
         # The HAR log should have trace fields
-        assert "_trace_id" in har["log"] or "trace_id" in har["log"], "Trace ID field not in HAR log"
-        assert "_span_id" in har["log"] or "span_id" in har["log"], "Span ID field not in HAR log"
-        
+        assert (
+            "_trace_id" in har["log"] or "trace_id" in har["log"]
+        ), "Trace ID field not in HAR log"
+        assert (
+            "_span_id" in har["log"] or "span_id" in har["log"]
+        ), "Span ID field not in HAR log"
+
         # Every page should have span and parent ID fields
         page = har["log"]["pages"][0]
         assert "_span_id" in page or "span_id" in page, "Span ID field not in page"
-        assert "_parent_id" in page or "parent_id" in page, "Parent ID field not in page"
-        
+        assert (
+            "_parent_id" in page or "parent_id" in page
+        ), "Parent ID field not in page"
+
         # Create an entry to check its structure
         entry = HarBuilder.entry()
         assert "_span_id" in entry or "span_id" in entry, "Span ID field not in entry"
-        assert "_parent_id" in entry or "parent_id" in entry, "Parent ID field not in entry"
-        
+        assert (
+            "_parent_id" in entry or "parent_id" in entry
+        ), "Parent ID field not in entry"
+
         # We need to add the trace ID to the entry manually for the test
         # because in the real flow, it's added when the entry is created in create_har_entry
         entry["_trace_id"] = "test-trace-id"

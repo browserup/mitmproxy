@@ -36,7 +36,7 @@ class HarBuilder:
             "startedDateTime": str(datetime.now(tz=timezone.utc).isoformat()),
             "pageTimings": HarBuilder.page_timings(),
             "_span_id": span_id,  # Unique span ID for this page
-            "_parent_id": None,   # Will be set to HAR root span when page is added
+            "_parent_id": None,  # Will be set to HAR root span when page is added
         }
 
     @staticmethod
@@ -121,5 +121,5 @@ class HarBuilder:
             "connection": "",
             "comment": "",
             "_span_id": span_id,  # Unique span ID for this entry
-            "_parent_id": None,   # Will be set to parent page's span ID
+            "_parent_id": None,  # Will be set to parent page's span ID
         }

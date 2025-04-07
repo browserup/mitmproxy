@@ -1,7 +1,8 @@
 # browserup-mitmproxy-client
 
 BrowserUp MitmProxy
-- API version: 1.24
+- API version: 1.25
+  - Generator version: 7.12.0
 
 ___
 This is the REST API for controlling the BrowserUp MitmProxy.
@@ -87,7 +88,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 import com.browserup.proxy_client.ApiClient;
 import com.browserup.proxy_client.ApiException;
 import com.browserup.proxy_client.Configuration;
-import com.browserup.proxy_client.models.*;
+import com.browserup.proxy_client.*;
 import com.browserup.proxy.api.BrowserUpProxyApi;
 
 public class Example {
@@ -137,7 +138,6 @@ Class | Method | HTTP request | Description
  - [HarEntry](docs/HarEntry.md)
  - [HarEntryCache](docs/HarEntryCache.md)
  - [HarEntryCacheBeforeRequest](docs/HarEntryCacheBeforeRequest.md)
- - [HarEntryCacheBeforeRequestOneOf](docs/HarEntryCacheBeforeRequestOneOf.md)
  - [HarEntryRequest](docs/HarEntryRequest.md)
  - [HarEntryRequestCookiesInner](docs/HarEntryRequestCookiesInner.md)
  - [HarEntryRequestPostData](docs/HarEntryRequestPostData.md)
@@ -151,7 +151,6 @@ Class | Method | HTTP request | Description
  - [Header](docs/Header.md)
  - [LargestContentfulPaint](docs/LargestContentfulPaint.md)
  - [MatchCriteria](docs/MatchCriteria.md)
- - [MatchCriteriaRequestHeader](docs/MatchCriteriaRequestHeader.md)
  - [Metric](docs/Metric.md)
  - [NameValuePair](docs/NameValuePair.md)
  - [Page](docs/Page.md)
@@ -161,10 +160,11 @@ Class | Method | HTTP request | Description
  - [WebSocketMessage](docs/WebSocketMessage.md)
 
 
+<a id="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-All endpoints do not require authorization.
-Authentication schemes defined for the API:
+Endpoints do not require authorization.
+
 
 ## Recommendation
 

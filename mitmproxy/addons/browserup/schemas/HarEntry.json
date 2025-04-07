@@ -447,6 +447,18 @@
         "$ref": "#/components/schemas/WebSocketMessage"
       }
     },
+    "_span_id": {
+      "type": "string",
+      "description": "W3C Trace Context span ID for this entry"
+    },
+    "_parent_id": {
+      "type": "string",
+      "description": "W3C Trace Context parent span ID (typically the page span ID)"
+    },
+    "_trace_id": {
+      "type": "string",
+      "description": "W3C Trace Context trace ID for distributed tracing"
+    },
     "connection": {
       "type": "string"
     },

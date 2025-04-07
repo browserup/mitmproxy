@@ -39,6 +39,14 @@
       },
       "default": []
     },
+    "_span_id": {
+      "type": "string",
+      "description": "W3C Trace Context span ID for this page"
+    },
+    "_parent_id": {
+      "type": "string",
+      "description": "W3C Trace Context parent span ID (typically the HAR log span ID)"
+    },
     "pageTimings": {
       "$ref": "#/components/schemas/PageTimings"
     },

@@ -4,18 +4,20 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **on_content_load** | **Float** | onContentLoad per the browser | [optional] |
-| **on_load** | **Float** | onLoad per the browser | [optional] |
-| **_first_input_delay** | **Float** | firstInputDelay from the browser | [optional] |
-| **_first_paint** | **Float** | firstPaint from the browser | [optional] |
-| **_cumulative_layout_shift** | **Float** | cumulativeLayoutShift metric from the browser | [optional] |
-| **_largest_contentful_paint** | **Float** | largestContentfulPaint from the browser | [optional] |
-| **_dom_interactive** | **Float** | domInteractive from the browser | [optional] |
-| **_first_contentful_paint** | **Float** | firstContentfulPaint from the browser | [optional] |
-| **_dns** | **Float** | dns lookup time from the browser | [optional] |
-| **_ssl** | **Float** | Ssl connect time from the browser | [optional] |
-| **_time_to_first_byte** | **Float** | Time to first byte of the page&#39;s first request per the browser | [optional] |
+| **on_content_load** | **Integer** | onContentLoad per the browser | [optional] |
+| **on_load** | **Integer** | onLoad per the browser | [optional] |
+| **_first_input_delay** | **Integer** | firstInputDelay from the browser | [optional] |
+| **_first_paint** | **Integer** | firstPaint from the browser | [optional] |
+| **_cumulative_layout_shift** | **Integer** | cumulativeLayoutShift metric from the browser | [optional] |
+| **_largest_contentful_paint** | **Integer** | largestContentfulPaint from the browser | [optional] |
+| **_dom_interactive** | **Integer** | domInteractive from the browser | [optional] |
+| **_first_contentful_paint** | **Integer** | firstContentfulPaint from the browser | [optional] |
+| **_dns** | **Integer** | dns lookup time from the browser | [optional] |
+| **_ssl** | **Integer** | Ssl connect time from the browser | [optional] |
+| **_time_to_first_byte** | **Integer** | Time to first byte of the page&#39;s first request per the browser | [optional] |
 | **_href** | **String** | Top level href, including hashtag, etc per the browser | [optional] |
+| **_span_id** | **String** | W3C Trace Context span ID for this page | [optional] |
+| **_parent_id** | **String** | W3C Trace Context parent span ID (typically the HAR log span ID) | [optional] |
 
 ## Example
 
@@ -34,7 +36,9 @@ instance = BrowserupMitmProxy::PageTiming.new(
   _dns: null,
   _ssl: null,
   _time_to_first_byte: null,
-  _href: null
+  _href: null,
+  _span_id: null,
+  _parent_id: null
 )
 ```
 

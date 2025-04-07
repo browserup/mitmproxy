@@ -25,7 +25,7 @@
       "url": "logo.png"
     },
     "title": "BrowserUp MitmProxy",
-    "version": "1.24"
+    "version": "1.25"
   },
   "paths": {
     "/har": {
@@ -387,52 +387,60 @@
         "type": "object",
         "properties": {
           "onContentLoad": {
-            "type": "number",
+            "type": "integer",
             "description": "onContentLoad per the browser"
           },
           "onLoad": {
-            "type": "number",
+            "type": "integer",
             "description": "onLoad per the browser"
           },
           "_firstInputDelay": {
-            "type": "number",
+            "type": "integer",
             "description": "firstInputDelay from the browser"
           },
           "_firstPaint": {
-            "type": "number",
+            "type": "integer",
             "description": "firstPaint from the browser"
           },
           "_cumulativeLayoutShift": {
-            "type": "number",
+            "type": "integer",
             "description": "cumulativeLayoutShift metric from the browser"
           },
           "_largestContentfulPaint": {
-            "type": "number",
+            "type": "integer",
             "description": "largestContentfulPaint from the browser"
           },
           "_domInteractive": {
-            "type": "number",
+            "type": "integer",
             "description": "domInteractive from the browser"
           },
           "_firstContentfulPaint": {
-            "type": "number",
+            "type": "integer",
             "description": "firstContentfulPaint from the browser"
           },
           "_dns": {
-            "type": "number",
+            "type": "integer",
             "description": "dns lookup time from the browser"
           },
           "_ssl": {
-            "type": "number",
+            "type": "integer",
             "description": "Ssl connect time from the browser"
           },
           "_timeToFirstByte": {
-            "type": "number",
+            "type": "integer",
             "description": "Time to first byte of the page's first request per the browser"
           },
           "_href": {
             "type": "string",
             "description": "Top level href, including hashtag, etc per the browser"
+          },
+          "_span_id": {
+            "type": "string",
+            "description": "W3C Trace Context span ID for this page"
+          },
+          "_parent_id": {
+            "type": "string",
+            "description": "W3C Trace Context parent span ID (typically the HAR log span ID)"
           }
         }
       },
@@ -602,7 +610,7 @@
             "description": "Name of Custom Metric to add to the page under _metrics"
           },
           "value": {
-            "type": "number",
+            "type": "integer",
             "format": "double",
             "description": "Value for the metric"
           }
@@ -855,6 +863,14 @@
                 "items": {
                   "$ref": "#/components/schemas/HarEntry"
                 }
+              },
+              "_trace_id": {
+                "type": "string",
+                "description": "W3C Trace Context trace ID for distributed tracing"
+              },
+              "_span_id": {
+                "type": "string",
+                "description": "W3C Trace Context span ID for this HAR trace root"
               },
               "comment": {
                 "type": "string"
@@ -1314,6 +1330,18 @@
               "$ref": "#/components/schemas/WebSocketMessage"
             }
           },
+          "_span_id": {
+            "type": "string",
+            "description": "W3C Trace Context span ID for this entry"
+          },
+          "_parent_id": {
+            "type": "string",
+            "description": "W3C Trace Context parent span ID (typically the page span ID)"
+          },
+          "_trace_id": {
+            "type": "string",
+            "description": "W3C Trace Context trace ID for distributed tracing"
+          },
           "connection": {
             "type": "string"
           },
@@ -1366,6 +1394,14 @@
               "$ref": "#/components/schemas/Error"
             },
             "default": []
+          },
+          "_span_id": {
+            "type": "string",
+            "description": "W3C Trace Context span ID for this page"
+          },
+          "_parent_id": {
+            "type": "string",
+            "description": "W3C Trace Context parent span ID (typically the HAR log span ID)"
           },
           "pageTimings": {
             "$ref": "#/components/schemas/PageTimings"

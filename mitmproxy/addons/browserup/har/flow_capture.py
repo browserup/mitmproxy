@@ -48,6 +48,125 @@ STATIC_MIME_TYPES = {
 
 
 class FlowCaptureMixin(object):
+    def is_browser_user_agent(self, user_agent):
+        """Check if User-Agent looks like a browser based on the specified regex pattern"""
+        if not user_agent:
+            return False
+
+        import re
+
+        pattern = re.compile(
+            r"Mozilla|Chrome|Firefox|Safari|Edge|Gecko|WebKit|Ladybird|Lightpanda",
+            re.IGNORECASE,
+        )
+        return bool(pattern.search(user_agent))
+
+    def is_first_request_in_page(self, flow):
+        """Check if this is the first request for the current page"""
+        page = self.get_or_create_current_page()
+        page_entries = self.entries_for_page(page["id"])
+
+        # This could be the first request for this page
+        is_first = len(page_entries) == 0 or (
+            len(page_entries) == 1
+            and page_entries[0]["request"]["url"] == self.get_full_url(flow.request)
+        )
+
+        return is_first
+
+    def is_html_content_type(self, flow):
+        """Check if response content type is HTML"""
+        content_type = (
+            flow.response.headers.get("Content-Type", "") if flow.response else ""
+        )
+        return "text/html" in content_type.lower()
+
+    def decorate_request_with_trace_headers(self, flow):
+        """Add or update W3C trace context headers for distributed tracing"""
+        har_entry = flow.get_har_entry()
+
+        # Get the IDs from HAR entry
+        trace_id = har_entry.get("_trace_id")
+        span_id = har_entry.get("_span_id")
+
+        # Skip if we don't have proper IDs
+        if not trace_id or not span_id:
+            logging.debug("No trace info available for request")
+            return
+
+        # Check if this is the first request in a page and has a browser user-agent
+        if self.is_first_request_in_page(flow):
+            user_agent = flow.request.headers.get("User-Agent", "")
+            is_browser = self.is_browser_user_agent(user_agent)
+
+            if is_browser:
+                # Mark as potential browser root - will be confirmed when response comes in
+                har_entry["_potential_browser_root"] = True
+                logging.debug(
+                    f"Potential browser root request detected: {flow.request.url}"
+                )
+
+        # Check if traceparent header already exists
+        existing_traceparent = flow.request.headers.get("traceparent")
+        if existing_traceparent:
+            # Parse the existing traceparent header
+            parts = existing_traceparent.split("-")
+            if len(parts) == 4:
+                # Extract trace ID and flags from the existing header
+                existing_trace_id = parts[1]
+                trace_flags = parts[3]
+
+                # Update the HAR entry with the existing trace ID
+                har_entry["_trace_id"] = existing_trace_id
+
+                # Use the existing trace ID, but with the HAR entry's span ID
+                traceparent = f"{parts[0]}-{existing_trace_id}-{span_id}-{trace_flags}"
+                flow.request.headers["traceparent"] = traceparent
+                logging.debug(f"Updated existing traceparent header: {traceparent}")
+            else:
+                # Invalid format, create a new traceparent
+                traceparent = f"00-{trace_id}-{span_id}-01"
+                flow.request.headers["traceparent"] = traceparent
+                logging.debug(f"Replaced invalid traceparent header: {traceparent}")
+        else:
+            # No existing header, create a new one
+            # Format: version-traceid-spanid-traceflags
+            # Using version 00 and traceflags 01 (sampled)
+            traceparent = f"00-{trace_id}-{span_id}-01"
+            flow.request.headers["traceparent"] = traceparent
+            logging.debug(f"Added traceparent header: {traceparent}")
+
+        # Handle tracestate according to W3C spec
+        # The spec says new vendors should add their entry to the left of any existing entries
+        vendor_name = "browserup"
+
+        # Get existing tracestate
+        existing_tracestate = flow.request.headers.get("tracestate", "")
+
+        # Add our entry to tracestate
+        # Use span_id as our vendor-specific value
+        new_entry = f"{vendor_name}={span_id}"
+
+        if existing_tracestate:
+            # Parse existing entries, remove our vendor if it exists already
+            entries = [entry.strip() for entry in existing_tracestate.split(",")]
+            entries = [
+                entry for entry in entries if not entry.startswith(f"{vendor_name}=")
+            ]
+
+            # Add our entry to the left (at the beginning)
+            entries.insert(0, new_entry)
+
+            # Join with commas and update the header
+            # Limit to 32 entries per spec (the newest 32)
+            updated_tracestate = ",".join(entries[:32])
+            flow.request.headers["tracestate"] = updated_tracestate
+            logging.debug(f"Updated tracestate header: {updated_tracestate}")
+        else:
+            # No existing tracestate, just add ours
+            flow.request.headers["tracestate"] = new_entry
+            logging.debug(f"Added tracestate header: {new_entry}")
+
     def capture_request(self, flow):
         full_url = self.get_full_url(flow.request)
         if "BrowserUpData" in full_url or "detectportal.firefox.com" in full_url:
@@ -56,6 +175,7 @@ class FlowCaptureMixin(object):
 
         logging.info("Populating har entry for request: {}".format(full_url))
 
+        # First get the HAR entry - this creates it with the trace info
         har_entry = flow.get_har_entry()
 
         har_entry["startedDateTime"] = datetime.fromtimestamp(
@@ -187,6 +307,35 @@ class FlowCaptureMixin(object):
         content["size"] = response_body_size
         content["compression"] = response_body_compression
         content["mimeType"] = flow.response.headers.get("Content-Type", "")
+
+        # Check if this is a confirmed browser-based HTML response
+        content_type = flow.response.headers.get("Content-Type", "").lower()
+        is_html = "text/html" in content_type
+
+        # If this was marked as a potential browser root request and it's HTML,
+        # confirm it as a browser root for parent/child relationships
+        if har_entry.get("_potential_browser_root") and is_html:
+            har_entry["_browser_root"] = True
+            har_entry.pop("_potential_browser_root", None)
+            logging.info(f"Confirmed browser root request: {flow.request.url}")
+
+            # Set parent to page span id since this is main HTML request
+            page = self.get_or_create_current_page()
+            har_entry["_parent_id"] = page["_span_id"]
+        elif not har_entry.get("_browser_root"):
+            # For non-root requests, check if there's a browser root in this page to set as parent
+            page = self.get_or_create_current_page()
+            page_entries = self.entries_for_page(page["id"])
+
+            for entry in page_entries:
+                if (
+                    entry.get("_browser_root")
+                    and entry["_span_id"] != har_entry["_span_id"]
+                ):
+                    # Set parent to browser root span instead of page span
+                    har_entry["_parent_id"] = entry["_span_id"]
+                    logging.debug(f"Set parent of {flow.request.url} to browser root")
+                    break
 
         if HarCaptureTypes.RESPONSE_DYNAMIC_CONTENT in self.har_capture_types:
             mime_type = (

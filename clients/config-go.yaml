@@ -1,0 +1,14 @@
+# Config file for OpenAPI Generator Go client
+
+# The package name for the generated code.
+# In Go, package names should be all lower case without special characters.
+packageName: browserupmitmproxyclient
+
+# (Optional) Module name for the Go module (go.mod).
+moduleName: BrowserUpMitmProxyClient
+
+# Project metadata
+projectName: browserup-mitmproxy-client
+projectVersion: 1.0.0
+projectDescription: "REST client for the BrowserUp Proxy"
+licenseName: MIT

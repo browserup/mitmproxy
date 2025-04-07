@@ -42,12 +42,46 @@ class HarManagerMixin:
 
     def new_har(self):
         self.har = HarBuilder.har()
+        # Set the parent ID for the first page to the root span
+        if len(self.har["log"]["pages"]) > 0 and "_span_id" in self.har["log"]:
+            self.har["log"]["pages"][0]["_parent_id"] = self.har["log"]["_span_id"]
 
     def create_har_entry(self, flow):
         har = self.get_or_create_har()
         page = self.get_or_create_current_page()
         pageref = page["id"]
         entry = HarBuilder.entry(pageref)
+
+        # By default, set parent span ID to the page's span ID
+        # This may be overridden later for browser-based HAR entries
+        entry["_parent_id"] = page["_span_id"]
+
+        # Include trace ID reference from the root
+        entry["_trace_id"] = har["log"]["_trace_id"]
+
+        # Check if there's already a browser root for this page
+        # We need to do this here because new entries might be created
+        # for an existing page with a root
+        if hasattr(flow, "request") and hasattr(self, "entries_for_page"):
+            page_entries = self.entries_for_page(page["id"])
+
+            # Find if there's a browser root entry for this page
+            for page_entry in page_entries:
+                if page_entry.get("_browser_root"):
+                    # If we're not creating an entry for the root itself,
+                    # set parent to the browser root span
+                    is_same_url = False
+                    if hasattr(flow.request, "url"):
+                        full_url = flow.request.pretty_url
+                        is_same_url = page_entry["request"]["url"] == full_url
+
+                    if not is_same_url:
+                        entry["_parent_id"] = page_entry["_span_id"]
+                        logging.debug(
+                            f"Setting parent to browser root during entry creation"
+                        )
+                    break
+
         har["log"]["entries"].append(entry)
         self.print_har_summary()
         return entry
@@ -69,6 +103,10 @@ class HarManagerMixin:
         next_page_number = len(har["log"]["pages"]) + 1
         next_id = "page_{}".format(next_page_number)
         new_page = HarBuilder.page(id=next_id)
+
+        # Link the page to the root trace
+        new_page["_parent_id"] = har["log"]["_span_id"]
+
         har["log"]["pages"].append(new_page)
 
     # print a list of the pages with their title and a list of the entries, and their page ref
@@ -90,7 +128,10 @@ class HarManagerMixin:
         if len(self.har["log"]["pages"]) > 0:
             return self.har["log"]["pages"][-1]
         else:
-            har_page = HarBuilder.page
+            har_page = HarBuilder.page()
+            # Link to the root span
+            if "_span_id" in self.har["log"]:
+                har_page["_parent_id"] = self.har["log"]["_span_id"]
             self.har["log"]["pages"].append(har_page)
             return har_page
 
@@ -99,7 +140,7 @@ class HarManagerMixin:
 
         with mutex:
             old_har = self.end_har()
-            self.har = HarBuilder.har()
+            self.new_har()
 
         return old_har
 

@@ -9,6 +9,8 @@
 | **browser** | [**HarLogCreator**](HarLogCreator.md) |  | [optional] |
 | **pages** | [**Array&lt;Page&gt;**](Page.md) |  |  |
 | **entries** | [**Array&lt;HarEntry&gt;**](HarEntry.md) |  |  |
+| **_trace_id** | **String** | W3C Trace Context trace ID for distributed tracing | [optional] |
+| **_span_id** | **String** | W3C Trace Context span ID for this HAR trace root | [optional] |
 | **comment** | **String** |  | [optional] |
 
 ## Example
@@ -22,6 +24,8 @@ instance = BrowserupMitmProxy::HarLog.new(
   browser: null,
   pages: null,
   entries: null,
+  _trace_id: null,
+  _span_id: null,
   comment: null
 )
 ```

@@ -262,7 +262,7 @@ module = "test.*"
 ignore_errors = true
 
 [tool.ruff]
-extend-exclude = ["mitmproxy/contrib/"]
+extend-exclude = ["mitmproxy/contrib/", "clients/"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I"]

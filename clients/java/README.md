@@ -1,7 +1,7 @@
 # browserup-mitmproxy-client
 
 BrowserUp MitmProxy
-- API version: 1.24
+- API version: 1.25
   - Generator version: 7.12.0
 
 ___

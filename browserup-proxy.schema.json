@@ -25,7 +25,7 @@
       "url": "logo.png"
     },
     "title": "BrowserUp MitmProxy",
-    "version": "1.24"
+    "version": "1.25"
   },
   "paths": {
     "/har": {

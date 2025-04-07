@@ -40,4 +40,14 @@ rm -rf ruby && openapi-generator generate \
     -g ruby -i "${SCHEMA}" \
     -o ruby -c config-ruby.yaml
 
+rm -rf ruby && openapi-generator generate \
+    --package-name BrowserUpMitmProxyClient \
+    -g ruby -i "${SCHEMA}" \
+    -o ruby -c config-ruby.yaml
+
+rm -rf go && openapi-generator generate \
+    --package-name BrowserUpMitmProxyClient \
+    -g go -i "${SCHEMA}" \
+    -o go -c config-go.yaml
+
 ./post-build-java-client.sh

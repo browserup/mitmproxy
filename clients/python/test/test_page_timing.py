@@ -36,17 +36,17 @@ class TestPageTiming(unittest.TestCase):
         model = PageTiming()
         if include_optional:
             return PageTiming(
-                on_content_load = 1.337,
-                on_load = 1.337,
-                first_input_delay = 1.337,
-                first_paint = 1.337,
-                cumulative_layout_shift = 1.337,
-                largest_contentful_paint = 1.337,
-                dom_interactive = 1.337,
-                first_contentful_paint = 1.337,
-                dns = 1.337,
-                ssl = 1.337,
-                time_to_first_byte = 1.337,
+                on_content_load = 56,
+                on_load = 56,
+                first_input_delay = 56,
+                first_paint = 56,
+                cumulative_layout_shift = 56,
+                largest_contentful_paint = 56,
+                dom_interactive = 56,
+                first_contentful_paint = 56,
+                dns = 56,
+                ssl = 56,
+                time_to_first_byte = 56,
                 href = '',
                 span_id = '',
                 parent_id = ''

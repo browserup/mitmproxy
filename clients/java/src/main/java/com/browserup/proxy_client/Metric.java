@@ -60,7 +60,7 @@ public class Metric {
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
   @javax.annotation.Nullable
-  private Double value;
+  private Integer value;
 
   public Metric() {
   }
@@ -84,7 +84,7 @@ public class Metric {
   }
 
 
-  public Metric value(@javax.annotation.Nullable Double value) {
+  public Metric value(@javax.annotation.Nullable Integer value) {
     this.value = value;
     return this;
   }
@@ -94,11 +94,11 @@ public class Metric {
    * @return value
    */
   @javax.annotation.Nullable
-  public Double getValue() {
+  public Integer getValue() {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nullable Double value) {
+  public void setValue(@javax.annotation.Nullable Integer value) {
     this.value = value;
   }
 

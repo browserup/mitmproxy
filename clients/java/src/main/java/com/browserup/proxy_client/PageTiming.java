@@ -22,7 +22,6 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
@@ -56,57 +55,57 @@ public class PageTiming {
   public static final String SERIALIZED_NAME_ON_CONTENT_LOAD = "onContentLoad";
   @SerializedName(SERIALIZED_NAME_ON_CONTENT_LOAD)
   @javax.annotation.Nullable
-  private BigDecimal onContentLoad;
+  private Integer onContentLoad;
 
   public static final String SERIALIZED_NAME_ON_LOAD = "onLoad";
   @SerializedName(SERIALIZED_NAME_ON_LOAD)
   @javax.annotation.Nullable
-  private BigDecimal onLoad;
+  private Integer onLoad;
 
   public static final String SERIALIZED_NAME_FIRST_INPUT_DELAY = "_firstInputDelay";
   @SerializedName(SERIALIZED_NAME_FIRST_INPUT_DELAY)
   @javax.annotation.Nullable
-  private BigDecimal firstInputDelay;
+  private Integer firstInputDelay;
 
   public static final String SERIALIZED_NAME_FIRST_PAINT = "_firstPaint";
   @SerializedName(SERIALIZED_NAME_FIRST_PAINT)
   @javax.annotation.Nullable
-  private BigDecimal firstPaint;
+  private Integer firstPaint;
 
   public static final String SERIALIZED_NAME_CUMULATIVE_LAYOUT_SHIFT = "_cumulativeLayoutShift";
   @SerializedName(SERIALIZED_NAME_CUMULATIVE_LAYOUT_SHIFT)
   @javax.annotation.Nullable
-  private BigDecimal cumulativeLayoutShift;
+  private Integer cumulativeLayoutShift;
 
   public static final String SERIALIZED_NAME_LARGEST_CONTENTFUL_PAINT = "_largestContentfulPaint";
   @SerializedName(SERIALIZED_NAME_LARGEST_CONTENTFUL_PAINT)
   @javax.annotation.Nullable
-  private BigDecimal largestContentfulPaint;
+  private Integer largestContentfulPaint;
 
   public static final String SERIALIZED_NAME_DOM_INTERACTIVE = "_domInteractive";
   @SerializedName(SERIALIZED_NAME_DOM_INTERACTIVE)
   @javax.annotation.Nullable
-  private BigDecimal domInteractive;
+  private Integer domInteractive;
 
   public static final String SERIALIZED_NAME_FIRST_CONTENTFUL_PAINT = "_firstContentfulPaint";
   @SerializedName(SERIALIZED_NAME_FIRST_CONTENTFUL_PAINT)
   @javax.annotation.Nullable
-  private BigDecimal firstContentfulPaint;
+  private Integer firstContentfulPaint;
 
   public static final String SERIALIZED_NAME_DNS = "_dns";
   @SerializedName(SERIALIZED_NAME_DNS)
   @javax.annotation.Nullable
-  private BigDecimal dns;
+  private Integer dns;
 
   public static final String SERIALIZED_NAME_SSL = "_ssl";
   @SerializedName(SERIALIZED_NAME_SSL)
   @javax.annotation.Nullable
-  private BigDecimal ssl;
+  private Integer ssl;
 
   public static final String SERIALIZED_NAME_TIME_TO_FIRST_BYTE = "_timeToFirstByte";
   @SerializedName(SERIALIZED_NAME_TIME_TO_FIRST_BYTE)
   @javax.annotation.Nullable
-  private BigDecimal timeToFirstByte;
+  private Integer timeToFirstByte;
 
   public static final String SERIALIZED_NAME_HREF = "_href";
   @SerializedName(SERIALIZED_NAME_HREF)
@@ -126,7 +125,7 @@ public class PageTiming {
   public PageTiming() {
   }
 
-  public PageTiming onContentLoad(@javax.annotation.Nullable BigDecimal onContentLoad) {
+  public PageTiming onContentLoad(@javax.annotation.Nullable Integer onContentLoad) {
     this.onContentLoad = onContentLoad;
     return this;
   }
@@ -136,16 +135,16 @@ public class PageTiming {
    * @return onContentLoad
    */
   @javax.annotation.Nullable
-  public BigDecimal getOnContentLoad() {
+  public Integer getOnContentLoad() {
     return onContentLoad;
   }
 
-  public void setOnContentLoad(@javax.annotation.Nullable BigDecimal onContentLoad) {
+  public void setOnContentLoad(@javax.annotation.Nullable Integer onContentLoad) {
     this.onContentLoad = onContentLoad;
   }
 
 
-  public PageTiming onLoad(@javax.annotation.Nullable BigDecimal onLoad) {
+  public PageTiming onLoad(@javax.annotation.Nullable Integer onLoad) {
     this.onLoad = onLoad;
     return this;
   }
@@ -155,16 +154,16 @@ public class PageTiming {
    * @return onLoad
    */
   @javax.annotation.Nullable
-  public BigDecimal getOnLoad() {
+  public Integer getOnLoad() {
     return onLoad;
   }
 
-  public void setOnLoad(@javax.annotation.Nullable BigDecimal onLoad) {
+  public void setOnLoad(@javax.annotation.Nullable Integer onLoad) {
     this.onLoad = onLoad;
   }
 
 
-  public PageTiming firstInputDelay(@javax.annotation.Nullable BigDecimal firstInputDelay) {
+  public PageTiming firstInputDelay(@javax.annotation.Nullable Integer firstInputDelay) {
     this.firstInputDelay = firstInputDelay;
     return this;
   }
@@ -174,16 +173,16 @@ public class PageTiming {
    * @return firstInputDelay
    */
   @javax.annotation.Nullable
-  public BigDecimal getFirstInputDelay() {
+  public Integer getFirstInputDelay() {
     return firstInputDelay;
   }
 
-  public void setFirstInputDelay(@javax.annotation.Nullable BigDecimal firstInputDelay) {
+  public void setFirstInputDelay(@javax.annotation.Nullable Integer firstInputDelay) {
     this.firstInputDelay = firstInputDelay;
   }
 
 
-  public PageTiming firstPaint(@javax.annotation.Nullable BigDecimal firstPaint) {
+  public PageTiming firstPaint(@javax.annotation.Nullable Integer firstPaint) {
     this.firstPaint = firstPaint;
     return this;
   }
@@ -193,16 +192,16 @@ public class PageTiming {
    * @return firstPaint
    */
   @javax.annotation.Nullable
-  public BigDecimal getFirstPaint() {
+  public Integer getFirstPaint() {
     return firstPaint;
   }
 
-  public void setFirstPaint(@javax.annotation.Nullable BigDecimal firstPaint) {
+  public void setFirstPaint(@javax.annotation.Nullable Integer firstPaint) {
     this.firstPaint = firstPaint;
   }
 
 
-  public PageTiming cumulativeLayoutShift(@javax.annotation.Nullable BigDecimal cumulativeLayoutShift) {
+  public PageTiming cumulativeLayoutShift(@javax.annotation.Nullable Integer cumulativeLayoutShift) {
     this.cumulativeLayoutShift = cumulativeLayoutShift;
     return this;
   }
@@ -212,16 +211,16 @@ public class PageTiming {
    * @return cumulativeLayoutShift
    */
   @javax.annotation.Nullable
-  public BigDecimal getCumulativeLayoutShift() {
+  public Integer getCumulativeLayoutShift() {
     return cumulativeLayoutShift;
   }
 
-  public void setCumulativeLayoutShift(@javax.annotation.Nullable BigDecimal cumulativeLayoutShift) {
+  public void setCumulativeLayoutShift(@javax.annotation.Nullable Integer cumulativeLayoutShift) {
     this.cumulativeLayoutShift = cumulativeLayoutShift;
   }
 
 
-  public PageTiming largestContentfulPaint(@javax.annotation.Nullable BigDecimal largestContentfulPaint) {
+  public PageTiming largestContentfulPaint(@javax.annotation.Nullable Integer largestContentfulPaint) {
     this.largestContentfulPaint = largestContentfulPaint;
     return this;
   }
@@ -231,16 +230,16 @@ public class PageTiming {
    * @return largestContentfulPaint
    */
   @javax.annotation.Nullable
-  public BigDecimal getLargestContentfulPaint() {
+  public Integer getLargestContentfulPaint() {
     return largestContentfulPaint;
   }
 
-  public void setLargestContentfulPaint(@javax.annotation.Nullable BigDecimal largestContentfulPaint) {
+  public void setLargestContentfulPaint(@javax.annotation.Nullable Integer largestContentfulPaint) {
     this.largestContentfulPaint = largestContentfulPaint;
   }
 
 
-  public PageTiming domInteractive(@javax.annotation.Nullable BigDecimal domInteractive) {
+  public PageTiming domInteractive(@javax.annotation.Nullable Integer domInteractive) {
     this.domInteractive = domInteractive;
     return this;
   }
@@ -250,16 +249,16 @@ public class PageTiming {
    * @return domInteractive
    */
   @javax.annotation.Nullable
-  public BigDecimal getDomInteractive() {
+  public Integer getDomInteractive() {
     return domInteractive;
   }
 
-  public void setDomInteractive(@javax.annotation.Nullable BigDecimal domInteractive) {
+  public void setDomInteractive(@javax.annotation.Nullable Integer domInteractive) {
     this.domInteractive = domInteractive;
   }
 
 
-  public PageTiming firstContentfulPaint(@javax.annotation.Nullable BigDecimal firstContentfulPaint) {
+  public PageTiming firstContentfulPaint(@javax.annotation.Nullable Integer firstContentfulPaint) {
     this.firstContentfulPaint = firstContentfulPaint;
     return this;
   }
@@ -269,16 +268,16 @@ public class PageTiming {
    * @return firstContentfulPaint
    */
   @javax.annotation.Nullable
-  public BigDecimal getFirstContentfulPaint() {
+  public Integer getFirstContentfulPaint() {
     return firstContentfulPaint;
   }
 
-  public void setFirstContentfulPaint(@javax.annotation.Nullable BigDecimal firstContentfulPaint) {
+  public void setFirstContentfulPaint(@javax.annotation.Nullable Integer firstContentfulPaint) {
     this.firstContentfulPaint = firstContentfulPaint;
   }
 
 
-  public PageTiming dns(@javax.annotation.Nullable BigDecimal dns) {
+  public PageTiming dns(@javax.annotation.Nullable Integer dns) {
     this.dns = dns;
     return this;
   }
@@ -288,16 +287,16 @@ public class PageTiming {
    * @return dns
    */
   @javax.annotation.Nullable
-  public BigDecimal getDns() {
+  public Integer getDns() {
     return dns;
   }
 
-  public void setDns(@javax.annotation.Nullable BigDecimal dns) {
+  public void setDns(@javax.annotation.Nullable Integer dns) {
     this.dns = dns;
   }
 
 
-  public PageTiming ssl(@javax.annotation.Nullable BigDecimal ssl) {
+  public PageTiming ssl(@javax.annotation.Nullable Integer ssl) {
     this.ssl = ssl;
     return this;
   }
@@ -307,16 +306,16 @@ public class PageTiming {
    * @return ssl
    */
   @javax.annotation.Nullable
-  public BigDecimal getSsl() {
+  public Integer getSsl() {
     return ssl;
   }
 
-  public void setSsl(@javax.annotation.Nullable BigDecimal ssl) {
+  public void setSsl(@javax.annotation.Nullable Integer ssl) {
     this.ssl = ssl;
   }
 
 
-  public PageTiming timeToFirstByte(@javax.annotation.Nullable BigDecimal timeToFirstByte) {
+  public PageTiming timeToFirstByte(@javax.annotation.Nullable Integer timeToFirstByte) {
     this.timeToFirstByte = timeToFirstByte;
     return this;
   }
@@ -326,11 +325,11 @@ public class PageTiming {
    * @return timeToFirstByte
    */
   @javax.annotation.Nullable
-  public BigDecimal getTimeToFirstByte() {
+  public Integer getTimeToFirstByte() {
     return timeToFirstByte;
   }
 
-  public void setTimeToFirstByte(@javax.annotation.Nullable BigDecimal timeToFirstByte) {
+  public void setTimeToFirstByte(@javax.annotation.Nullable Integer timeToFirstByte) {
     this.timeToFirstByte = timeToFirstByte;
   }
 

@@ -1,10 +1,12 @@
-# Metric
+# LargestContentfulPaint
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| **name** | **String** | Name of Custom Metric to add to the page under _metrics | [optional] [default to null] |
-| **value** | **Integer** | Value for the metric | [optional] [default to null] |
+| **startTime** | **Long** |  | [optional] [default to -1] |
+| **size** | **Long** |  | [optional] [default to -1] |
+| **domPath** | **String** |  | [optional] [default to ] |
+| **tag** | **String** |  | [optional] [default to ] |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

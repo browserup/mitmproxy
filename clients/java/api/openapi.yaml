@@ -297,37 +297,37 @@ components:
       properties:
         onContentLoad:
           description: onContentLoad per the browser
-          type: number
+          type: integer
         onLoad:
           description: onLoad per the browser
-          type: number
+          type: integer
         _firstInputDelay:
           description: firstInputDelay from the browser
-          type: number
+          type: integer
         _firstPaint:
           description: firstPaint from the browser
-          type: number
+          type: integer
         _cumulativeLayoutShift:
           description: cumulativeLayoutShift metric from the browser
-          type: number
+          type: integer
         _largestContentfulPaint:
           description: largestContentfulPaint from the browser
-          type: number
+          type: integer
         _domInteractive:
           description: domInteractive from the browser
-          type: number
+          type: integer
         _firstContentfulPaint:
           description: firstContentfulPaint from the browser
-          type: number
+          type: integer
         _dns:
           description: dns lookup time from the browser
-          type: number
+          type: integer
         _ssl:
           description: Ssl connect time from the browser
-          type: number
+          type: integer
         _timeToFirstByte:
           description: Time to first byte of the page's first request per the browser
-          type: number
+          type: integer
         _href:
           description: "Top level href, including hashtag, etc per the browser"
           type: string
@@ -473,7 +473,7 @@ components:
     Metric:
       example:
         name: name
-        value: 0.8008281904610115
+        value: 0
       properties:
         name:
           description: Name of Custom Metric to add to the page under _metrics
@@ -481,7 +481,7 @@ components:
         value:
           description: Value for the metric
           format: double
-          type: number
+          type: integer
       type: object
     LargestContentfulPaint:
       additionalProperties: true
@@ -970,9 +970,9 @@ components:
             title: title
             _metrics:
             - name: name
-              value: 0.8008281904610115
+              value: 0
             - name: name
-              value: 0.8008281904610115
+              value: 0
             _errors:
             - name: name
               details: details
@@ -1011,9 +1011,9 @@ components:
             title: title
             _metrics:
             - name: name
-              value: 0.8008281904610115
+              value: 0
             - name: name
-              value: 0.8008281904610115
+              value: 0
             _errors:
             - name: name
               details: details
@@ -1259,9 +1259,9 @@ components:
         title: title
         _metrics:
         - name: name
-          value: 0.8008281904610115
+          value: 0
         - name: name
-          value: 0.8008281904610115
+          value: 0
         _errors:
         - name: name
           details: details
@@ -1644,9 +1644,9 @@ components:
           title: title
           _metrics:
           - name: name
-            value: 0.8008281904610115
+            value: 0
           - name: name
-            value: 0.8008281904610115
+            value: 0
           _errors:
           - name: name
             details: details
@@ -1685,9 +1685,9 @@ components:
           title: title
           _metrics:
           - name: name
-            value: 0.8008281904610115
+            value: 0
           - name: name
-            value: 0.8008281904610115
+            value: 0
           _errors:
           - name: name
             details: details

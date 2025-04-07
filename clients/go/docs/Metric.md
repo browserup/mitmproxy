@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | Name of Custom Metric to add to the page under _metrics | [optional] 
-**Value** | Pointer to **float64** | Value for the metric | [optional] 
+**Value** | Pointer to **int32** | Value for the metric | [optional] 
 
 ## Methods
 
@@ -53,20 +53,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetValue
 
-`func (o *Metric) GetValue() float64`
+`func (o *Metric) GetValue() int32`
 
 GetValue returns the Value field if non-nil, zero value otherwise.
 
 ### GetValueOk
 
-`func (o *Metric) GetValueOk() (*float64, bool)`
+`func (o *Metric) GetValueOk() (*int32, bool)`
 
 GetValueOk returns a tuple with the Value field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetValue
 
-`func (o *Metric) SetValue(v float64)`
+`func (o *Metric) SetValue(v int32)`
 
 SetValue sets Value field to given value.
 

@@ -1,10 +1,11 @@
-# Metric
+# VerifyResult
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| **name** | **String** | Name of Custom Metric to add to the page under _metrics | [optional] [default to null] |
-| **value** | **Integer** | Value for the metric | [optional] [default to null] |
+| **result** | **Boolean** | Result True / False | [optional] [default to null] |
+| **name** | **String** | Name | [optional] [default to null] |
+| **type** | **String** | Type | [optional] [default to null] |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

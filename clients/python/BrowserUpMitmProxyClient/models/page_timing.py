@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,17 +27,17 @@ class PageTiming(BaseModel):
     """
     PageTiming
     """ # noqa: E501
-    on_content_load: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="onContentLoad per the browser", alias="onContentLoad")
-    on_load: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="onLoad per the browser", alias="onLoad")
-    first_input_delay: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="firstInputDelay from the browser", alias="_firstInputDelay")
-    first_paint: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="firstPaint from the browser", alias="_firstPaint")
-    cumulative_layout_shift: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="cumulativeLayoutShift metric from the browser", alias="_cumulativeLayoutShift")
-    largest_contentful_paint: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="largestContentfulPaint from the browser", alias="_largestContentfulPaint")
-    dom_interactive: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="domInteractive from the browser", alias="_domInteractive")
-    first_contentful_paint: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="firstContentfulPaint from the browser", alias="_firstContentfulPaint")
-    dns: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="dns lookup time from the browser", alias="_dns")
-    ssl: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Ssl connect time from the browser", alias="_ssl")
-    time_to_first_byte: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time to first byte of the page's first request per the browser", alias="_timeToFirstByte")
+    on_content_load: Optional[StrictInt] = Field(default=None, description="onContentLoad per the browser", alias="onContentLoad")
+    on_load: Optional[StrictInt] = Field(default=None, description="onLoad per the browser", alias="onLoad")
+    first_input_delay: Optional[StrictInt] = Field(default=None, description="firstInputDelay from the browser", alias="_firstInputDelay")
+    first_paint: Optional[StrictInt] = Field(default=None, description="firstPaint from the browser", alias="_firstPaint")
+    cumulative_layout_shift: Optional[StrictInt] = Field(default=None, description="cumulativeLayoutShift metric from the browser", alias="_cumulativeLayoutShift")
+    largest_contentful_paint: Optional[StrictInt] = Field(default=None, description="largestContentfulPaint from the browser", alias="_largestContentfulPaint")
+    dom_interactive: Optional[StrictInt] = Field(default=None, description="domInteractive from the browser", alias="_domInteractive")
+    first_contentful_paint: Optional[StrictInt] = Field(default=None, description="firstContentfulPaint from the browser", alias="_firstContentfulPaint")
+    dns: Optional[StrictInt] = Field(default=None, description="dns lookup time from the browser", alias="_dns")
+    ssl: Optional[StrictInt] = Field(default=None, description="Ssl connect time from the browser", alias="_ssl")
+    time_to_first_byte: Optional[StrictInt] = Field(default=None, description="Time to first byte of the page's first request per the browser", alias="_timeToFirstByte")
     href: Optional[StrictStr] = Field(default=None, description="Top level href, including hashtag, etc per the browser", alias="_href")
     span_id: Optional[StrictStr] = Field(default=None, description="W3C Trace Context span ID for this page", alias="_span_id")
     parent_id: Optional[StrictStr] = Field(default=None, description="W3C Trace Context parent span ID (typically the HAR log span ID)", alias="_parent_id")

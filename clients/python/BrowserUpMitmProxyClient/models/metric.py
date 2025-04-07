@@ -18,8 +18,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class Metric(BaseModel):
     Metric
     """ # noqa: E501
     name: Optional[StrictStr] = Field(default=None, description="Name of Custom Metric to add to the page under _metrics")
-    value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Value for the metric")
+    value: Optional[StrictInt] = Field(default=None, description="Value for the metric")
     __properties: ClassVar[List[str]] = ["name", "value"]
 
     model_config = ConfigDict(

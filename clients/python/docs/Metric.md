@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of Custom Metric to add to the page under _metrics | [optional] 
-**value** | **float** | Value for the metric | [optional] 
+**value** | **int** | Value for the metric | [optional] 
 
 ## Example
 

@@ -34,7 +34,7 @@ class MetricSchema(Schema):
             "description": "Name of Custom Metric to add to the page under _metrics",
         }
     )
-    value = fields.Number(
+    value = fields.Integer(
         metadata={
             "optional": False,
             "format": "double",
@@ -44,46 +44,46 @@ class MetricSchema(Schema):
 
 
 class PageTimingSchema(Schema):
-    onContentLoad = fields.Number(
+    onContentLoad = fields.Integer(
         metadata={"optional": False, "description": "onContentLoad per the browser"}
     )
-    onLoad = fields.Number(
+    onLoad = fields.Integer(
         metadata={"optional": False, "description": "onLoad per the browser"}
     )
-    _firstInputDelay = fields.Number(
+    _firstInputDelay = fields.Integer(
         metadata={"optional": True, "description": "firstInputDelay from the browser"}
     )
-    _firstPaint = fields.Number(
+    _firstPaint = fields.Integer(
         metadata={"optional": True, "description": "firstPaint from the browser"}
     )
-    _cumulativeLayoutShift = fields.Number(
+    _cumulativeLayoutShift = fields.Integer(
         metadata={
             "optional": True,
             "description": "cumulativeLayoutShift metric from the browser",
         }
     )
-    _largestContentfulPaint = fields.Number(
+    _largestContentfulPaint = fields.Integer(
         metadata={
             "optional": True,
             "description": "largestContentfulPaint from the browser",
         }
     )
-    _domInteractive = fields.Number(
+    _domInteractive = fields.Integer(
         metadata={"optional": True, "description": "domInteractive from the browser"}
     )
-    _firstContentfulPaint = fields.Number(
+    _firstContentfulPaint = fields.Integer(
         metadata={
             "optional": True,
             "description": "firstContentfulPaint from the browser",
         }
     )
-    _dns = fields.Number(
+    _dns = fields.Integer(
         metadata={"optional": True, "description": "dns lookup time from the browser"}
     )
-    _ssl = fields.Number(
+    _ssl = fields.Integer(
         metadata={"optional": True, "description": "Ssl connect time from the browser"}
     )
-    _timeToFirstByte = fields.Number(
+    _timeToFirstByte = fields.Integer(
         metadata={
             "optional": True,
             "description": "Time to first byte of the page's first request per the browser",

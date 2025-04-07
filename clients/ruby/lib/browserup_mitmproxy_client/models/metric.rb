@@ -43,7 +43,7 @@ module BrowserupMitmProxy
     def self.openapi_types
       {
         :'name' => :'String',
-        :'value' => :'Float'
+        :'value' => :'Integer'
       }
     end
 

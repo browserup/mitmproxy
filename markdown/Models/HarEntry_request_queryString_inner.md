@@ -1,10 +1,11 @@
-# Metric
+# HarEntry_request_queryString_inner
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| **name** | **String** | Name of Custom Metric to add to the page under _metrics | [optional] [default to null] |
-| **value** | **Integer** | Value for the metric | [optional] [default to null] |
+| **name** | **String** |  | [default to null] |
+| **value** | **String** |  | [default to null] |
+| **comment** | **String** |  | [optional] [default to null] |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

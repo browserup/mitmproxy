@@ -90,17 +90,17 @@ module BrowserupMitmProxy
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'on_content_load' => :'Float',
-        :'on_load' => :'Float',
-        :'_first_input_delay' => :'Float',
-        :'_first_paint' => :'Float',
-        :'_cumulative_layout_shift' => :'Float',
-        :'_largest_contentful_paint' => :'Float',
-        :'_dom_interactive' => :'Float',
-        :'_first_contentful_paint' => :'Float',
-        :'_dns' => :'Float',
-        :'_ssl' => :'Float',
-        :'_time_to_first_byte' => :'Float',
+        :'on_content_load' => :'Integer',
+        :'on_load' => :'Integer',
+        :'_first_input_delay' => :'Integer',
+        :'_first_paint' => :'Integer',
+        :'_cumulative_layout_shift' => :'Integer',
+        :'_largest_contentful_paint' => :'Integer',
+        :'_dom_interactive' => :'Integer',
+        :'_first_contentful_paint' => :'Integer',
+        :'_dns' => :'Integer',
+        :'_ssl' => :'Integer',
+        :'_time_to_first_byte' => :'Integer',
         :'_href' => :'String',
         :'_span_id' => :'String',
         :'_parent_id' => :'String'

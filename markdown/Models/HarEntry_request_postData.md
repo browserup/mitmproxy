@@ -1,10 +1,11 @@
-# Metric
+# HarEntry_request_postData
 ## Properties
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-| **name** | **String** | Name of Custom Metric to add to the page under _metrics | [optional] [default to null] |
-| **value** | **Integer** | Value for the metric | [optional] [default to null] |
+| **mimeType** | **String** |  | [default to null] |
+| **text** | **String** |  | [optional] [default to null] |
+| **params** | [**List**](HarEntry_request_postData_params_inner.md) |  | [optional] [default to null] |
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

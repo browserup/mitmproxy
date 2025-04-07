@@ -13,7 +13,7 @@ rm -rf markdown && openapi-generator generate \
 # Generate C# (.NET Core) client
 rm -rf csharp && openapi-generator generate \
     --package-name BrowserUpMitmProxyClient \
-    -g csharp-netcore -i "${SCHEMA}" \
+    -g csharp -i "${SCHEMA}" \
     -o csharp -c config-csharp.yaml
 
 # Generate Java client

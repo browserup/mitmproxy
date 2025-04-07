@@ -37,7 +37,7 @@ class TestMetric(unittest.TestCase):
         if include_optional:
             return Metric(
                 name = '',
-                value = 1.337
+                value = 56
             )
         else:
             return Metric(

@@ -22,7 +22,7 @@ type Metric struct {
 	// Name of Custom Metric to add to the page under _metrics
 	Name *string `json:"name,omitempty"`
 	// Value for the metric
-	Value *float64 `json:"value,omitempty"`
+	Value *int32 `json:"value,omitempty"`
 }
 
 // NewMetric instantiates a new Metric object
@@ -75,9 +75,9 @@ func (o *Metric) SetName(v string) {
 }
 
 // GetValue returns the Value field value if set, zero value otherwise.
-func (o *Metric) GetValue() float64 {
+func (o *Metric) GetValue() int32 {
 	if o == nil || IsNil(o.Value) {
-		var ret float64
+		var ret int32
 		return ret
 	}
 	return *o.Value
@@ -85,7 +85,7 @@ func (o *Metric) GetValue() float64 {
 
 // GetValueOk returns a tuple with the Value field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Metric) GetValueOk() (*float64, bool) {
+func (o *Metric) GetValueOk() (*int32, bool) {
 	if o == nil || IsNil(o.Value) {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *Metric) HasValue() bool {
 	return false
 }
 
-// SetValue gets a reference to the given float64 and assigns it to the Value field.
-func (o *Metric) SetValue(v float64) {
+// SetValue gets a reference to the given int32 and assigns it to the Value field.
+func (o *Metric) SetValue(v int32) {
 	o.Value = &v
 }
 

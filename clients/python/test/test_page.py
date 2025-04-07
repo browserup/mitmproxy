@@ -48,7 +48,7 @@ class TestPage(unittest.TestCase):
                 metrics = [
                     BrowserUpMitmProxyClient.models.metric.Metric(
                         name = '', 
-                        value = 1.337, )
+                        value = 56, )
                     ],
                 errors = [
                     BrowserUpMitmProxyClient.models.error.Error(

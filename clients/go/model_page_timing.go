@@ -20,27 +20,27 @@ var _ MappedNullable = &PageTiming{}
 // PageTiming struct for PageTiming
 type PageTiming struct {
 	// onContentLoad per the browser
-	OnContentLoad *float32 `json:"onContentLoad,omitempty"`
+	OnContentLoad *int32 `json:"onContentLoad,omitempty"`
 	// onLoad per the browser
-	OnLoad *float32 `json:"onLoad,omitempty"`
+	OnLoad *int32 `json:"onLoad,omitempty"`
 	// firstInputDelay from the browser
-	FirstInputDelay *float32 `json:"_firstInputDelay,omitempty"`
+	FirstInputDelay *int32 `json:"_firstInputDelay,omitempty"`
 	// firstPaint from the browser
-	FirstPaint *float32 `json:"_firstPaint,omitempty"`
+	FirstPaint *int32 `json:"_firstPaint,omitempty"`
 	// cumulativeLayoutShift metric from the browser
-	CumulativeLayoutShift *float32 `json:"_cumulativeLayoutShift,omitempty"`
+	CumulativeLayoutShift *int32 `json:"_cumulativeLayoutShift,omitempty"`
 	// largestContentfulPaint from the browser
-	LargestContentfulPaint *float32 `json:"_largestContentfulPaint,omitempty"`
+	LargestContentfulPaint *int32 `json:"_largestContentfulPaint,omitempty"`
 	// domInteractive from the browser
-	DomInteractive *float32 `json:"_domInteractive,omitempty"`
+	DomInteractive *int32 `json:"_domInteractive,omitempty"`
 	// firstContentfulPaint from the browser
-	FirstContentfulPaint *float32 `json:"_firstContentfulPaint,omitempty"`
+	FirstContentfulPaint *int32 `json:"_firstContentfulPaint,omitempty"`
 	// dns lookup time from the browser
-	Dns *float32 `json:"_dns,omitempty"`
+	Dns *int32 `json:"_dns,omitempty"`
 	// Ssl connect time from the browser
-	Ssl *float32 `json:"_ssl,omitempty"`
+	Ssl *int32 `json:"_ssl,omitempty"`
 	// Time to first byte of the page's first request per the browser
-	TimeToFirstByte *float32 `json:"_timeToFirstByte,omitempty"`
+	TimeToFirstByte *int32 `json:"_timeToFirstByte,omitempty"`
 	// Top level href, including hashtag, etc per the browser
 	Href *string `json:"_href,omitempty"`
 	// W3C Trace Context span ID for this page
@@ -67,9 +67,9 @@ func NewPageTimingWithDefaults() *PageTiming {
 }
 
 // GetOnContentLoad returns the OnContentLoad field value if set, zero value otherwise.
-func (o *PageTiming) GetOnContentLoad() float32 {
+func (o *PageTiming) GetOnContentLoad() int32 {
 	if o == nil || IsNil(o.OnContentLoad) {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.OnContentLoad
@@ -77,7 +77,7 @@ func (o *PageTiming) GetOnContentLoad() float32 {
 
 // GetOnContentLoadOk returns a tuple with the OnContentLoad field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PageTiming) GetOnContentLoadOk() (*float32, bool) {
+func (o *PageTiming) GetOnContentLoadOk() (*int32, bool) {
 	if o == nil || IsNil(o.OnContentLoad) {
 		return nil, false
 	}
@@ -93,15 +93,15 @@ func (o *PageTiming) HasOnContentLoad() bool {
 	return false
 }
 
-// SetOnContentLoad gets a reference to the given float32 and assigns it to the OnContentLoad field.
-func (o *PageTiming) SetOnContentLoad(v float32) {
+// SetOnContentLoad gets a reference to the given int32 and assigns it to the OnContentLoad field.
+func (o *PageTiming) SetOnContentLoad(v int32) {
 	o.OnContentLoad = &v
 }
 
 // GetOnLoad returns the OnLoad field value if set, zero value otherwise.
-func (o *PageTiming) GetOnLoad() float32 {
+func (o *PageTiming) GetOnLoad() int32 {
 	if o == nil || IsNil(o.OnLoad) {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.OnLoad
@@ -109,7 +109,7 @@ func (o *PageTiming) GetOnLoad() float32 {
 
 // GetOnLoadOk returns a tuple with the OnLoad field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PageTiming) GetOnLoadOk() (*float32, bool) {
+func (o *PageTiming) GetOnLoadOk() (*int32, bool) {
 	if o == nil || IsNil(o.OnLoad) {
 		return nil, false
 	}
@@ -125,15 +125,15 @@ func (o *PageTiming) HasOnLoad() bool {
 	return false
 }
 
-// SetOnLoad gets a reference to the given float32 and assigns it to the OnLoad field.
-func (o *PageTiming) SetOnLoad(v float32) {
+// SetOnLoad gets a reference to the given int32 and assigns it to the OnLoad field.
+func (o *PageTiming) SetOnLoad(v int32) {
 	o.OnLoad = &v
 }
 
 // GetFirstInputDelay returns the FirstInputDelay field value if set, zero value otherwise.
-func (o *PageTiming) GetFirstInputDelay() float32 {
+func (o *PageTiming) GetFirstInputDelay() int32 {
 	if o == nil || IsNil(o.FirstInputDelay) {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.FirstInputDelay
@@ -141,7 +141,7 @@ func (o *PageTiming) GetFirstInputDelay() float32 {
 
 // GetFirstInputDelayOk returns a tuple with the FirstInputDelay field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PageTiming) GetFirstInputDelayOk() (*float32, bool) {
+func (o *PageTiming) GetFirstInputDelayOk() (*int32, bool) {
 	if o == nil || IsNil(o.FirstInputDelay) {
 		return nil, false
 	}
@@ -157,15 +157,15 @@ func (o *PageTiming) HasFirstInputDelay() bool {
 	return false
 }
 
-// SetFirstInputDelay gets a reference to the given float32 and assigns it to the FirstInputDelay field.
-func (o *PageTiming) SetFirstInputDelay(v float32) {
+// SetFirstInputDelay gets a reference to the given int32 and assigns it to the FirstInputDelay field.
+func (o *PageTiming) SetFirstInputDelay(v int32) {
 	o.FirstInputDelay = &v
 }
 
 // GetFirstPaint returns the FirstPaint field value if set, zero value otherwise.
-func (o *PageTiming) GetFirstPaint() float32 {
+func (o *PageTiming) GetFirstPaint() int32 {
 	if o == nil || IsNil(o.FirstPaint) {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.FirstPaint
@@ -173,7 +173,7 @@ func (o *PageTiming) GetFirstPaint() float32 {
 
 // GetFirstPaintOk returns a tuple with the FirstPaint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PageTiming) GetFirstPaintOk() (*float32, bool) {
+func (o *PageTiming) GetFirstPaintOk() (*int32, bool) {
 	if o == nil || IsNil(o.FirstPaint) {
 		return nil, false
 	}
@@ -189,15 +189,15 @@ func (o *PageTiming) HasFirstPaint() bool {
 	return false
 }
 
-// SetFirstPaint gets a reference to the given float32 and assigns it to the FirstPaint field.
-func (o *PageTiming) SetFirstPaint(v float32) {
+// SetFirstPaint gets a reference to the given int32 and assigns it to the FirstPaint field.
+func (o *PageTiming) SetFirstPaint(v int32) {
 	o.FirstPaint = &v
 }
 
 // GetCumulativeLayoutShift returns the CumulativeLayoutShift field value if set, zero value otherwise.
-func (o *PageTiming) GetCumulativeLayoutShift() float32 {
+func (o *PageTiming) GetCumulativeLayoutShift() int32 {
 	if o == nil || IsNil(o.CumulativeLayoutShift) {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.CumulativeLayoutShift
@@ -205,7 +205,7 @@ func (o *PageTiming) GetCumulativeLayoutShift() float32 {
 
 // GetCumulativeLayoutShiftOk returns a tuple with the CumulativeLayoutShift field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PageTiming) GetCumulativeLayoutShiftOk() (*float32, bool) {
+func (o *PageTiming) GetCumulativeLayoutShiftOk() (*int32, bool) {
 	if o == nil || IsNil(o.CumulativeLayoutShift) {
 		return nil, false
 	}
@@ -221,15 +221,15 @@ func (o *PageTiming) HasCumulativeLayoutShift() bool {
 	return false
 }
 
-// SetCumulativeLayoutShift gets a reference to the given float32 and assigns it to the CumulativeLayoutShift field.
-func (o *PageTiming) SetCumulativeLayoutShift(v float32) {
+// SetCumulativeLayoutShift gets a reference to the given int32 and assigns it to the CumulativeLayoutShift field.
+func (o *PageTiming) SetCumulativeLayoutShift(v int32) {
 	o.CumulativeLayoutShift = &v
 }
 
 // GetLargestContentfulPaint returns the LargestContentfulPaint field value if set, zero value otherwise.
-func (o *PageTiming) GetLargestContentfulPaint() float32 {
+func (o *PageTiming) GetLargestContentfulPaint() int32 {
 	if o == nil || IsNil(o.LargestContentfulPaint) {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.LargestContentfulPaint
@@ -237,7 +237,7 @@ func (o *PageTiming) GetLargestContentfulPaint() float32 {
 
 // GetLargestContentfulPaintOk returns a tuple with the LargestContentfulPaint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PageTiming) GetLargestContentfulPaintOk() (*float32, bool) {
+func (o *PageTiming) GetLargestContentfulPaintOk() (*int32, bool) {
 	if o == nil || IsNil(o.LargestContentfulPaint) {
 		return nil, false
 	}
@@ -253,15 +253,15 @@ func (o *PageTiming) HasLargestContentfulPaint() bool {
 	return false
 }
 
-// SetLargestContentfulPaint gets a reference to the given float32 and assigns it to the LargestContentfulPaint field.
-func (o *PageTiming) SetLargestContentfulPaint(v float32) {
+// SetLargestContentfulPaint gets a reference to the given int32 and assigns it to the LargestContentfulPaint field.
+func (o *PageTiming) SetLargestContentfulPaint(v int32) {
 	o.LargestContentfulPaint = &v
 }
 
 // GetDomInteractive returns the DomInteractive field value if set, zero value otherwise.
-func (o *PageTiming) GetDomInteractive() float32 {
+func (o *PageTiming) GetDomInteractive() int32 {
 	if o == nil || IsNil(o.DomInteractive) {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.DomInteractive
@@ -269,7 +269,7 @@ func (o *PageTiming) GetDomInteractive() float32 {
 
 // GetDomInteractiveOk returns a tuple with the DomInteractive field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PageTiming) GetDomInteractiveOk() (*float32, bool) {
+func (o *PageTiming) GetDomInteractiveOk() (*int32, bool) {
 	if o == nil || IsNil(o.DomInteractive) {
 		return nil, false
 	}
@@ -285,15 +285,15 @@ func (o *PageTiming) HasDomInteractive() bool {
 	return false
 }
 
-// SetDomInteractive gets a reference to the given float32 and assigns it to the DomInteractive field.
-func (o *PageTiming) SetDomInteractive(v float32) {
+// SetDomInteractive gets a reference to the given int32 and assigns it to the DomInteractive field.
+func (o *PageTiming) SetDomInteractive(v int32) {
 	o.DomInteractive = &v
 }
 
 // GetFirstContentfulPaint returns the FirstContentfulPaint field value if set, zero value otherwise.
-func (o *PageTiming) GetFirstContentfulPaint() float32 {
+func (o *PageTiming) GetFirstContentfulPaint() int32 {
 	if o == nil || IsNil(o.FirstContentfulPaint) {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.FirstContentfulPaint
@@ -301,7 +301,7 @@ func (o *PageTiming) GetFirstContentfulPaint() float32 {
 
 // GetFirstContentfulPaintOk returns a tuple with the FirstContentfulPaint field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PageTiming) GetFirstContentfulPaintOk() (*float32, bool) {
+func (o *PageTiming) GetFirstContentfulPaintOk() (*int32, bool) {
 	if o == nil || IsNil(o.FirstContentfulPaint) {
 		return nil, false
 	}
@@ -317,15 +317,15 @@ func (o *PageTiming) HasFirstContentfulPaint() bool {
 	return false
 }
 
-// SetFirstContentfulPaint gets a reference to the given float32 and assigns it to the FirstContentfulPaint field.
-func (o *PageTiming) SetFirstContentfulPaint(v float32) {
+// SetFirstContentfulPaint gets a reference to the given int32 and assigns it to the FirstContentfulPaint field.
+func (o *PageTiming) SetFirstContentfulPaint(v int32) {
 	o.FirstContentfulPaint = &v
 }
 
 // GetDns returns the Dns field value if set, zero value otherwise.
-func (o *PageTiming) GetDns() float32 {
+func (o *PageTiming) GetDns() int32 {
 	if o == nil || IsNil(o.Dns) {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.Dns
@@ -333,7 +333,7 @@ func (o *PageTiming) GetDns() float32 {
 
 // GetDnsOk returns a tuple with the Dns field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PageTiming) GetDnsOk() (*float32, bool) {
+func (o *PageTiming) GetDnsOk() (*int32, bool) {
 	if o == nil || IsNil(o.Dns) {
 		return nil, false
 	}
@@ -349,15 +349,15 @@ func (o *PageTiming) HasDns() bool {
 	return false
 }
 
-// SetDns gets a reference to the given float32 and assigns it to the Dns field.
-func (o *PageTiming) SetDns(v float32) {
+// SetDns gets a reference to the given int32 and assigns it to the Dns field.
+func (o *PageTiming) SetDns(v int32) {
 	o.Dns = &v
 }
 
 // GetSsl returns the Ssl field value if set, zero value otherwise.
-func (o *PageTiming) GetSsl() float32 {
+func (o *PageTiming) GetSsl() int32 {
 	if o == nil || IsNil(o.Ssl) {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.Ssl
@@ -365,7 +365,7 @@ func (o *PageTiming) GetSsl() float32 {
 
 // GetSslOk returns a tuple with the Ssl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PageTiming) GetSslOk() (*float32, bool) {
+func (o *PageTiming) GetSslOk() (*int32, bool) {
 	if o == nil || IsNil(o.Ssl) {
 		return nil, false
 	}
@@ -381,15 +381,15 @@ func (o *PageTiming) HasSsl() bool {
 	return false
 }
 
-// SetSsl gets a reference to the given float32 and assigns it to the Ssl field.
-func (o *PageTiming) SetSsl(v float32) {
+// SetSsl gets a reference to the given int32 and assigns it to the Ssl field.
+func (o *PageTiming) SetSsl(v int32) {
 	o.Ssl = &v
 }
 
 // GetTimeToFirstByte returns the TimeToFirstByte field value if set, zero value otherwise.
-func (o *PageTiming) GetTimeToFirstByte() float32 {
+func (o *PageTiming) GetTimeToFirstByte() int32 {
 	if o == nil || IsNil(o.TimeToFirstByte) {
-		var ret float32
+		var ret int32
 		return ret
 	}
 	return *o.TimeToFirstByte
@@ -397,7 +397,7 @@ func (o *PageTiming) GetTimeToFirstByte() float32 {
 
 // GetTimeToFirstByteOk returns a tuple with the TimeToFirstByte field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *PageTiming) GetTimeToFirstByteOk() (*float32, bool) {
+func (o *PageTiming) GetTimeToFirstByteOk() (*int32, bool) {
 	if o == nil || IsNil(o.TimeToFirstByte) {
 		return nil, false
 	}
@@ -413,8 +413,8 @@ func (o *PageTiming) HasTimeToFirstByte() bool {
 	return false
 }
 
-// SetTimeToFirstByte gets a reference to the given float32 and assigns it to the TimeToFirstByte field.
-func (o *PageTiming) SetTimeToFirstByte(v float32) {
+// SetTimeToFirstByte gets a reference to the given int32 and assigns it to the TimeToFirstByte field.
+func (o *PageTiming) SetTimeToFirstByte(v int32) {
 	o.TimeToFirstByte = &v
 }
 

@@ -1,3 +1,4 @@
+import uuid
 from datetime import datetime
 from datetime import timezone
 
@@ -12,11 +13,14 @@ class HarBuilder:
 
     @staticmethod
     def log():
+        trace_id = uuid.uuid4().hex
         return {
             "version": "1.1",
             "creator": {"name": "BrowserUp Proxy", "version": "0.1", "comment": ""},
             "entries": [],
             "pages": [HarBuilder.page(id=DEFAULT_PAGE_REF)],
+            "_trace_id": trace_id,
+            "_span_id": trace_id[:16],  # Use first half of trace_id for root span
         }
 
     @staticmethod
@@ -25,11 +29,14 @@ class HarBuilder:
 
     @staticmethod
     def page(id=DEFAULT_PAGE_REF, title=DEFAULT_PAGE_TITLE):
+        span_id = uuid.uuid4().hex[:16]  # 16 char span ID for the page
         return {
             "title": title,
             "id": id,
             "startedDateTime": str(datetime.now(tz=timezone.utc).isoformat()),
             "pageTimings": HarBuilder.page_timings(),
+            "_span_id": span_id,  # Unique span ID for this page
+            "_parent_id": None,   # Will be set to HAR root span when page is added
         }
 
     @staticmethod
@@ -100,6 +107,7 @@ class HarBuilder:
 
     @staticmethod
     def entry(pageref=DEFAULT_PAGE_REF):
+        span_id = uuid.uuid4().hex[:16]  # 16 char span ID for the entry
         return {
             "pageref": pageref,
             "startedDateTime": str(datetime.now(tz=timezone.utc).isoformat()),
@@ -112,4 +120,6 @@ class HarBuilder:
             "serverIPAddress": "",
             "connection": "",
             "comment": "",
+            "_span_id": span_id,  # Unique span ID for this entry
+            "_parent_id": None,   # Will be set to parent page's span ID
         }

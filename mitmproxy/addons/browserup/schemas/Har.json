@@ -69,6 +69,14 @@
             "$ref": "#/components/schemas/HarEntry"
           }
         },
+        "_trace_id": {
+          "type": "string",
+          "description": "W3C Trace Context trace ID for distributed tracing"
+        },
+        "_span_id": {
+          "type": "string",
+          "description": "W3C Trace Context span ID for this HAR trace root"
+        },
         "comment": {
           "type": "string"
         }

@@ -95,6 +95,18 @@ class PageTimingSchema(Schema):
             "description": "Top level href, including hashtag, etc per the browser",
         }
     )
+    _span_id = fields.Str(
+        metadata={
+            "optional": True,
+            "description": "W3C Trace Context span ID for this page",
+        }
+    )
+    _parent_id = fields.Str(
+        metadata={
+            "optional": True,
+            "description": "W3C Trace Context parent span ID (typically the HAR log span ID)",
+        }
+    )
 
 
 class MatchCriteriaSchema(Schema):

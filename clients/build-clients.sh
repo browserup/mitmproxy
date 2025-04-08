@@ -1,5 +1,7 @@
 #!/bin/bash
 
+npm install -g @openapitools/openapi-generator-cli
+
 # requires openapi-generator installed and accessible in your PATH
 
 DIR="$(dirname "${BASH_SOURCE[0]}")"

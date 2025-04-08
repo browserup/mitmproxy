@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: 16
       - name: Install openapi generator
-        run: npm install @openapitools/openapi-generator-cli
+        run: npm install -g @openapitools/openapi-generator-cli
       - name: Build clients
         working-directory: clients
         run: ./build-clients.sh

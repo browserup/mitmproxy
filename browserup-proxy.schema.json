@@ -25,7 +25,7 @@
       "url": "logo.png"
     },
     "title": "BrowserUp MitmProxy",
-    "version": "1.25"
+    "version": "1.26.0"
   },
   "paths": {
     "/har": {
@@ -1352,7 +1352,8 @@
       },
       "CustomHarData": {
         "type": "object",
-        "minProperties": 1
+        "minProperties": 1,
+        "additionalProperties": true
       },
       "Page": {
         "type": "object",

@@ -1,4 +1,5 @@
 {
   "type": "object",
-  "minProperties": 1
+  "minProperties": 1,
+  "additionalProperties": true
 }

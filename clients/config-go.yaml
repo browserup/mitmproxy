@@ -9,6 +9,5 @@ moduleName: BrowserUpMitmProxyClient
 
 # Project metadata
 projectName: browserup-mitmproxy-client
-projectVersion: 1.0.0
 projectDescription: "REST client for the BrowserUp Proxy"
 licenseName: MIT

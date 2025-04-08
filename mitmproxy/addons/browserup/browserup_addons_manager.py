@@ -24,8 +24,7 @@ from mitmproxy.addons.browserup.har_dummy_traffic_addon import HarDummyTrafficAd
 
 # https://marshmallow.readthedocs.io/en/stable/quickstart.html
 
-VERSION = "1.24"
-
+VERSION = "1.26.0"
 
 class BrowserUpAddonsManagerAddOn:
     initialized = False
@@ -85,6 +84,7 @@ The BrowserUp MitmProxy is a swiss army knife for automated testing that
 captures HTTP traffic in HAR files. It is also useful for Selenium/Cypress tests.
 ___
 """,
+
                 "x-logo": {"url": "logo.png"},
             },
             openapi_version="3.0.3",

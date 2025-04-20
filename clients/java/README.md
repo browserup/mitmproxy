@@ -45,7 +45,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.browserup</groupId>
   <artifactId>browserup-mitmproxy-client</artifactId>
-  <version>1.1.6-SNAPSHOT</version>
+  <version>1.1.7-SNAPSHOT</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -61,7 +61,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.browserup:browserup-mitmproxy-client:1.1.6-SNAPSHOT"
+     implementation "com.browserup:browserup-mitmproxy-client:1.1.7-SNAPSHOT"
   }
 ```
 
@@ -75,7 +75,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-* `target/browserup-mitmproxy-client-1.1.6-SNAPSHOT.jar`
+* `target/browserup-mitmproxy-client-1.1.7-SNAPSHOT.jar`
 * `target/lib/*.jar`
 
 ## Getting Started

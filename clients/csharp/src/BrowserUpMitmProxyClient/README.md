@@ -158,7 +158,7 @@ Endpoints do not require authorization.
 - packageCompany: OpenAPI
 - packageCopyright: No Copyright
 - packageDescription: A library generated from a OpenAPI doc
-- packageGuid: {0854312E-AFCE-4DA4-8677-E9076F5771F3}
+- packageGuid: {4D91CA8A-2A0D-45BC-A3E2-E2B312F7F41D}
 - packageName: BrowserUpMitmProxyClient
 - packageTags: 
 - packageTitle: OpenAPI Library

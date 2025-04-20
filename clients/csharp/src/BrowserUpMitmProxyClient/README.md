@@ -120,7 +120,7 @@ Endpoints do not require authorization.
 
 ## Api Information
 - appName: BrowserUp MitmProxy
-- appVersion: 1.26.0
+- appVersion: 1.27.0
 - appDescription: ___ This is the REST API for controlling the BrowserUp MitmProxy. The BrowserUp MitmProxy is a swiss army knife for automated testing that captures HTTP traffic in HAR files. It is also useful for Selenium/Cypress tests. ___ 
 
 ## [OpenApi Global properties](https://openapi-generator.tech/docs/globals)
@@ -158,7 +158,7 @@ Endpoints do not require authorization.
 - packageCompany: OpenAPI
 - packageCopyright: No Copyright
 - packageDescription: A library generated from a OpenAPI doc
-- packageGuid: {4D91CA8A-2A0D-45BC-A3E2-E2B312F7F41D}
+- packageGuid: {846475A0-BDFD-47BD-8E6E-1CB9F3459B36}
 - packageName: BrowserUpMitmProxyClient
 - packageTags: 
 - packageTitle: OpenAPI Library

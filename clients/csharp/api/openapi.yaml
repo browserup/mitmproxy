@@ -7,7 +7,7 @@ info:
     captures HTTP traffic in HAR files. It is also useful for Selenium/Cypress tests.
     ___
   title: BrowserUp MitmProxy
-  version: 1.26.0
+  version: 1.27.0
   x-logo:
     url: logo.png
 servers:

@@ -24,7 +24,7 @@ from mitmproxy.addons.browserup.har_dummy_traffic_addon import HarDummyTrafficAd
 
 # https://marshmallow.readthedocs.io/en/stable/quickstart.html
 
-VERSION = "1.26.0"
+VERSION = "1.27.0"
 
 class BrowserUpAddonsManagerAddOn:
     initialized = False

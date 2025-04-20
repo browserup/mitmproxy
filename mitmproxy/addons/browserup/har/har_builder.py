@@ -21,6 +21,7 @@ class HarBuilder:
             "pages": [HarBuilder.page(id=DEFAULT_PAGE_REF)],
             "_trace_id": trace_id,
             "_span_id": trace_id[:16],  # Use first half of trace_id for root span
+            "_parent_id": "0000000000000000",  # W3C Trace Context spec defines parent of root span as all zeros
         }
 
     @staticmethod

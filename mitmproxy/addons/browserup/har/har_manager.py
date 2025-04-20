@@ -103,7 +103,8 @@ class HarManagerMixin:
         new_page = HarBuilder.page(id=next_id)
         
         # Link the page to the root trace
-        new_page["_parent_id"] = har["log"]["_span_id"]
+        if "_span_id" in har["log"]:
+            new_page["_parent_id"] = har["log"]["_span_id"]
         
         har["log"]["pages"].append(new_page)
 
@@ -124,7 +125,12 @@ class HarManagerMixin:
     def get_or_create_current_page(self):
         self.get_or_create_har()
         if len(self.har["log"]["pages"]) > 0:
-            return self.har["log"]["pages"][-1]
+            page = self.har["log"]["pages"][-1]
+            # Ensure page has parent ID set to root span
+            if "_parent_id" not in page or page["_parent_id"] is None:
+                if "_span_id" in self.har["log"]:
+                    page["_parent_id"] = self.har["log"]["_span_id"]
+            return page
         else:
             har_page = HarBuilder.page()
             # Link to the root span
